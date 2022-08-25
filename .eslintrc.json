@@ -1,6 +1,17 @@
 {
-  "extends": [
-    "react-app",
-    "plugin:prettier/recommended"
+  "root": true,
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "semi": true
+          }
+        ]
+      }
+    }
   ]
 }
