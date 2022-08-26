@@ -38,7 +38,7 @@ const NavBar = () => {
         <li>
           <button
             onClick={() => {
-              navigate('/products/cart')
+              navigate('/cart')
             }}
           >
             <FaShoppingCart style={IconStyles} />
