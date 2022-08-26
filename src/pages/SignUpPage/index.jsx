@@ -87,7 +87,7 @@ const SignUpPage = () => {
           value={formValues.age}
           onChange={handleInputChange}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             나이
           </option>
           <option value="10대">10대</option>
@@ -104,7 +104,7 @@ const SignUpPage = () => {
           value={formValues.job}
           onChange={handleInputChange}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             직업
           </option>
           <option value="청소년">청소년</option>
