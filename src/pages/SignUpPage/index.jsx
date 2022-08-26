@@ -32,6 +32,8 @@ const SignUpPage = () => {
     }
     if (!values.password) {
       errors.password = '비밀번호를 입력해주세요!'
+    } else if (values.password.length < 4) {
+      errors.password = '비밀번호는 4자리 이상으로 설정해주세요'
     }
     if (!values.age) {
       errors.age = '나이를 선택해주세요!'
