@@ -1,0 +1,17 @@
+{
+  "name": "dummy-server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "server-nodemon": "nodemon index.js",
+    "server": "node index.js"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "devDependencies": {
+    "@types/json-server": "^0.14.4",
+    "json-server-auth": "^2.1.0",
+    "nodemon": "^2.0.19"
+  }
+}
