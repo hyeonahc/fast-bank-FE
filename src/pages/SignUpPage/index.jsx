@@ -24,11 +24,14 @@ const SignUpPage = () => {
 
   const signUpValidate = (values) => {
     const errors = {}
+    const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
     if (!values.username) {
       errors.username = '이름을 입력해주세요!'
     }
     if (!values.email) {
       errors.email = '이메일을 입력해주세요!'
+    } else if (!regex.test(values.email)) {
+      errors.email = '올바른 이메일 형식이 아닙니다!'
     }
     if (!values.password) {
       errors.password = '비밀번호를 입력해주세요!'
