@@ -1,12 +1,51 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import * as S from './style'
+import { FaHome, FaWallet, FaHeart, FaShoppingCart } from 'react-icons/fa'
+const IconStyles = { color: '#00B992', fontSize: '2em' }
 
 const NavBar = () => {
+  const navigate = useNavigate()
   return (
-    <>
-      <Link to="/products">전체상품</Link>
-      <Link to="/products/personal">맞춤형 상품</Link>
-      <Link to="/products/favorite">관심있는 상품</Link>
-    </>
+    <S.BottomNavigator>
+      <ul>
+        <li>
+          <button
+            onClick={() => {
+              navigate('/products')
+            }}
+          >
+            <FaHome style={IconStyles} />
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              navigate('/products/personal')
+            }}
+          >
+            <FaWallet style={IconStyles} />
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              navigate('/products/favorite')
+            }}
+          >
+            <FaHeart style={IconStyles} />
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              navigate('/cart')
+            }}
+          >
+            <FaShoppingCart style={IconStyles} />
+          </button>
+        </li>
+      </ul>
+    </S.BottomNavigator>
   )
 }
 
