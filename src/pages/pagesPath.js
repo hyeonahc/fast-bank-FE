@@ -5,6 +5,7 @@ const pagesPath = {
   products: '/products',
   personal: 'personal',
   favorite: 'favorite',
+  cart: '/cart',
 }
 
 export default pagesPath

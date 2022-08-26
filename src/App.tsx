@@ -10,6 +10,8 @@ import AllProductsPage from './pages/AllProductsPage';
 import PersonalProductsPage from './pages/PersonalProductsPage';
 import FavoriteProductsPage from './pages/FavoriteProductsPage';
 import NavBar from './components/NavBar';
+import CartPage from './pages/CartPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               element={<FavoriteProductsPage />}
             ></Route>
           </Route>
+          <Route path={pagesPath.cart} element={<CartPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <NavBar />
       </BrowserRouter>
