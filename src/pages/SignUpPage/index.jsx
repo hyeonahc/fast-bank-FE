@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignUpPage = () => {
   const initialValue = {
@@ -20,6 +21,7 @@ const SignUpPage = () => {
   const handleSignUp = (e) => {
     e.preventDefault()
     setFormErrors(signUpValidate(formValues))
+    setIsSubmit(true)
   }
 
   const signUpValidate = (values) => {
@@ -47,11 +49,11 @@ const SignUpPage = () => {
     return errors
   }
 
+  const navigate = useNavigate()
+
   useEffect(() => {
-    Object.keys(formErrors).length === 0
-      ? setIsSubmit(true)
-      : setIsSubmit(false)
-  }, [formErrors])
+    if (Object.keys(formErrors).length === 0 && isSubmit) navigate('/signin')
+  }, [formErrors, isSubmit])
 
   return (
     <div className="container">
