@@ -56,7 +56,7 @@ const SignUpPage = () => {
   return (
     <div className="container">
       <h1>회원가입</h1>
-      <form>
+      <form onSubmit={handleSignUp}>
         <input
           type="text"
           name="username"
@@ -114,7 +114,7 @@ const SignUpPage = () => {
           <option value="무직">무직</option>
         </select>
         <p>{formErrors.job}</p>
-        <button onClick={handleSignUp}>회원가입</button>
+        <button type="submit">회원가입</button>
       </form>
     </div>
   )
