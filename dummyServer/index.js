@@ -32,8 +32,6 @@ server.get('/products', (req, res, next) => {
   const user = getUserAuth(req, res)
   if (!user) return
 
-  console.log(user)
-
   const products = [
     ...findKeyword({ keyword: user.job }).value(),
     ...findKeyword({ keyword: user.age }).value(),
@@ -54,6 +52,14 @@ server.post('/signup', (req, res, next) => {
 
   res.statusCode = 400
   res.send()
+})
+
+server.post('/signup/check', (req, res, next) => {
+  const { email } = req.body
+
+  const user = findEmail(email)
+  res.statusCode = 200
+  res.send(!!!user)
 })
 
 listCRUD('/fav', 'fav')
@@ -99,6 +105,24 @@ function findKeyword({ keyword }) {
   return searchedList
 }
 
+function findId(ids) {
+  const db = router.db //lowdb instance
+  const list = db.get('productList')
+
+  const searchedList = list.filter((obj) => ids.includes(obj.id))
+  return searchedList
+}
+
+function findEmail(email) {
+  const db = router.db
+  const users = db.get('users')
+
+  console.log(email)
+
+  const user = users.find({ email: email }).value()
+  return user
+}
+
 function getUserAuth(req, res) {
   const tokenStr = req.headers.authorization
   const token = tokenStr ? tokenStr.replace('Bearer ', '') : null
@@ -106,13 +130,10 @@ function getUserAuth(req, res) {
     try {
       const data = jwt.verify(token, JWT_SECRET_KEY)
 
-      const db = router.db
-      const users = db.get('users')
-
-      const idx = users.findIndex({ email: data.email }).value()
-      if (idx < 0) throw new Error()
-
-      return users.nth(idx).value()
+      const user = findEmail(data.email)
+      console.log(data.email, user)
+      if (!user) throw new Error()
+      return user
     } catch (e) {}
   }
 
@@ -126,7 +147,7 @@ function listCRUD(path, key) {
     if (!user) return
 
     res.statusCode = 200
-    res.json({ [key]: user[key] })
+    res.json({ products: findId(user[key]) })
   })
 
   function getValue(req, res) {
@@ -150,7 +171,7 @@ function listCRUD(path, key) {
     router.db.write()
 
     res.statusCode = 200
-    res.json({ [key]: user[key] })
+    res.json({ products: findId(user[key]) })
   })
 
   server.delete(path, (req, res, next) => {
@@ -164,6 +185,6 @@ function listCRUD(path, key) {
     router.db.write()
 
     res.statusCode = 200
-    res.json({ [key]: user[key] })
+    res.json({ products: findId(user[key]) })
   })
 }

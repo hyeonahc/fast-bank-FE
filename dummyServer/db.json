@@ -71,16 +71,5 @@
       "id": "RscmqDi"
     }
   ],
-  "users": [
-    {
-      "email": "test@test.com",
-      "password": "$2a$10$xZuS77flMJKYgZiioRkgNuPqnapY1U4eSOx8stysCL7H3qSZxDpXG",
-      "name": "test",
-      "job": "대학생",
-      "age": "20대",
-      "fav": [],
-      "cart": [],
-      "id": 1
-    }
-  ]
+  "users": []
 }
