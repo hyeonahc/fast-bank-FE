@@ -1,0 +1,4 @@
+{
+  "/products/all": "/productList",
+  "/product/:id": "/productList?id=:id"
+}
