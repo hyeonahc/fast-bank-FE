@@ -3,11 +3,15 @@ import styled from 'styled-components'
 export const BottomNavigator = styled.div`
   position: fixed;
   left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
   line-height: 1;
   height: 80px;
-  border-top: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-bottom: none;
   & ul {
     display: flex;
     align-items: center;
