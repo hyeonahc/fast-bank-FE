@@ -1,17 +1,19 @@
-import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import store from '@/modules';
+
 import pagesPath from '@/pages/pagesPath';
-import HomePage from './pages/HomePage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import AllProductsPage from './pages/AllProductsPage';
-import PersonalProductsPage from './pages/PersonalProductsPage';
-import FavoriteProductsPage from './pages/FavoriteProductsPage';
-import NavBar from './components/NavBar';
-import CartPage from './pages/CartPage';
-import NotFound from './pages/NotFound';
+import HomePage from '@/pages/HomePage';
+import SignInPage from '@/pages/SignInPage';
+import SignUpPage from '@/pages/SignUpPage';
+import AllProductsPage from '@/pages/AllProductsPage';
+import PersonalProductsPage from '@/pages/PersonalProductsPage';
+import FavoriteProductsPage from '@/pages/FavoriteProductsPage';
+import CartPage from '@/pages/CartPage';
+import NotFound from '@/pages/NotFound';
+
+import NavBar from '@/components/NavBar';
 
 function App() {
   return (
