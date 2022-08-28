@@ -1,12 +1,15 @@
 {
   "root": true,
   "extends": ["react-app", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": ["warn"]
+  },
   "overrides": [
     {
       "files": ["**/*.ts?(x)"],
       "rules": {
         "prettier/prettier": [
-          "error",
+          "warn",
           {
             "semi": true
           }
