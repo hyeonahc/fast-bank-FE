@@ -1,5 +1,6 @@
+import SuccessModal from '@/components/SuccessModal'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import * as S from './style'
 
 const SignUpPage = () => {
   const initialValue = {
@@ -12,6 +13,7 @@ const SignUpPage = () => {
   const [formValues, setFormValues] = useState(initialValue)
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
+  const [displayModal, setDisplayModal] = useState(false)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -49,14 +51,14 @@ const SignUpPage = () => {
     return errors
   }
 
-  const navigate = useNavigate()
-
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) navigate('/signin')
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      setDisplayModal(true)
+    }
   }, [formErrors, isSubmit])
 
   return (
-    <div className="container">
+    <S.Container className="container">
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
         <input
@@ -118,7 +120,13 @@ const SignUpPage = () => {
         <p>{formErrors.job}</p>
         <button type="submit">회원가입</button>
       </form>
-    </div>
+      <SuccessModal
+        title="회원가입을 성공했습니다"
+        buttonText="로그인하기"
+        displayModal={displayModal}
+        setDisplayModal={setDisplayModal}
+      />
+    </S.Container>
   )
 }
 
