@@ -1,5 +1,5 @@
-const Input = () => {
-  return <div>Input</div>
-}
+import styled from 'styled-components'
+
+const Input = styled.input``
 
 export default Input

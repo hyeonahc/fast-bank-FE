@@ -8,4 +8,10 @@ const pagesPath = {
   cart: '/cart',
 }
 
+const pagesFullPath = {
+  ...pagesPath,
+  personal: `${pagesPath.products}/${pagesPath.personal}`,
+  favorite: `${pagesPath.products}/${pagesPath.favorite}`,
+}
+
 export default pagesPath
