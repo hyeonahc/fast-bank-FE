@@ -1,10 +1,20 @@
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './style'
-import { FaHome, FaWallet, FaHeart, FaShoppingCart } from 'react-icons/fa'
-const IconStyles = { color: '#00B992', fontSize: '2em' }
+import {
+  Home,
+  HomeOutlined,
+  AccountBalanceWallet,
+  AccountBalanceWalletOutlined,
+  Favorite,
+  FavoriteBorderOutlined,
+  ShoppingCart,
+  ShoppingCartOutlined,
+} from '@material-ui/icons'
 
 const NavBar = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const materialStyle = { color: 'teal', fontSize: '40px' }
   return (
     <S.BottomNavigator>
       <ul>
@@ -14,7 +24,11 @@ const NavBar = () => {
               navigate('/products')
             }}
           >
-            <FaHome style={IconStyles} />
+            {location.pathname === '/products' ? (
+              <Home style={materialStyle} />
+            ) : (
+              <HomeOutlined style={materialStyle} />
+            )}
           </button>
         </li>
         <li>
@@ -23,7 +37,11 @@ const NavBar = () => {
               navigate('/products/personal')
             }}
           >
-            <FaWallet style={IconStyles} />
+            {location.pathname === '/products/personal' ? (
+              <AccountBalanceWallet style={materialStyle} />
+            ) : (
+              <AccountBalanceWalletOutlined style={materialStyle} />
+            )}
           </button>
         </li>
         <li>
@@ -32,7 +50,11 @@ const NavBar = () => {
               navigate('/products/favorite')
             }}
           >
-            <FaHeart style={IconStyles} />
+            {location.pathname === '/products/favorite' ? (
+              <Favorite style={materialStyle} />
+            ) : (
+              <FavoriteBorderOutlined style={materialStyle} />
+            )}
           </button>
         </li>
         <li>
@@ -41,7 +63,11 @@ const NavBar = () => {
               navigate('/cart')
             }}
           >
-            <FaShoppingCart style={IconStyles} />
+            {location.pathname === '/cart' ? (
+              <ShoppingCart style={materialStyle} />
+            ) : (
+              <ShoppingCartOutlined style={materialStyle} />
+            )}
           </button>
         </li>
       </ul>
