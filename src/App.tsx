@@ -19,20 +19,22 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path={pagesPath.home} element={<HomePage />} />
-          <Route path={pagesPath.signin} element={<SignInPage />} />
-          <Route path={pagesPath.signup} element={<SignUpPage />} />
-          <Route path={pagesPath.products} element={<AllProductsPage />}>
-            <Route
-              path={pagesPath.personal}
-              element={<PersonalProductsPage />}
-            ></Route>
-            <Route
-              path={pagesPath.favorite}
-              element={<FavoriteProductsPage />}
-            ></Route>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path={pagesPath.signin} element={<SignInPage />} />
+            <Route path={pagesPath.signup} element={<SignUpPage />} />
+            <Route path={pagesPath.products} element={<AllProductsPage />}>
+              <Route
+                path={pagesPath.personal}
+                element={<PersonalProductsPage />}
+              ></Route>
+              <Route
+                path={pagesPath.favorite}
+                element={<FavoriteProductsPage />}
+              ></Route>
+            </Route>
+            <Route path={pagesPath.cart} element={<CartPage />} />
           </Route>
-          <Route path={pagesPath.cart} element={<CartPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <NavBar />
