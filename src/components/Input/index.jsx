@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import * as S from './style'
 
-const Input = styled.input``
+const Input = ({ placeholder, ...props }) => {
+  return <S.Input placeholder={placeholder} {...props} />
+}
 
 export default Input
