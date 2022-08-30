@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+	#root {
+  	height: 100%;
+	}	
+	
 	input, select {
 		width: 20em;
 		padding: 0.5em 0.35em;
