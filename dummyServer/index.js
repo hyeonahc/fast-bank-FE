@@ -117,8 +117,6 @@ function findEmail(email) {
   const db = router.db
   const users = db.get('users')
 
-  console.log(email)
-
   const user = users.find({ email: email }).value()
   return user
 }
@@ -131,7 +129,6 @@ function getUserAuth(req, res) {
       const data = jwt.verify(token, JWT_SECRET_KEY)
 
       const user = findEmail(data.email)
-      console.log(data.email, user)
       if (!user) throw new Error()
       return user
     } catch (e) {}
@@ -167,7 +164,7 @@ function listCRUD(path, key) {
     const user = getUserAuth(req, res)
     if (!user) return
 
-    user[key] = [...new Set([...user[key], value])]
+    user[key] = [...new Set([...user[key], [...value]])]
     router.db.write()
 
     res.statusCode = 200
@@ -181,7 +178,7 @@ function listCRUD(path, key) {
     const user = getUserAuth(req, res)
     if (!user) return
 
-    user[key] = user[key].filter((id) => id !== value.toString())
+    user[key] = user[key].filter((id) => !value.includes(id))
     router.db.write()
 
     res.statusCode = 200
