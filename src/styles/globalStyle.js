@@ -5,7 +5,7 @@ export default createGlobalStyle`
 		height: 100%;
 	}	
 	
-	input, select {
+	select {
 		width: 20em;
 		padding: 0.5em 0.35em;
 		border: 1px solid #ddd;
