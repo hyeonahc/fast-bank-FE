@@ -12,7 +12,6 @@ import PersonalProductsPage from '@/pages/PersonalProductsPage';
 import FavoriteProductsPage from '@/pages/FavoriteProductsPage';
 import CartPage from '@/pages/CartPage';
 import NotFound from '@/pages/NotFound';
-
 import NavBar from '@/components/NavBar';
 
 function App() {
