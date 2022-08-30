@@ -1,7 +1,5 @@
 import * as S from './style'
 
-import React from 'react'
-
 const Select = ({ defaultOption, options }) => {
   return (
     <S.Select>
