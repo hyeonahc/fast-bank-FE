@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const SuccessModal = styled.div`
+  ${({ theme }) => theme.common.flexCenter}
+  flex-direction: column;
   border: 1px solid #ddd;
   position: absolute;
   top: 50%;
@@ -9,11 +11,8 @@ export const SuccessModal = styled.div`
   width: 40vw;
   height: 25vh;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  & h2 {
+
+  h2 {
     margin-bottom: 0.75em;
   }
 `
