@@ -13,6 +13,6 @@ export const SuccessModal = styled.div`
   text-align: center;
 
   h2 {
-    margin-bottom: 0.75em;
+    margin-bottom: 0.7rem;
   }
 `
