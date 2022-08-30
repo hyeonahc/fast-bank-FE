@@ -1,5 +1,6 @@
 import Button from '@/components/Button'
 import Input from '@/components/Input'
+import Select from '@/components/Select'
 import SuccessModal from '@/components/SuccessModal'
 import { useEffect, useState } from 'react'
 import * as S from './style'
@@ -12,6 +13,8 @@ const SignUpPage = () => {
     age: '',
     job: '',
   }
+  const ageOptions = ['10대', '20대', '30대', '40대', '50대', '60대 이상']
+  const jobOptions = ['청소년', '대학생', '직장인', '고령자', '무직']
   const [formValues, setFormValues] = useState(initialValue)
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
@@ -87,38 +90,23 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.password}</p>
-        <select
+        <Select
           name="age"
           id="age"
           value={formValues.age}
           onChange={handleInputChange}
-        >
-          <option value="" disabled>
-            나이
-          </option>
-          <option value="10대">10대</option>
-          <option value="20대">20대</option>
-          <option value="30대">30대</option>
-          <option value="40대">40대</option>
-          <option value="50대">50대</option>
-          <option value="60대 이상">60대 이상</option>
-        </select>
+          options={ageOptions}
+          defaultOption="나이"
+        />
         <p>{formErrors.age}</p>
-        <select
+        <Select
           name="job"
           id="job"
           value={formValues.job}
           onChange={handleInputChange}
-        >
-          <option value="" disabled>
-            직업
-          </option>
-          <option value="청소년">청소년</option>
-          <option value="대학생">대학생</option>
-          <option value="직장인">직장인</option>
-          <option value="고령자">고령자</option>
-          <option value="무직">무직</option>
-        </select>
+          options={jobOptions}
+          defaultOption="직업"
+        />
         <p>{formErrors.job}</p>
         <Button type="submit" buttonText="회원가입" />
       </form>
