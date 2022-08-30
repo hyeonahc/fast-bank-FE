@@ -1,12 +1,14 @@
+import { css } from 'styled-components'
+
 const colors = {}
 
 const common = {
-  flexCenter: `
+  flexCenter: css`
     display: flex;
     align-items: center;
     justify-content: center;
   `,
-  ErrorMessage: `
+  ErrorMessage: css`
     color: tomato;
     font-size: 0.8rem;
   `,
