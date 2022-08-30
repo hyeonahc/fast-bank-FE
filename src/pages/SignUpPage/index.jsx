@@ -1,3 +1,4 @@
+import Button from '@/components/Button'
 import SuccessModal from '@/components/SuccessModal'
 import { useEffect, useState } from 'react'
 import * as S from './style'
@@ -118,7 +119,7 @@ const SignUpPage = () => {
           <option value="무직">무직</option>
         </select>
         <p>{formErrors.job}</p>
-        <button type="submit">회원가입</button>
+        <Button type="submit" buttonText="회원가입" />
       </form>
       <SuccessModal
         title="회원가입을 성공했습니다"
