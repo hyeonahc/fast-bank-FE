@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 	#root {
-  	height: 100%;
+		height: 100%;
 	}	
 	
 	input, select {
@@ -30,13 +30,5 @@ export default createGlobalStyle`
 
 	select div {
 		color: #757575;
-	}
-
-	button {
-		padding: 0.5em 1.75em
-	}
-
-	button:hover {
-		cursor: pointer;
 	}
 `
