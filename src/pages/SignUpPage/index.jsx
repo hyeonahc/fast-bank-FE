@@ -1,4 +1,5 @@
 import Button from '@/components/Button'
+import Input from '@/components/Input'
 import SuccessModal from '@/components/SuccessModal'
 import { useEffect, useState } from 'react'
 import * as S from './style'
@@ -62,7 +63,7 @@ const SignUpPage = () => {
     <S.Container className="container">
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
-        <input
+        <Input
           type="text"
           name="username"
           placeholder="이름"
@@ -70,7 +71,7 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.username}</p>
-        <input
+        <Input
           type="text"
           name="email"
           placeholder="이메일"
@@ -78,7 +79,7 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.email}</p>
-        <input
+        <Input
           type="text"
           name="password"
           placeholder="비밀번호"
