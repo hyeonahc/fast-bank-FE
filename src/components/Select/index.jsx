@@ -1,8 +1,8 @@
 import * as S from './style'
 
-const Select = ({ defaultOption, options }) => {
+const Select = ({ defaultOption, options, ...props }) => {
   return (
-    <S.Select>
+    <S.Select {...props}>
       <option value="" disabled>
         {defaultOption}
       </option>
