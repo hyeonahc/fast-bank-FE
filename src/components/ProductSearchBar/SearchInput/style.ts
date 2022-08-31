@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Input from '@/components/Input';
+import InputText from '@/components/common/Input/InputText';
 
 type Props = JSX.IntrinsicElements['input'];
 
-export const SearchInput = styled(Input).attrs<Props>({
+export const SearchInput = styled(InputText).attrs<Props>({
   className: '',
 })``;
