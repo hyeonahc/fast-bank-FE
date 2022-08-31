@@ -8,6 +8,7 @@ const ProductCard = () => {
   const materialStyle = { color: 'white', fontSize: '30px' }
   const [card] = useState(productData)
   const [modalOpen, setModalOpen] = useState(false)
+  const [cardData, setCardData] = useState(0)
 
   return (
     <S.ProductCardWrapper>
@@ -17,6 +18,7 @@ const ProductCard = () => {
           value={productData[i].type}
           onClick={() => {
             setModalOpen(true)
+            setCardData(i)
           }}
         >
           <h2>{card[i].title}</h2>
@@ -30,27 +32,30 @@ const ProductCard = () => {
         </S.ProductCard>
       ))}
       {modalOpen === true ? (
-        <ProductDetailModal card={card} setModalOpen={setModalOpen} />
+        <ProductDetailModal
+          card={card}
+          setModalOpen={setModalOpen}
+          cardData={cardData}
+        />
       ) : null}
     </S.ProductCardWrapper>
   )
 }
-export const ProductDetailModal = ({ card, setModalOpen }) => {
+export function ProductDetailModal({ card, setModalOpen, cardData }) {
   const materialStyle = { color: 'black', fontSize: '3rem' }
   return (
     <S.ProductDetailModalDimmed>
-      <S.ProductModal card={card}>
-        <span>{card[0].type}</span>
-        <h2>{card[0].title}</h2>
-        <p>{card[0].content}</p>
+      <S.ProductModal>
+        <span>{card[cardData].type}</span>
+        <h2>{card[cardData].title}</h2>
+        <p>{card[cardData].content}</p>
         <ButtonText className="btn-cart" buttonText="장바구니 담기" />
         <ButtonText
           onClick={() => {
             setModalOpen(false)
-          }}
+          } }
           className="btn-close"
-          buttonText={<Cancel style={materialStyle} />}
-        />
+          buttonText={<Cancel style={materialStyle} />} />
       </S.ProductModal>
     </S.ProductDetailModalDimmed>
   )
