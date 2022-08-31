@@ -1,8 +1,10 @@
-import Button from '@/components/Button'
-import Input from '@/components/Input'
-import Select from '@/components/Select'
-import SuccessModal from '@/components/SuccessModal'
 import { useEffect, useState } from 'react'
+
+import ButtonText from '@/components/common/Button/ButtonText'
+import InputText from '@/components/common/Input/InputText'
+import SelectWithOptions from '@/components/common/Select/SelectWithOptions'
+import SuccessModal from '@/components/SuccessModal'
+
 import * as S from './style'
 
 const SignUpPage = () => {
@@ -66,7 +68,7 @@ const SignUpPage = () => {
     <S.Container className="container">
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
-        <Input
+        <InputText
           type="text"
           name="username"
           placeholder="이름"
@@ -74,7 +76,7 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.username}</p>
-        <Input
+        <InputText
           type="text"
           name="email"
           placeholder="이메일"
@@ -82,7 +84,7 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.email}</p>
-        <Input
+        <InputText
           type="text"
           name="password"
           placeholder="비밀번호"
@@ -90,7 +92,7 @@ const SignUpPage = () => {
           onChange={handleInputChange}
         />
         <p>{formErrors.password}</p>
-        <Select
+        <SelectWithOptions
           name="age"
           id="age"
           value={formValues.age}
@@ -99,7 +101,7 @@ const SignUpPage = () => {
           defaultOption="나이"
         />
         <p>{formErrors.age}</p>
-        <Select
+        <SelectWithOptions
           name="job"
           id="job"
           value={formValues.job}
@@ -108,7 +110,7 @@ const SignUpPage = () => {
           defaultOption="직업"
         />
         <p>{formErrors.job}</p>
-        <Button type="submit" buttonText="회원가입" />
+        <ButtonText type="submit" buttonText="회원가입" />
       </form>
       <SuccessModal
         title="회원가입을 성공했습니다"
