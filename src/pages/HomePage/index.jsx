@@ -1,5 +1,8 @@
+import { Navigate } from 'react-router-dom'
+import { pagesFullPath } from '@/pages/pagesPath'
+
 const HomePage = () => {
-  return <div>HomePage</div>
+  return <Navigate to={pagesFullPath.personal} />
 }
 
 export default HomePage

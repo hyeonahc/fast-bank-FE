@@ -4,7 +4,6 @@ const AllProductsPage = () => {
   return (
     <>
       <ProductCard />
-      <Outlet />
     </>
   )
 }
