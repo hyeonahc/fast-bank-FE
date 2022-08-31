@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import SelectWithOptions from '@/components/common/Select/SelectWithOptions'
 import SuccessModal from '@/components/SuccessModal'
-
 import * as S from './style'
 
 const SignUpPage = () => {
