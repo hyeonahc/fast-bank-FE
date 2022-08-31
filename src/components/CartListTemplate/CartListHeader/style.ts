@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import Button from '@/components/Button';
-import Input from '@/components/Input';
+import Button from '@/components/common/Button';
 
 export const CartListHeaderContainer = styled.div({
   display: 'flex',
@@ -13,6 +12,6 @@ export const CheckboxLabel = styled.label({
   flexGrow: 0,
 });
 
-export const Checkbox = styled(Input)({});
+export const Checkbox = styled.input.attrs({ type: 'checkbox' })({});
 
 export const RemoveButton = styled(Button)({});
