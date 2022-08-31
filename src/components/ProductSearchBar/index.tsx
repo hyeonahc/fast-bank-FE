@@ -74,20 +74,20 @@ const ProductSearchBar = (props: Props) => {
   return (
     <S.Container>
       <S.FilterContainer>
-        <Select name="catalog" onChange={onChangeSelect} value={input.catalog}>
+        <select name="catalog" onChange={onChangeSelect} value={input.catalog}>
           {CATALOG_LIST.map(({ value, label }) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
-        </Select>
-        <Select name="keyword" onChange={onChangeSelect} value={input.keyword}>
+        </select>
+        <select name="keyword" onChange={onChangeSelect} value={input.keyword}>
           {KEYWORD_LIST.map(({ value, label }) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
-        </Select>
+        </select>
       </S.FilterContainer>
       <SearchInput name="word" onChange={onChangeSelect} />
     </S.Container>
