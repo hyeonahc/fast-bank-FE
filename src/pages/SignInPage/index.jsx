@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useState } from 'react'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 
 const SignInPage = () => {
   const initialValue = {
-    id: '',
+    email: '',
     password: '',
   }
   const [formValues, setFormValues] = useState(initialValue)
@@ -14,13 +15,19 @@ const SignInPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault()
+    try {
+      console.log(formValues)
+      const response = await axios.post(
+        'http://localhost:8000/login',
+        formValues,
+      )
+      console.log(response.data)
+    } catch (e) {
+      console.log('error')
+    }
   }
-
-  useEffect(() => {
-    console.log(formValues)
-  }, [formValues])
 
   return (
     <div className="container">
@@ -28,9 +35,9 @@ const SignInPage = () => {
       <form onSubmit={handleSignIn}>
         <InputText
           type="text"
-          name="id"
-          placeholder="아이디"
-          value={formValues.id}
+          name="email"
+          placeholder="이메일"
+          value={formValues.email}
           onChange={handleInputChange}
         />
         <InputText
