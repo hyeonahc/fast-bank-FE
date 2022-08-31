@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 
 import * as S from './style';
-import Select from '@/components/Select';
+import Select from '@/components/common/Select';
 import SearchInput from './SearchInput';
 
 import useDebounce from '@/hooks/useDebounce';
