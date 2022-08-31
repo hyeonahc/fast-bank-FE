@@ -2,10 +2,12 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { cartApi } from '@/api/cartApi';
 import { searchApi } from '@/api/searchApi';
+import favoriteSlice from './favoriteSlice';
 
 const rootReducer = combineReducers({
   [cartApi.reducerPath]: cartApi.reducer,
   [searchApi.reducerPath]: searchApi.reducer,
+  favorite: favoriteSlice.reducer,
 });
 
 const store = configureStore({
