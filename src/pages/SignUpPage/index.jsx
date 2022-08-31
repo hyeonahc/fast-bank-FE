@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
@@ -7,7 +8,7 @@ import * as S from './style'
 
 const SignUpPage = () => {
   const initialValue = {
-    username: '',
+    name: '',
     email: '',
     password: '',
     age: '',
@@ -25,10 +26,20 @@ const SignUpPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault()
     setFormErrors(signUpValidate(formValues))
-    setIsSubmit(true)
+    try {
+      console.log(formValues)
+      const response = await axios.post(
+        'http://localhost:8000/signup',
+        formValues,
+      )
+      setIsSubmit(true)
+      console.log(response.data)
+    } catch (e) {
+      console.log('error')
+    }
   }
 
   const signUpValidate = (values) => {
@@ -68,9 +79,9 @@ const SignUpPage = () => {
       <form onSubmit={handleSignUp}>
         <InputText
           type="text"
-          name="username"
+          name="name"
           placeholder="이름"
-          value={formValues.username}
+          value={formValues.name}
           onChange={handleInputChange}
         />
         <p>{formErrors.username}</p>
