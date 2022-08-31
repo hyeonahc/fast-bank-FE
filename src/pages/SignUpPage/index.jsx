@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import ButtonBased from '@/components/ButtonBased'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
 import SuccessModal from '@/components/SuccessModal'
@@ -108,7 +108,7 @@ const SignUpPage = () => {
           defaultOption="직업"
         />
         <p>{formErrors.job}</p>
-        <Button type="submit" buttonText="회원가입" />
+        <ButtonBased type="submit" buttonText="회원가입" />
       </form>
       <SuccessModal
         title="회원가입을 성공했습니다"

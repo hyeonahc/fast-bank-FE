@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import Button from '@/components/Button'
+import ButtonBased from '@/components/ButtonBased'
 import * as S from './style'
 
 const SuccessModal = ({ title, buttonText, displayModal, setDisplayModal }) => {
@@ -13,7 +13,7 @@ const SuccessModal = ({ title, buttonText, displayModal, setDisplayModal }) => {
   return (
     <S.SuccessModal style={{ display: displayModal ? 'flex' : 'none' }}>
       <h2>{title}</h2>
-      <Button onClick={onClickHandler} buttonText={buttonText} />
+      <ButtonBased onClick={onClickHandler} buttonText={buttonText} />
     </S.SuccessModal>
   )
 }
