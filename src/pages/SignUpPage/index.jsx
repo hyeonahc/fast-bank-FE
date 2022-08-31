@@ -45,8 +45,8 @@ const SignUpPage = () => {
   const signUpValidate = (values) => {
     const errors = {}
     const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
-    if (!values.username) {
-      errors.username = '이름을 입력해주세요!'
+    if (!values.name) {
+      errors.name = '이름을 입력해주세요!'
     }
     if (!values.email) {
       errors.email = '이메일을 입력해주세요!'
@@ -84,7 +84,7 @@ const SignUpPage = () => {
           value={formValues.name}
           onChange={handleInputChange}
         />
-        <p>{formErrors.username}</p>
+        <p>{formErrors.name}</p>
         <InputText
           type="text"
           name="email"
