@@ -24,6 +24,8 @@ const SignInPage = () => {
         formValues,
       )
       console.log(response.data)
+      const { accessToken } = response.data
+      window.localStorage.setItem('accessToken', accessToken)
     } catch (e) {
       console.log('error')
     }
