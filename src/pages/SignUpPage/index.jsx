@@ -89,7 +89,7 @@ const SignUpPage = () => {
   }, [formErrors, isSubmit])
 
   return (
-    <S.Container className="container">
+    <S.Container>
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
         <InputText
