@@ -13,8 +13,8 @@ server.db = router.db
 
 server.use(middlewares)
 server.use(jsonServer.bodyParser)
-server.post('/search', (req, res, next) => {
-  const searchedList = find(req.body)
+server.get('/product-search', (req, res, next) => {
+  const searchedList = find(req.query)
 
   res.statusCode = 200
   res.json({ products: searchedList })
@@ -28,13 +28,14 @@ server.get('/auth', (req, res, next) => {
   res.json({ user })
 })
 
-server.get('/products', (req, res, next) => {
+server.get('/product', (req, res, next) => {
   const user = getUserAuth(req, res)
   if (!user) return
 
   const products = [
     ...findKeyword({ keyword: user.job }).value(),
     ...findKeyword({ keyword: user.age }).value(),
+    ...findKeyword({ keyword: '기본' }).value(),
   ]
   res.statusCode = 200
   res.json({ products })
@@ -43,7 +44,7 @@ server.get('/products', (req, res, next) => {
 server.post('/signup', (req, res, next) => {
   const { name, job, age } = req.body
   if (name && job && age) {
-    req.body.fav = []
+    req.body.wishList = []
     req.body.cart = []
 
     next()
@@ -62,7 +63,7 @@ server.post('/signup/check', (req, res, next) => {
   res.send(!!!user)
 })
 
-listCRUD('/fav', 'fav')
+listCRUD('/wishList', 'wishList')
 listCRUD('/cart', 'cart')
 
 server.use(jsonServer.rewriter(routerJson))
@@ -80,9 +81,9 @@ function find({ word, catalog, keyword }) {
     const hasWord =
       word === undefined ||
       obj.name.includes(word) ||
-      obj.description.includes(word)
+      obj.content.includes(word)
     const hasCatalog =
-      catalog === undefined || obj.category.toString().includes(catalog)
+      catalog === undefined || obj.type.toString().includes(catalog)
     const hasKeyword =
       keyword === undefined || obj.keyword.toString().includes(keyword)
 

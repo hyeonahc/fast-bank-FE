@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const H1Styled = styled.h1`
   font-size: 2.4rem;
+  margin-bottom: 0.8rem;
 `;
 
 type Props = Omit<JSX.IntrinsicElements['h1'], 'ref'>;
