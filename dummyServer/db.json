@@ -78,9 +78,25 @@
       "name": "TEST",
       "job": "직장인",
       "age": "30대",
-      "fav": ["dDvbnY6", "U0fKO6H"],
-      "cart": ["dDvbnY6", "U0fKO6H"],
+      "fav": [
+        "dDvbnY6",
+        "U0fKO6H"
+      ],
+      "cart": [
+        "dDvbnY6",
+        "U0fKO6H"
+      ],
       "id": 1
+    },
+    {
+      "email": "mingu@email.com",
+      "password": "$2a$10$zuOae0VNwuqJU5UOxQKKauH0qrS2/mi2R582AhbG2UDB/ro4DKyVa",
+      "name": "민구",
+      "age": "10대",
+      "job": "청소년",
+      "fav": [],
+      "cart": [],
+      "id": 2
     }
   ]
 }

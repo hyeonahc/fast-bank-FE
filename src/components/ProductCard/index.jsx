@@ -3,9 +3,9 @@ import ButtonText from '@/components/common/Button/ButtonText'
 import { Favorite, FavoriteBorderOutlined, Cancel } from '@material-ui/icons'
 import { useState } from 'react'
 import productData from './data'
+import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
 
 const ProductCard = () => {
-  const materialStyle = { color: 'white', fontSize: '30px' }
   const [card] = useState(productData)
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState(0)
@@ -23,12 +23,14 @@ const ProductCard = () => {
         >
           <h2>{card[i].title}</h2>
           <h3>{card[i].content}</h3>
-          <ButtonText
+          {/* <ButtonText
             onClick={(e) => {
               e.stopPropagation()
             }}
             buttonText={<FavoriteBorderOutlined style={materialStyle} />}
-          />
+          /> */}
+
+          <FavoriteButton item={array} />
         </S.ProductCard>
       ))}
       {modalOpen === true ? (
@@ -41,6 +43,7 @@ const ProductCard = () => {
     </S.ProductCardWrapper>
   )
 }
+
 export function ProductDetailModal({ card, setModalOpen, cardData }) {
   const materialStyle = { color: 'black', fontSize: '3rem' }
   return (
@@ -53,9 +56,10 @@ export function ProductDetailModal({ card, setModalOpen, cardData }) {
         <ButtonText
           onClick={() => {
             setModalOpen(false)
-          } }
+          }}
           className="btn-close"
-          buttonText={<Cancel style={materialStyle} />} />
+          buttonText={<Cancel style={materialStyle} />}
+        />
       </S.ProductModal>
     </S.ProductDetailModalDimmed>
   )
