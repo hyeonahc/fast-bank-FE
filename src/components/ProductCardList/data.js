@@ -71,4 +71,4 @@ const productData = [
     keyword: '대학생',
   },
 ]
-export default productData;
+export default productData
