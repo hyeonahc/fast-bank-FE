@@ -34,7 +34,7 @@ const SignUpPage = () => {
   const handleSignUp = (e) => {
     e.preventDefault()
     if (Object.values(formValues).indexOf('') > -1) {
-      setFormErrors(signUpValidate(formValues))
+      setFormErrors(validateSignUp(formValues))
     } else {
       validateDuplicateEmail()
     }
@@ -47,9 +47,9 @@ const SignUpPage = () => {
     )
     const emailIsAvailable = response.data
     if (!emailIsAvailable) {
-      setFormErrors(signUpValidate(formValues, emailIsAvailable))
+      setFormErrors(validateSignUp(formValues, emailIsAvailable))
     } else {
-      setFormErrors(signUpValidate(formValues))
+      setFormErrors(validateSignUp(formValues))
       requestSignUp()
     }
   }
@@ -60,17 +60,17 @@ const SignUpPage = () => {
         `${process.env.REACT_APP_SERVER_URL}/signup`,
         formValues,
       )
-      setFormErrors(signUpValidate(formValues))
+      setFormErrors(validateSignUp(formValues))
       setDisplaySignUpError(false)
       setDisplaySuccessModal(true)
       console.log('[SignUpPage/requestSignUp] response.data: ', response.data)
     } catch {
-      setFormErrors(signUpValidate(formValues))
+      setFormErrors(validateSignUp(formValues))
       setDisplaySignUpError(true)
     }
   }
 
-  const signUpValidate = (values, emailIsAvailable = true) => {
+  const validateSignUp = (values, emailIsAvailable = true) => {
     const errors = {}
     const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
     if (!values.name) {
