@@ -13,6 +13,7 @@ const SignInPage = () => {
   }
   const [formValues, setFormValues] = useState(initialValue)
   const [formErrors, setFormErrors] = useState({})
+  const [displaySignInError, setDisplaySignInError] = useState(false)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -26,23 +27,31 @@ const SignInPage = () => {
 
   const dispatch = useDispatch()
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault()
-    setFormErrors(signInValidate(formValues))
+    if (Object.values(formValues).indexOf('') > -1) {
+      setFormErrors(signInValidate(formValues))
+    } else {
+      requestSignIn()
+    }
+  }
+
+  const requestSignIn = async () => {
     try {
-      console.log(formValues)
       const response = await axios.post(
         'http://localhost:8000/login',
         formValues,
       )
       console.log(response.data)
+      setFormErrors(signInValidate(formValues))
+      setDisplaySignInError(false)
       // update required: Update user to name when real server is connected
       const { accessToken, user } = response.data
       window.localStorage.setItem('accessToken', accessToken)
-      console.log(user.name)
       dispatch(saveName(user.name))
     } catch (e) {
-      console.log('error')
+      setFormErrors(signInValidate(formValues))
+      setDisplaySignInError(true)
     }
   }
 
@@ -54,11 +63,8 @@ const SignInPage = () => {
 
   const signInValidate = (values) => {
     const errors = {}
-    const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
     if (!values.email) {
       errors.email = '이메일을 입력해주세요!'
-    } else if (!regex.test(values.email)) {
-      errors.email = '올바른 이메일 형식이 아닙니다!'
     }
     if (!values.password) {
       errors.password = '비밀번호를 입력해주세요!'
@@ -93,6 +99,9 @@ const SignInPage = () => {
           {formErrors.password}
         </p>
         <ButtonText type="submit" buttonText="로그인" />
+        <p style={{ display: displaySignInError ? 'block' : 'none' }}>
+          아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
+        </p>
       </form>
     </S.Container>
   )
