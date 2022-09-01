@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import * as S from './style'
@@ -36,6 +37,8 @@ const SignInPage = () => {
     }
   }
 
+  const navigate = useNavigate()
+
   const requestSignIn = async () => {
     try {
       const response = await axios.post(
@@ -49,6 +52,7 @@ const SignInPage = () => {
       const { accessToken, user } = response.data
       window.localStorage.setItem('accessToken', accessToken)
       dispatch(saveName(user.name))
+      navigate('/')
     } catch (e) {
       setFormErrors(signInValidate(formValues))
       setDisplaySignInError(true)
