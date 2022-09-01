@@ -44,7 +44,7 @@ const SignUpPage = () => {
   const requestSignUp = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/signup',
+        `${process.env.REACT_APP_SERVER_URL}/signup`,
         formValues,
       )
       setIsSubmit(true)
