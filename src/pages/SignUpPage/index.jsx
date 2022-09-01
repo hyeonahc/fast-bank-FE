@@ -51,7 +51,7 @@ const SignUpPage = () => {
       setFormErrors(signUpValidate(formValues))
       setDisplaySignUpError(false)
       console.log(response.data)
-    } catch (e) {
+    } catch {
       setFormErrors(signUpValidate(formValues))
       setDisplaySignUpError(true)
     }
