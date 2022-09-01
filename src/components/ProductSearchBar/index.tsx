@@ -26,6 +26,7 @@ const askIsEmpty = (data: typeof defaultInputState) => {
 };
 
 interface Props {
+  className?: string;
   onUpdate: (
     isEmpty: boolean,
     isLoading: boolean,
@@ -37,7 +38,7 @@ interface Props {
 export const onUpdateTyped = (fn: Props['onUpdate']) => fn;
 
 const ProductSearchBar = (props: Props) => {
-  const { onUpdate } = props;
+  const { className, onUpdate } = props;
 
   //region input isEmpty
   const [input, setInput] = useState({ ...defaultInputState });
@@ -72,7 +73,7 @@ const ProductSearchBar = (props: Props) => {
   }, [isEmpty, isLoading, data, error]);
 
   return (
-    <S.Container>
+    <S.Container className={className}>
       <S.FilterContainer>
         <Select name="catalog" onChange={onChangeSelect} value={input.catalog}>
           {CATALOG_LIST.map(({ value, label }) => (
