@@ -1,57 +1,57 @@
 import * as S from './style'
 import ButtonText from '@/components/common/Button/ButtonText'
-import { Favorite, FavoriteBorderOutlined, Cancel } from '@material-ui/icons'
+import { FavoriteBorderOutlined, Cancel } from '@material-ui/icons'
 import { useState } from 'react'
-import productData from './data'
+import { useLocation } from 'react-router-dom'
 import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
 
-const ProductCard = () => {
-  const [card] = useState(productData)
+const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
+  const materialStyle = { color: 'white', fontSize: '30px' }
   const [modalOpen, setModalOpen] = useState(false)
-  const [cardData, setCardData] = useState(0)
-
+  const [cardData, setCardData] = useState()
+  const location = useLocation()
   return (
     <S.ProductCardWrapper>
-      {card.map((array, i) => (
+      {dataList.map((data) => (
         <S.ProductCard
-          key={i}
-          value={productData[i].type}
+          key={data.id}
+          value={data.type}
           onClick={() => {
             setModalOpen(true)
-            setCardData(i)
+            setCardData(data)
           }}
         >
-          <h2>{card[i].title}</h2>
-          <h3>{card[i].content}</h3>
-          {/* <ButtonText
-            onClick={(e) => {
-              e.stopPropagation()
-            }}
-            buttonText={<FavoriteBorderOutlined style={materialStyle} />}
-          /> */}
+          {location.pathname === '/cart' ? (
+            <label
+              className="chk-container"
+              onClick={(e) => {
+                e.stopPropagation()
+              }}
+            >
+              <input type="checkbox" value={data.id} onChange={onChangeCheck} />
+              <span className="chk-mark"></span>
+            </label>
+          ) : null}
+          <h2>{data.title}</h2>
+          <h3>{data.content}</h3>
 
-          <FavoriteButton item={array} />
+          <FavoriteButton item={data} />
         </S.ProductCard>
       ))}
       {modalOpen === true ? (
-        <ProductDetailModal
-          card={card}
-          setModalOpen={setModalOpen}
-          cardData={cardData}
-        />
+        <ProductDetailModal setModalOpen={setModalOpen} cardData={cardData} />
       ) : null}
     </S.ProductCardWrapper>
   )
 }
-
-export function ProductDetailModal({ card, setModalOpen, cardData }) {
+export function ProductDetailModal({ setModalOpen, cardData }) {
   const materialStyle = { color: 'black', fontSize: '3rem' }
   return (
     <S.ProductDetailModalDimmed>
       <S.ProductModal>
-        <span>{card[cardData].type}</span>
-        <h2>{card[cardData].title}</h2>
-        <p>{card[cardData].content}</p>
+        <span>{cardData.type}</span>
+        <h2>{cardData.title}</h2>
+        <p>{cardData.content}</p>
         <ButtonText className="btn-cart" buttonText="장바구니 담기" />
         <ButtonText
           onClick={() => {
