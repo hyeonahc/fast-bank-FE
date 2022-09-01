@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { saveName } from '@/modules/user'
+import { useDispatch, useSelector } from 'react-redux'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 
@@ -15,6 +17,8 @@ const SignInPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
+  const dispatch = useDispatch()
+
   const handleSignIn = async (e) => {
     e.preventDefault()
     try {
@@ -24,12 +28,21 @@ const SignInPage = () => {
         formValues,
       )
       console.log(response.data)
-      const { accessToken } = response.data
+      // update required: Update user to name when real server is connected
+      const { accessToken, user } = response.data
       window.localStorage.setItem('accessToken', accessToken)
+      console.log(user.name)
+      dispatch(saveName(user.name))
     } catch (e) {
       console.log('error')
     }
   }
+
+  // test code: Check if name is saved in user module
+  const name = useSelector((state) => state.user)
+  useEffect(() => {
+    console.log(name)
+  }, [name])
 
   return (
     <div className="container">
