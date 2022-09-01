@@ -17,6 +17,11 @@ const SignInPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
+  const RemoveInputSpaces = (e) => {
+    const { name, value } = e.target
+    setFormValues({ ...formValues, [name]: value.trim() })
+  }
+
   const dispatch = useDispatch()
 
   const handleSignIn = async (e) => {
@@ -54,6 +59,7 @@ const SignInPage = () => {
           placeholder="이메일"
           value={formValues.email}
           onChange={handleInputChange}
+          onBlur={RemoveInputSpaces}
         />
         <InputText
           type="text"
@@ -61,6 +67,7 @@ const SignInPage = () => {
           placeholder="비밀번호"
           value={formValues.password}
           onChange={handleInputChange}
+          onBlur={RemoveInputSpaces}
         />
         <ButtonText type="submit" buttonText="로그인" />
       </form>
