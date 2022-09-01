@@ -2,11 +2,13 @@ import * as S from './style'
 import ButtonText from '@/components/common/Button/ButtonText'
 import { Favorite, FavoriteBorderOutlined, Cancel } from '@material-ui/icons'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
   const materialStyle = { color: 'white', fontSize: '30px' }
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState()
+  const location = useLocation()
   return (
     <S.ProductCardWrapper>
       {dataList.map((data) => (
@@ -18,7 +20,7 @@ const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
             setCardData(data)
           }}
         >
-          {checkedList ? (
+          {location.pathname === '/cart' ? (
             <label
               className="chk-container"
               onClick={(e) => {
