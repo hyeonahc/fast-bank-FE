@@ -8,7 +8,7 @@ import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
 
 interface Props {}
 
-const CartTemplate = (props: Props) => {
+const CartListTemplate = (props: Props) => {
   const {
     isLoading: isLoadingGet,
     isFetching: isFetchingGet,
@@ -53,4 +53,4 @@ const CartTemplate = (props: Props) => {
     </>
   );
 };
-export default CartTemplate;
+export default CartListTemplate;
