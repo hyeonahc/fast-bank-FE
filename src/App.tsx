@@ -28,15 +28,16 @@ function App() {
           </Route>
           <Route path="/" element={<RequireAuth />}>
             <Route index element={<HomePage />} />
-            <Route path={pagesPath.products} element={<AllProductsPage />}>
+            <Route path={pagesPath.products}>
+              <Route index element={<AllProductsPage />} />
               <Route
                 path={pagesPath.personal}
                 element={<PersonalProductsPage />}
-              ></Route>
+              />
               <Route
                 path={pagesPath.favorite}
                 element={<FavoriteProductsPage />}
-              ></Route>
+              />
             </Route>
             <Route path={pagesPath.cart} element={<CartPage />} />
           </Route>
