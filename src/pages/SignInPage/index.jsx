@@ -39,7 +39,7 @@ const SignInPage = () => {
   const requestSignIn = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/login',
+        `${process.env.REACT_APP_SERVER_URL}/login`,
         formValues,
       )
       console.log(response.data)
