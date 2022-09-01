@@ -6,7 +6,8 @@ import ProductSearchBar from '@/components/ProductSearchBar'
 import ProductCard from '@/components/ProductCard'
 import PageHeading from '@/components/PageHeading'
 
-import data from '@/components/ProductCard/data'
+import dummyData from '@/components/ProductCard/data'
+import { useState } from 'react'
 
 const PageContainer = styled.div``
 
@@ -18,7 +19,15 @@ const ProductOrderBarStyled = styled(ProductOrderBar)`
 `
 
 const AllProductsPage = () => {
-  const onUpdate = (isEmpty, isLoading, data, error) => {}
+  const [data, setData] = useState(dummyData)
+
+  const onUpdate = (isEmpty, isLoading, data, error) => {
+    if (isEmpty) {
+      setData(dummyData)
+    } else {
+      setData(data)
+    }
+  }
 
   return (
     <PageContainer>
@@ -26,7 +35,7 @@ const AllProductsPage = () => {
       <PageHeading>전체 상품</PageHeading>
       <ProductSearchBarStyled onUpdate={onUpdate} />
       <ProductOrderBarStyled />
-      <ProductCard dataList={data} checkedList={true} />
+      <ProductCard dataList={dummyData} />
     </PageContainer>
   )
 }
