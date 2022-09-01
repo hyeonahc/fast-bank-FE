@@ -26,6 +26,11 @@ const SignUpPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
+  const RemoveInputSpaces = (e) => {
+    const { name, value } = e.target
+    setFormValues({ ...formValues, [name]: value.trim() })
+  }
+
   const handleSignUp = async (e) => {
     e.preventDefault()
     setFormErrors(signUpValidate(formValues))
@@ -83,6 +88,7 @@ const SignUpPage = () => {
           placeholder="이름"
           value={formValues.name}
           onChange={handleInputChange}
+          onBlur={RemoveInputSpaces}
         />
         <p>{formErrors.name}</p>
         <InputText
@@ -91,6 +97,7 @@ const SignUpPage = () => {
           placeholder="이메일"
           value={formValues.email}
           onChange={handleInputChange}
+          onBlur={RemoveInputSpaces}
         />
         <p>{formErrors.email}</p>
         <InputText
@@ -99,6 +106,7 @@ const SignUpPage = () => {
           placeholder="비밀번호"
           value={formValues.password}
           onChange={handleInputChange}
+          onBlur={RemoveInputSpaces}
         />
         <p>{formErrors.password}</p>
         <SelectWithOptions
