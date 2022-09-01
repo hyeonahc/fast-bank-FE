@@ -100,7 +100,9 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
         />
-        <p>{formErrors.name}</p>
+        <p style={{ display: formErrors.name ? 'block' : 'none' }}>
+          {formErrors.name}
+        </p>
         <InputText
           type="text"
           name="email"
@@ -109,7 +111,9 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
         />
-        <p>{formErrors.email}</p>
+        <p style={{ display: formErrors.email ? 'block' : 'none' }}>
+          {formErrors.email}
+        </p>
         <InputText
           type="text"
           name="password"
@@ -118,7 +122,9 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
         />
-        <p>{formErrors.password}</p>
+        <p style={{ display: formErrors.password ? 'block' : 'none' }}>
+          {formErrors.password}
+        </p>
         <SelectWithOptions
           name="age"
           id="age"
@@ -127,7 +133,9 @@ const SignUpPage = () => {
           options={ageOptions}
           defaultOption="나이"
         />
-        <p>{formErrors.age}</p>
+        <p style={{ display: formErrors.age ? 'block' : 'none' }}>
+          {formErrors.age}
+        </p>
         <SelectWithOptions
           name="job"
           id="job"
@@ -136,7 +144,9 @@ const SignUpPage = () => {
           options={jobOptions}
           defaultOption="직업"
         />
-        <p>{formErrors.job}</p>
+        <p style={{ display: formErrors.job ? 'block' : 'none' }}>
+          {formErrors.job}
+        </p>
         <ButtonText type="submit" buttonText="회원가입" />
         <p style={{ display: displaySignUpError ? 'block' : 'none' }}>
           회원가입에 실패했습니다. 다시 시도해주세요.
