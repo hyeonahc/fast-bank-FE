@@ -9,7 +9,7 @@ import PageHeading from '@/components/PageHeading'
 
 import { OrderType } from '@/constants/orderBar'
 
-import dummyData from '@/components/ProductCard/data'
+import dummyData from '@/components/ProductCardList/data'
 import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
 
 const PageContainer = styled.div``
