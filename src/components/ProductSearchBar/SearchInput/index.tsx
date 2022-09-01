@@ -22,6 +22,7 @@ const SearchInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     <S.SearchInput
       ref={ref}
       {...props}
+      placeholder="검색어를 입력해주세요"
       onInput={onChangeWrapped(onInput)}
       onChange={onChangeWrapped(onChange)}
     />
