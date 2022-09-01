@@ -19,7 +19,7 @@ const SignUpPage = () => {
   const [formValues, setFormValues] = useState(initialValue)
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
-  const [displayModal, setDisplayModal] = useState(false)
+  const [displaySuccessModal, setDisplaySuccessModal] = useState(false)
   const [displaySignUpError, setDisplaySignUpError] = useState(false)
 
   const handleInputChange = (e) => {
@@ -84,7 +84,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      setDisplayModal(true)
+      setDisplaySuccessModal(true)
     }
   }, [formErrors, isSubmit])
 
@@ -155,8 +155,8 @@ const SignUpPage = () => {
       <SuccessModal
         title="회원가입을 성공했습니다"
         buttonText="로그인하기"
-        displayModal={displayModal}
-        setDisplayModal={setDisplayModal}
+        displaySuccessModal={displaySuccessModal}
+        setDisplaySuccessModal={setDisplaySuccessModal}
       />
     </S.Container>
   )
