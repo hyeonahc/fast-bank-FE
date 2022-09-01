@@ -24,9 +24,7 @@ export const useProductOrderBar = (data: Product[] | undefined) => {
         setOrderedData([...data].sort((a, b) => a.name.localeCompare(b.name)));
         return;
       case ORDER_TYPE.CATALOG:
-        setOrderedData(
-          [...data].sort((a, b) => a.category.localeCompare(b.category)),
-        );
+        setOrderedData([...data].sort((a, b) => a.type.localeCompare(b.type)));
         return;
     }
   }, [order, data]);
