@@ -1,12 +1,11 @@
 import * as S from './style'
 import ButtonText from '@/components/common/Button/ButtonText'
-import { FavoriteBorderOutlined, Cancel } from '@material-ui/icons'
+import { Cancel } from '@material-ui/icons'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
 
 const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
-  const materialStyle = { color: 'white', fontSize: '30px' }
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState()
   const location = useLocation()
