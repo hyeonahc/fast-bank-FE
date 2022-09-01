@@ -20,6 +20,7 @@ const SignUpPage = () => {
   const [formErrors, setFormErrors] = useState({})
   const [isSubmit, setIsSubmit] = useState(false)
   const [displayModal, setDisplayModal] = useState(false)
+  const [displaySignUpError, setDisplaySignUpError] = useState(false)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -31,19 +32,28 @@ const SignUpPage = () => {
     setFormValues({ ...formValues, [name]: value.trim() })
   }
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault()
-    setFormErrors(signUpValidate(formValues))
+    if (Object.values(formValues).indexOf('') > -1) {
+      setFormErrors(signUpValidate(formValues))
+    } else {
+      requestSignUp()
+    }
+  }
+
+  const requestSignUp = async () => {
     try {
-      console.log(formValues)
       const response = await axios.post(
         'http://localhost:8000/signup',
         formValues,
       )
       setIsSubmit(true)
+      setFormErrors(signUpValidate(formValues))
+      setDisplaySignUpError(false)
       console.log(response.data)
     } catch (e) {
-      console.log('error')
+      setFormErrors(signUpValidate(formValues))
+      setDisplaySignUpError(true)
     }
   }
 
@@ -128,6 +138,9 @@ const SignUpPage = () => {
         />
         <p>{formErrors.job}</p>
         <ButtonText type="submit" buttonText="회원가입" />
+        <p style={{ display: displaySignUpError ? 'block' : 'none' }}>
+          회원가입에 실패했습니다. 다시 시도해주세요.
+        </p>
       </form>
       <SuccessModal
         title="회원가입을 성공했습니다"
