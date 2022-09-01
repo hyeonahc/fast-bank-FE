@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import SelectWithOptions from '@/components/common/Select/SelectWithOptions'
@@ -18,7 +18,6 @@ const SignUpPage = () => {
   const jobOptions = ['청소년', '대학생', '직장인', '고령자', '무직']
   const [formValues, setFormValues] = useState(initialValue)
   const [formErrors, setFormErrors] = useState({})
-  const [isSubmit, setIsSubmit] = useState(false)
   const [displaySuccessModal, setDisplaySuccessModal] = useState(false)
   const [displaySignUpError, setDisplaySignUpError] = useState(false)
 
@@ -37,6 +36,20 @@ const SignUpPage = () => {
     if (Object.values(formValues).indexOf('') > -1) {
       setFormErrors(signUpValidate(formValues))
     } else {
+      validateDuplicateEmail()
+    }
+  }
+
+  const validateDuplicateEmail = async () => {
+    const response = await axios.post(
+      `${process.env.REACT_APP_SERVER_URL}/signup/check`,
+      { email: formValues.email },
+    )
+    const emailIsAvailable = response.data
+    if (!emailIsAvailable) {
+      setFormErrors(signUpValidate(formValues, emailIsAvailable))
+    } else {
+      setFormErrors(signUpValidate(formValues))
       requestSignUp()
     }
   }
@@ -47,9 +60,9 @@ const SignUpPage = () => {
         `${process.env.REACT_APP_SERVER_URL}/signup`,
         formValues,
       )
-      setIsSubmit(true)
       setFormErrors(signUpValidate(formValues))
       setDisplaySignUpError(false)
+      setDisplaySuccessModal(true)
       console.log('[SignUpPage/requestSignUp] response.data: ', response.data)
     } catch {
       setFormErrors(signUpValidate(formValues))
@@ -57,7 +70,7 @@ const SignUpPage = () => {
     }
   }
 
-  const signUpValidate = (values) => {
+  const signUpValidate = (values, emailIsAvailable = true) => {
     const errors = {}
     const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
     if (!values.name) {
@@ -67,6 +80,8 @@ const SignUpPage = () => {
       errors.email = '이메일을 입력해주세요!'
     } else if (!regex.test(values.email)) {
       errors.email = '올바른 이메일 형식이 아닙니다!'
+    } else if (!emailIsAvailable) {
+      errors.email = '이미 등록된 이메일주소입니다!'
     }
     if (!values.password) {
       errors.password = '비밀번호를 입력해주세요!'
@@ -81,12 +96,6 @@ const SignUpPage = () => {
     }
     return errors
   }
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      setDisplaySuccessModal(true)
-    }
-  }, [formErrors, isSubmit])
 
   return (
     <S.Container>
