@@ -4,6 +4,7 @@ import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
 import ButtonText from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
+import * as S from './style'
 
 const SignInPage = () => {
   const initialValue = {
@@ -11,6 +12,7 @@ const SignInPage = () => {
     password: '',
   }
   const [formValues, setFormValues] = useState(initialValue)
+  const [formErrors, setFormErrors] = useState({})
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -26,6 +28,7 @@ const SignInPage = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault()
+    setFormErrors(signInValidate(formValues))
     try {
       console.log(formValues)
       const response = await axios.post(
@@ -49,8 +52,22 @@ const SignInPage = () => {
     console.log(name)
   }, [name])
 
+  const signInValidate = (values) => {
+    const errors = {}
+    const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+    if (!values.email) {
+      errors.email = '이메일을 입력해주세요!'
+    } else if (!regex.test(values.email)) {
+      errors.email = '올바른 이메일 형식이 아닙니다!'
+    }
+    if (!values.password) {
+      errors.password = '비밀번호를 입력해주세요!'
+    }
+    return errors
+  }
+
   return (
-    <div className="container">
+    <S.Container>
       <h1>로그인</h1>
       <form onSubmit={handleSignIn}>
         <InputText
@@ -61,6 +78,9 @@ const SignInPage = () => {
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
         />
+        <p style={{ display: formErrors.email ? 'block' : 'none' }}>
+          {formErrors.email}
+        </p>
         <InputText
           type="text"
           name="password"
@@ -69,9 +89,12 @@ const SignInPage = () => {
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
         />
+        <p style={{ display: formErrors.password ? 'block' : 'none' }}>
+          {formErrors.password}
+        </p>
         <ButtonText type="submit" buttonText="로그인" />
       </form>
-    </div>
+    </S.Container>
   )
 }
 
