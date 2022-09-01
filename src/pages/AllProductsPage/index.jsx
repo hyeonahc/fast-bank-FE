@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import Logo from '@/components/Logo'
@@ -6,8 +7,10 @@ import ProductSearchBar from '@/components/ProductSearchBar'
 import ProductCard from '@/components/ProductCard'
 import PageHeading from '@/components/PageHeading'
 
+import { OrderType } from '@/constants/orderBar'
+
 import dummyData from '@/components/ProductCard/data'
-import { useState } from 'react'
+import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
 
 const PageContainer = styled.div``
 
@@ -24,18 +27,20 @@ const AllProductsPage = () => {
   const onUpdate = (isEmpty, isLoading, data, error) => {
     if (isEmpty) {
       setData(dummyData)
-    } else {
+    } else if (data) {
       setData(data)
     }
   }
+
+  const { orderedData, onChangeOrder } = useProductOrderBar(data)
 
   return (
     <PageContainer>
       <Logo />
       <PageHeading>전체 상품</PageHeading>
       <ProductSearchBarStyled onUpdate={onUpdate} />
-      <ProductOrderBarStyled />
-      <ProductCard dataList={dummyData} />
+      <ProductOrderBarStyled onChange={onChangeOrder} />
+      <ProductCard dataList={orderedData} />
     </PageContainer>
   )
 }

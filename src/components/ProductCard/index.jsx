@@ -31,7 +31,7 @@ const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
               <span className="chk-mark"></span>
             </label>
           ) : null}
-          <h2>{data.title}</h2>
+          <h2>{data.name}</h2>
           <h3>{data.content}</h3>
 
           <FavoriteButton item={data} />
@@ -49,7 +49,7 @@ export function ProductDetailModal({ setModalOpen, cardData }) {
     <S.ProductDetailModalDimmed>
       <S.ProductModal>
         <span>{cardData.type}</span>
-        <h2>{cardData.title}</h2>
+        <h2>{cardData.name}</h2>
         <p>{cardData.content}</p>
         <ButtonText className="btn-cart" buttonText="장바구니 담기" />
         <ButtonText
