@@ -50,7 +50,7 @@ const SignUpPage = () => {
       setIsSubmit(true)
       setFormErrors(signUpValidate(formValues))
       setDisplaySignUpError(false)
-      console.log(response.data)
+      console.log('[SignUpPage/requestSignUp] response.data: ', response.data)
     } catch {
       setFormErrors(signUpValidate(formValues))
       setDisplaySignUpError(true)
