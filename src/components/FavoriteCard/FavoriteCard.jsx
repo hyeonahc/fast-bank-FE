@@ -1,8 +1,8 @@
 import * as S from './style'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
-import { ProductDetailModal } from '../ProductCard'
 import { useLocation } from 'react-router-dom'
+import { ProductDetailModal } from '../ProductCard'
 
 function FavoriteCard({ item, onChangeCheck }) {
   const [modalOpen, setModalOpen] = useState(false)
@@ -15,7 +15,7 @@ function FavoriteCard({ item, onChangeCheck }) {
         value={item.type}
         onClick={() => {
           setModalOpen(true)
-          setCardData(item.id)
+          setCardData(item)
         }}
       >
         {location.pathname === '/cart' ? (
