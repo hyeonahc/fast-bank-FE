@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import Logo from '@/components/Logo'
 import ProductOrderBar from '@/components/ProductOrderBar'
 import ProductSearchBar from '@/components/ProductSearchBar'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCardList'
 import PageHeading from '@/components/PageHeading'
 
 import { OrderType } from '@/constants/orderBar'
 
-import dummyData from '@/components/ProductCard/data'
+import dummyData from '@/components/ProductCardList/data'
 import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
 
 const PageContainer = styled.div``

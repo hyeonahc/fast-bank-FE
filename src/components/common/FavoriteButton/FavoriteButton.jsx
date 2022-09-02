@@ -54,12 +54,20 @@ const Heart = styled.button`
       color: aliceblue;
       transform: none;
     }
+    25% {
+      color: #ff0000;
+      transform: scale(1.5);
+    }
     50% {
-      color: #8f1d21;
-      transform: scale(3);
+      color: #ff6600;
+      transform: scale(2.5);
+    }
+    75% {
+      color: #ff0000;
+      transform: scale(1.5);
     }
     100% {
-      color: #9b111e;
+      color: aliceblue;
       transform: none;
     }
   }
