@@ -30,6 +30,7 @@ interface Props {
   onUpdate: (
     isEmpty: boolean,
     isLoading: boolean,
+    isFetching: boolean,
     data: Product[] | undefined,
     error: Error | undefined,
   ) => void;
@@ -58,19 +59,26 @@ const ProductSearchBar = (props: Props) => {
   //endregion
 
   const queryParams = useDebounce(isEmpty ? skipToken : input, 100);
-  const { isLoading, data, error } = useSearchQuery(queryParams);
+  const { isLoading, isFetching, data, error } = useSearchQuery(queryParams);
 
   useEffect(() => {
     if (isEmpty) {
-      onUpdate(true, false, undefined, undefined);
+      onUpdate(true, false, false, undefined, undefined);
     } else {
-      const querying = isLoading || !!data || !!error;
+      const querying = isLoading || isFetching || !!data || !!error;
 
       // 폼은 채워져 있는데 debounce 로 인해 query 가 밀린 상태는 일단 로딩 상태
-      if (!querying) onUpdate(false, true, undefined, undefined);
-      else onUpdate(false, isLoading, data, convertRTKQueryErrorToError(error));
+      if (!querying) onUpdate(false, false, !!data, undefined, undefined);
+      else
+        onUpdate(
+          false,
+          isLoading,
+          isFetching,
+          data,
+          convertRTKQueryErrorToError(error),
+        );
     }
-  }, [isEmpty, isLoading, data, error]);
+  }, [isEmpty, isLoading, isFetching, data, error]);
 
   return (
     <S.Container className={className}>

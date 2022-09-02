@@ -24,7 +24,7 @@ const ProductOrderBarStyled = styled(ProductOrderBar)`
 const AllProductsPage = () => {
   const [data, setData] = useState(dummyData)
 
-  const onUpdate = (isEmpty, isLoading, data, error) => {
+  const onUpdate = (isEmpty, isLoading, isFetching, data, error) => {
     if (isEmpty) {
       setData(dummyData)
     } else if (data) {

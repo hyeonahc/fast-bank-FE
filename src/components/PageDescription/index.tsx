@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '@/modules/hooks';
 
 interface Props {
   className?: string;
@@ -15,13 +16,13 @@ export const PageDescriptionStyled = styled.div({});
  */
 const PageDescription = (props: Props) => {
   const { className, children } = props;
-  const [user] = useState({
-    name: 'TEST',
+  const userName = useAppSelector((state) => {
+    return (state.user as any).name as string;
   });
 
   return (
     <PageDescriptionStyled className={className}>
-      {children.replaceAll('%NAME', user.name)}
+      {children.replaceAll('%NAME', userName)}
     </PageDescriptionStyled>
   );
 };

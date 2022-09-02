@@ -125,11 +125,6 @@ export const useCheckboxWithCheckAll = (data: { id: string }[] | undefined) => {
 
   const { checkedList, checkedAll } = state;
 
-  const hasInCheckedList = useCallback(
-    (id: string) => checkedList.includes(id),
-    [checkedList],
-  );
-
   const onChangeCheckbox = useCallback(
     (id: string, checked: boolean) => {
       dispatch({ type: checked ? 'ADD_CHECK' : 'REMOVE_CHECK', payload: id });
@@ -148,7 +143,6 @@ export const useCheckboxWithCheckAll = (data: { id: string }[] | undefined) => {
   return {
     checkedList,
     checkedAll,
-    hasInCheckedList,
     onChangeCheckbox,
     onChangeCheckboxAll,
     isHasCheckList,
