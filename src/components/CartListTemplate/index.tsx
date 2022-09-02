@@ -22,7 +22,6 @@ const CartListTemplate = (props: Props) => {
 
   const {
     checkedList,
-    hasInCheckedList,
     checkedAll,
     onChangeCheckbox,
     onChangeCheckboxAll,
@@ -33,7 +32,6 @@ const CartListTemplate = (props: Props) => {
   const disabledCommand = !isHasCheckList || isFetching;
 
   if (errorGet || errorRemove) return <div>에러!</div>;
-  if (isLoadingGet) return <div>로딩 중</div>;
 
   return (
     <>
@@ -47,7 +45,7 @@ const CartListTemplate = (props: Props) => {
       <CartList
         data={data}
         onChangeSelect={onChangeCheckbox}
-        hasInCheckedList={hasInCheckedList}
+        checkedList={checkedList}
         disabledCard={isFetching}
       />
     </>
