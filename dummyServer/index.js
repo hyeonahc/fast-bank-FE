@@ -25,7 +25,7 @@ server.get('/auth', (req, res, next) => {
   if (!user) return
 
   res.statusCode = 200
-  res.json({ user })
+  res.json({ memberProfile: user })
 })
 
 server.get('/product', (req, res, next) => {
