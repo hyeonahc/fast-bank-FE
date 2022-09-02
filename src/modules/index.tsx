@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { cartApi } from '@/api/cartApi';
 import { searchApi } from '@/api/searchApi';
+import { productApi } from '@/api/productApi';
 import favoriteSlice from './favoriteSlice';
 import user from './user';
 
@@ -10,12 +11,17 @@ const rootReducer = combineReducers({
   [searchApi.reducerPath]: searchApi.reducer,
   favorite: favoriteSlice.reducer,
   user,
+  [productApi.reducerPath]: productApi.reducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cartApi.middleware, searchApi.middleware),
+    getDefaultMiddleware().concat(
+      cartApi.middleware,
+      searchApi.middleware,
+      productApi.middleware,
+    ),
 });
 
 setupListeners(store.dispatch);

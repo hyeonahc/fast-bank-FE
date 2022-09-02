@@ -10,7 +10,8 @@ export default createGlobalStyle`
 	body {
 		font-size: 1.6rem;
 		line-height: 1.25;
-		min-height: calc(100vh - 8rem);
+		min-height: 100vh;
+		height:100%;
 		padding:4rem;
 		max-width: 640px;
 		margin: 0 auto;
@@ -20,7 +21,7 @@ export default createGlobalStyle`
 	}
 	button {
 		background: none; 
-		outline: none; 
+		outline: none;
 		border: none; 
 		padding: 0; 
 		cursor: pointer;

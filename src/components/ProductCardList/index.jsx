@@ -2,44 +2,54 @@ import * as S from './style'
 import ButtonText from '@/components/common/Button/ButtonText'
 import { Cancel } from '@material-ui/icons'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
+import { useGetProductsQuery } from '@/api/productApi'
 
 const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState()
-  const location = useLocation()
+  const { data: productsList, isLoading, isError } = useGetProductsQuery()
+  if (isLoading) {
+    return <div>Loading..</div>
+  }
+  if (isError) {
+    return <div>Error</div>
+  }
   return (
     <S.ProductCardWrapper>
-      {dataList.map((data) => (
+      {productsList.products.map((product) => (
         <S.ProductCard
-          key={data.id}
-          value={data.type}
+          key={product.id}
+          value={product.category}
           onClick={() => {
             setModalOpen(true)
-            setCardData(data)
+            setCardData(product)
           }}
         >
-          {location.pathname === '/cart' ? (
+          {checkedList ? (
             <label
               className="chk-container"
               onClick={(e) => {
                 e.stopPropagation()
               }}
             >
-              <input type="checkbox" value={data.id} onChange={onChangeCheck} />
+              <input
+                type="checkbox"
+                value={product.id}
+                onChange={onChangeCheck}
+              />
               <span className="chk-mark"></span>
             </label>
           ) : null}
-          <h2>{data.name}</h2>
-          <h3>{data.content}</h3>
+          <h2>{product.category}</h2>
+          <h3>{product.name}</h3>
 
-          <FavoriteButton item={data} />
+          <FavoriteButton item={product} />
         </S.ProductCard>
       ))}
-      {modalOpen === true ? (
+      {modalOpen && (
         <ProductDetailModal setModalOpen={setModalOpen} cardData={cardData} />
-      ) : null}
+      )}
     </S.ProductCardWrapper>
   )
 }
@@ -48,9 +58,9 @@ export function ProductDetailModal({ setModalOpen, cardData }) {
   return (
     <S.ProductDetailModalDimmed>
       <S.ProductModal>
-        <span>{cardData.type}</span>
+        <span>{cardData.category}</span>
         <h2>{cardData.name}</h2>
-        <p>{cardData.content}</p>
+        <p>{cardData.description}</p>
         <ButtonText className="btn-cart" buttonText="장바구니 담기" />
         <ButtonText
           onClick={() => {
