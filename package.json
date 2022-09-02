@@ -22,7 +22,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5",
-    "typescript": "4.7.4",
+    "typescript": "^4.8.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.8",
-    "eslint": "8.22.0",
+    "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^4.2.1",
