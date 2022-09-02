@@ -1,32 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { TagDescription } from '@reduxjs/toolkit/src/query/endpointDefinitions';
-import axios from 'axios';
 
 import { Product } from '@/types/product';
+import baseQuery from '@/api/baseQuery';
 
 const tagTypes = ['Cart'] as const;
-
-const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:8000',
-  prepareHeaders: async (headers, { getState, extra }) => {
-    // FIXME 임시!!!!!!!!!!!
-    let token = null; // sessionStorage.getItem('TEMP_TOKEN');
-    if (!token) {
-      try {
-        const res = await axios.post('http://localhost:8000/login', {
-          email: 'test@test.com',
-          password: 'test@test.com',
-        });
-        token = res.data.accessToken;
-        sessionStorage.setItem('TEMP_TOKEN', token ?? '');
-      } catch (e) {}
-    }
-
-    headers.set('authorization', `Bearer ${token}`);
-
-    return headers;
-  },
-});
 
 const transformResponse = (response: { products: Product[] }) =>
   response.products;
