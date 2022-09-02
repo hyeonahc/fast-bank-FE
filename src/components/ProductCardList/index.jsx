@@ -10,10 +10,10 @@ const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
   const [cardData, setCardData] = useState()
   const { data: productsList, isLoading, isError } = useGetProductsQuery()
   if (isLoading) {
-    return <div>Loading..</div>
+    return console.log('loading..')
   }
   if (isError) {
-    return <div>Error</div>
+    return console.log('error')
   }
   return (
     <S.ProductCardWrapper>
