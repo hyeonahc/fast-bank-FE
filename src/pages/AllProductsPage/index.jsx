@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import Logo from '@/components/Logo'
 import ProductOrderBar from '@/components/ProductOrderBar'
 import ProductSearchBar from '@/components/ProductSearchBar'
-import ProductCard from '@/components/ProductCardList'
+import ProductCardList from '@/components/ProductCardList'
 import PageHeading from '@/components/PageHeading'
-
+import { useGetProductsQuery } from '@/api/productApi'
 import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
 
 import { actIsAuthError } from '@/utils/isAuthError'
@@ -24,7 +24,8 @@ const ProductOrderBarStyled = styled(ProductOrderBar)`
 `
 
 const AllProductsPage = () => {
-  const [data, setData] = useState(dummyData)
+  const { data: dataList } = useGetProductsQuery()
+  const [data, setData] = useState(dataList)
   const navigate = useNavigate()
 
   const onUpdate = (isEmpty, isLoading, isFetching, data, error) => {
@@ -33,7 +34,7 @@ const AllProductsPage = () => {
     }
 
     if (isEmpty) {
-      setData(dummyData)
+      setData(dataList)
     } else if (data) {
       setData(data)
     }
@@ -47,7 +48,7 @@ const AllProductsPage = () => {
       <PageHeading>전체 상품</PageHeading>
       <ProductSearchBarStyled onUpdate={onUpdate} />
       <ProductOrderBarStyled onChange={onChangeOrder} />
-      <ProductCard dataList={orderedData} />
+      <ProductCardList dataList={(orderedData, dataList)} />
     </PageContainer>
   )
 }

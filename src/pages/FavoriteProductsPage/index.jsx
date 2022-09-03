@@ -1,4 +1,4 @@
-import ProductCard from '@/components/ProductCardList'
+import ProductCardList from '@/components/ProductCardList'
 import { useFavorite } from '@/modules/favoriteSlice'
 
 const FavoriteProductsPage = () => {
@@ -10,7 +10,7 @@ const FavoriteProductsPage = () => {
       {favorite.length === 0 ? (
         <h2>관심상품을 추가하세요 ~</h2>
       ) : (
-        <ProductCard dataList={favorite} />
+        <ProductCardList dataList={favorite} />
       )}
     </>
   )

@@ -110,7 +110,7 @@ export const ProductDetailModalDimmed = styled.div`
   height: 100%;
   background: rgba(1, 1, 1, 0.8);
   z-index: 11;
-  max-width: 640px;
+  max-width: 414px;
 `
 export const ProductModal = styled.div`
   background: #fff;

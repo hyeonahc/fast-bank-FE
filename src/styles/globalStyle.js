@@ -12,8 +12,8 @@ export default createGlobalStyle`
 		line-height: 1.25;
 		min-height: 100vh;
 		height:100%;
-		padding:4rem;
-		max-width: 640px;
+		padding:4rem 2rem;
+		max-width: 414px;
 		margin: 0 auto;
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
@@ -27,7 +27,7 @@ export default createGlobalStyle`
 		cursor: pointer;
 	}
 	/* mq */
-	@media (max-width:640px) {
+	@media (max-width:414px) {
 		body {padding: 4rem 6.25%;}
 	}
 `
