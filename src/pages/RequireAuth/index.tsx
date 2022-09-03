@@ -1,11 +1,14 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import NavBar from '@/components/NavBar';
-import { pagesFullPath } from '@/pages/pagesPath';
-import axios from 'axios';
+
 import { useAppDispatch } from '@/modules/hooks';
 import { saveName } from '@/modules/user';
+
+import { pagesFullPath } from '@/pages/pagesPath';
+import { actIsAuthError } from '@/utils/isAuthError';
 
 interface Props {}
 
@@ -34,7 +37,7 @@ const RequireAuth = (props: Props) => {
         );
         dispatch(saveName(res.data.memberProfile.name));
       } catch (e) {
-        navigate(pagesFullPath.signin);
+        actIsAuthError(e, navigate);
       }
     })();
   }, [location.pathname]);

@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/query';
-
-import * as S from './style';
+import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError, skipToken } from '@reduxjs/toolkit/query';
 import Select from '@/components/common/Select';
 import SearchInput from './SearchInput';
+import * as S from './style';
 
 import useDebounce from '@/hooks/useDebounce';
 import { useSearchQuery } from '@/api/searchApi';
 
-import { convertRTKQueryErrorToError } from '@/utils/convertRTKQueryErrorToError';
 import { CATALOG_LIST, KEYWORD_LIST } from '@/constants/searchBar';
 import { Product } from '@/types/product';
 
@@ -32,7 +31,7 @@ interface Props {
     isLoading: boolean,
     isFetching: boolean,
     data: Product[] | undefined,
-    error: Error | undefined,
+    error: FetchBaseQueryError | SerializedError | undefined,
   ) => void;
 }
 
@@ -49,7 +48,7 @@ const ProductSearchBar = (props: Props) => {
       const { name, value } = e.target;
       const inputState = {
         ...input,
-        [name]: value,
+        [name]: value.trim(),
       };
       setInput(inputState);
       setIsEmpty(askIsEmpty(inputState));
@@ -69,14 +68,7 @@ const ProductSearchBar = (props: Props) => {
 
       // 폼은 채워져 있는데 debounce 로 인해 query 가 밀린 상태는 일단 로딩 상태
       if (!querying) onUpdate(false, false, !!data, undefined, undefined);
-      else
-        onUpdate(
-          false,
-          isLoading,
-          isFetching,
-          data,
-          convertRTKQueryErrorToError(error),
-        );
+      else onUpdate(false, isLoading, isFetching, data, error);
     }
   }, [isEmpty, isLoading, isFetching, data, error]);
 
