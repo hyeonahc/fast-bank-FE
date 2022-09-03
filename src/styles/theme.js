@@ -14,6 +14,12 @@ const colors = {
   cardHover: 'rgba(255, 255, 255, 0.3)',
 }
 
+const fontWeight = {
+  regular: 400,
+  medium: 500,
+  bold: 700,
+}
+
 const common = {
   flexCenter: css`
     display: flex;
@@ -32,6 +38,7 @@ const widthDevice = {
 
 const theme = {
   colors,
+  fontWeight,
   common,
   widthDevice,
 }
