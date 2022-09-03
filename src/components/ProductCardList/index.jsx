@@ -29,7 +29,7 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
               setCardData(product)
             }}
           >
-            {!checkedList ? (
+            {checkedList ? (
               <label
                 className="chk-container"
                 onClick={(e) => {
