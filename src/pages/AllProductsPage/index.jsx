@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Logo from '@/components/Logo'
@@ -7,10 +8,11 @@ import ProductSearchBar from '@/components/ProductSearchBar'
 import ProductCard from '@/components/ProductCardList'
 import PageHeading from '@/components/PageHeading'
 
-import { OrderType } from '@/constants/orderBar'
+import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
+
+import { actIsAuthError } from '@/utils/isAuthError'
 
 import dummyData from '@/components/ProductCardList/data'
-import { useProductOrderBar } from '@/components/ProductOrderBar/hook'
 
 const PageContainer = styled.div``
 
@@ -23,8 +25,13 @@ const ProductOrderBarStyled = styled(ProductOrderBar)`
 
 const AllProductsPage = () => {
   const [data, setData] = useState(dummyData)
+  const navigate = useNavigate()
 
   const onUpdate = (isEmpty, isLoading, isFetching, data, error) => {
+    if (actIsAuthError(error, navigate)) {
+      return
+    }
+
     if (isEmpty) {
       setData(dummyData)
     } else if (data) {
