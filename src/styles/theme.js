@@ -1,6 +1,8 @@
 import { css } from 'styled-components'
 
-const colors = {}
+const colors = {
+  primary: '#1583D8',
+}
 
 const common = {
   flexCenter: css`
@@ -14,9 +16,14 @@ const common = {
   `,
 }
 
+const widthDevice = {
+  default: '414px',
+}
+
 const theme = {
   colors,
   common,
+  widthDevice,
 }
 
 export default theme

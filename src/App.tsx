@@ -3,16 +3,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import store from '@/modules';
 
-import pagesPath from '@/pages/pagesPath';
 import HomePage from '@/pages/HomePage';
 import SignInPage from '@/pages/SignInPage';
 import SignUpPage from '@/pages/SignUpPage';
+
+import RequireAuth from '@/pages/RequireAuth';
 import AllProductsPage from '@/pages/AllProductsPage';
 import PersonalProductsPage from '@/pages/PersonalProductsPage';
 import FavoriteProductsPage from '@/pages/FavoriteProductsPage';
 import CartPage from '@/pages/CartPage';
+
 import NotFound from '@/pages/NotFound';
-import NavBar from '@/components/NavBar';
+
+import pagesPath from '@/pages/pagesPath';
 
 function App() {
   return (
@@ -20,24 +23,26 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<HomePage />} />
             <Route path={pagesPath.signin} element={<SignInPage />} />
             <Route path={pagesPath.signup} element={<SignUpPage />} />
-            <Route path={pagesPath.products} element={<AllProductsPage />}>
+          </Route>
+          <Route path="/" element={<RequireAuth />}>
+            <Route index element={<HomePage />} />
+            <Route path={pagesPath.products}>
+              <Route index element={<AllProductsPage />} />
               <Route
                 path={pagesPath.personal}
                 element={<PersonalProductsPage />}
-              ></Route>
+              />
               <Route
                 path={pagesPath.favorite}
                 element={<FavoriteProductsPage />}
-              ></Route>
+              />
             </Route>
             <Route path={pagesPath.cart} element={<CartPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <NavBar />
       </BrowserRouter>
     </Provider>
   );

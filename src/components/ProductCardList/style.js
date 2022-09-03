@@ -43,6 +43,62 @@ export const ProductCard = styled.div`
     right: 10px;
     top: 10px;
   }
+  .chk-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    line-height: 1;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+  }
+  .chk-mark {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #fff;
+  }
+  .chk-container {
+    &:hover input ~ .chk-mark {
+      background-color: #fff;
+    }
+    input:checked ~ .chk-mark {
+      background-color: #2196f3;
+    }
+  }
+  .chk-mark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  .chk-container {
+    input:checked ~ .chk-mark:after {
+      display: block;
+    }
+    .chk-mark:after {
+      left: 0.6rem;
+      top: 0.2rem;
+      width: 0.5rem;
+      height: 1rem;
+      border: solid white;
+      border-width: 0 0.3rem 0.3rem 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
 `
 export const ProductDetailModalDimmed = styled.div`
   position: fixed;
@@ -54,7 +110,7 @@ export const ProductDetailModalDimmed = styled.div`
   height: 100%;
   background: rgba(1, 1, 1, 0.8);
   z-index: 11;
-  max-width: 640px;
+  max-width: ${({ theme }) => theme.widthDevice.default};
 `
 export const ProductModal = styled.div`
   background: #fff;

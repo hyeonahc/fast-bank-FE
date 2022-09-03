@@ -1,18 +1,17 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import baseQuery from '@/api/baseQuery';
 import { mapObject } from '@/utils/mapObject';
 import { Product } from '@/types/product';
 
 export const searchApi = createApi({
   reducerPath: 'searchApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8000',
-  }),
+  baseQuery: baseQuery,
   endpoints: (builder) => ({
     search: builder.query({
       query: (data: { word: string; keyword?: string; catalog?: string }) => ({
-        url: 'search',
-        method: 'POST',
-        body: mapObject(data, (key, value) =>
+        url: 'product-search',
+        method: 'GET',
+        params: mapObject(data, (key, value) =>
           value === '' ? undefined : value,
         ),
       }),

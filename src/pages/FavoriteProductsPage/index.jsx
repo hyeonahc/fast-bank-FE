@@ -1,9 +1,19 @@
+import ProductCardList from '@/components/ProductCardList'
 import { useFavorite } from '@/modules/favoriteSlice'
 
 const FavoriteProductsPage = () => {
   const { favorite } = useFavorite()
+  console.log(favorite)
 
-  return <div>{favorite.length === 0 ? <h1>관심상품</h1> : favorite}</div>
+  return (
+    <>
+      {favorite.length === 0 ? (
+        <h2>관심상품을 추가하세요 ~</h2>
+      ) : (
+        <ProductCardList dataList={favorite} />
+      )}
+    </>
+  )
 }
 
 export default FavoriteProductsPage

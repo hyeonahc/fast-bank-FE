@@ -8,7 +8,7 @@ import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
 
 interface Props {}
 
-const CartTemplate = (props: Props) => {
+const CartListTemplate = (props: Props) => {
   const {
     isLoading: isLoadingGet,
     isFetching: isFetchingGet,
@@ -22,7 +22,6 @@ const CartTemplate = (props: Props) => {
 
   const {
     checkedList,
-    hasInCheckedList,
     checkedAll,
     onChangeCheckbox,
     onChangeCheckboxAll,
@@ -33,7 +32,6 @@ const CartTemplate = (props: Props) => {
   const disabledCommand = !isHasCheckList || isFetching;
 
   if (errorGet || errorRemove) return <div>에러!</div>;
-  if (isLoadingGet) return <div>로딩 중</div>;
 
   return (
     <>
@@ -47,10 +45,10 @@ const CartTemplate = (props: Props) => {
       <CartList
         data={data}
         onChangeSelect={onChangeCheckbox}
-        hasInCheckedList={hasInCheckedList}
+        checkedList={checkedList}
         disabledCard={isFetching}
       />
     </>
   );
 };
-export default CartTemplate;
+export default CartListTemplate;

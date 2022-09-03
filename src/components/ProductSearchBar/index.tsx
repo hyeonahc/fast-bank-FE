@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/query';
-
-import * as S from './style';
+import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError, skipToken } from '@reduxjs/toolkit/query';
 import Select from '@/components/common/Select';
 import SearchInput from './SearchInput';
+import * as S from './style';
 
 import useDebounce from '@/hooks/useDebounce';
 import { useSearchQuery } from '@/api/searchApi';
 
-import { convertRTKQueryErrorToError } from '@/utils/convertRTKQueryErrorToError';
 import { CATALOG_LIST, KEYWORD_LIST } from '@/constants/searchBar';
 import { Product } from '@/types/product';
 
@@ -26,18 +25,20 @@ const askIsEmpty = (data: typeof defaultInputState) => {
 };
 
 interface Props {
+  className?: string;
   onUpdate: (
     isEmpty: boolean,
     isLoading: boolean,
+    isFetching: boolean,
     data: Product[] | undefined,
-    error: Error | undefined,
+    error: FetchBaseQueryError | SerializedError | undefined,
   ) => void;
 }
 
 export const onUpdateTyped = (fn: Props['onUpdate']) => fn;
 
 const ProductSearchBar = (props: Props) => {
-  const { onUpdate } = props;
+  const { className, onUpdate } = props;
 
   //region input isEmpty
   const [input, setInput] = useState({ ...defaultInputState });
@@ -47,7 +48,7 @@ const ProductSearchBar = (props: Props) => {
       const { name, value } = e.target;
       const inputState = {
         ...input,
-        [name]: value,
+        [name]: value.trim(),
       };
       setInput(inputState);
       setIsEmpty(askIsEmpty(inputState));
@@ -57,22 +58,22 @@ const ProductSearchBar = (props: Props) => {
   //endregion
 
   const queryParams = useDebounce(isEmpty ? skipToken : input, 100);
-  const { isLoading, data, error } = useSearchQuery(queryParams);
+  const { isLoading, isFetching, data, error } = useSearchQuery(queryParams);
 
   useEffect(() => {
     if (isEmpty) {
-      onUpdate(true, false, undefined, undefined);
+      onUpdate(true, false, false, undefined, undefined);
     } else {
-      const querying = isLoading || !!data || !!error;
+      const querying = isLoading || isFetching || !!data || !!error;
 
       // 폼은 채워져 있는데 debounce 로 인해 query 가 밀린 상태는 일단 로딩 상태
-      if (!querying) onUpdate(false, true, undefined, undefined);
-      else onUpdate(false, isLoading, data, convertRTKQueryErrorToError(error));
+      if (!querying) onUpdate(false, false, !!data, undefined, undefined);
+      else onUpdate(false, isLoading, isFetching, data, error);
     }
-  }, [isEmpty, isLoading, data, error]);
+  }, [isEmpty, isLoading, isFetching, data, error]);
 
   return (
-    <S.Container>
+    <S.Container className={className}>
       <S.FilterContainer>
         <Select name="catalog" onChange={onChangeSelect} value={input.catalog}>
           {CATALOG_LIST.map(({ value, label }) => (

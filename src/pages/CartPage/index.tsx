@@ -1,19 +1,32 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
-import CartTemplate from '@/components/CartListTemplate';
-import { CartPageContainer } from '@/pages/CartPage/style';
+import PageHeading from '@/components/PageHeading';
+import CartListTemplate from '@/components/CartListTemplate';
+import PageDescription from '@/components/PageDescription';
+
+export const CartPageContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  fontSize: '1.4rem',
+  '> *': {
+    marginBottom: '0.8rem',
+  },
+});
+
+export const CartPageLabel = styled(PageHeading)({});
+
+export const CartPageDescription = styled(PageDescription)({});
 
 const CartPage = () => {
-  // FIXME 임시!!!!!!
-  const [user] = useState({
-    name: 'TEST',
-  });
-
   return (
     <CartPageContainer>
-      <h2>장바구니</h2>
-      <div>{user.name}님이 장바구니에 넣은 상품입니다.</div>
-      <CartTemplate />
+      <CartPageLabel>장바구니</CartPageLabel>
+      <CartPageDescription>
+        %NAME 님이 장바구니에 넣은 상품입니다.
+      </CartPageDescription>
+      <CartListTemplate />
     </CartPageContainer>
   );
 };

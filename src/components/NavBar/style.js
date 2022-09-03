@@ -6,7 +6,7 @@ export const BottomNavigator = styled.div`
   right: 0;
   bottom: 0;
   width: 100%;
-  max-width: 640px;
+  max-width: ${({ theme }) => theme.widthDevice.default};
   margin: 0 auto;
   line-height: 1;
   height: 80px;

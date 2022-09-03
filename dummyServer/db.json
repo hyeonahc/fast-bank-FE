@@ -78,8 +78,13 @@
       "name": "TEST",
       "job": "직장인",
       "age": "30대",
-      "fav": ["dDvbnY6", "U0fKO6H"],
-      "cart": ["dDvbnY6", "U0fKO6H"],
+      "fav": [
+        "dDvbnY6",
+        "U0fKO6H"
+      ],
+      "cart": [
+        "dDvbnY6"
+      ],
       "id": 1
     }
   ]

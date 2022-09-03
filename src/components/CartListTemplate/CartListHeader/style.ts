@@ -5,6 +5,7 @@ import Button from '@/components/common/Button';
 export const CartListHeaderContainer = styled.div({
   display: 'flex',
   flexDirection: 'row',
+  alignItems: 'end',
   justifyContent: 'space-between',
 });
 

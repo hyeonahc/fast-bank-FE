@@ -10,9 +10,10 @@ export default createGlobalStyle`
 	body {
 		font-size: 1.6rem;
 		line-height: 1.25;
-		min-height: calc(100vh - 8rem);
-		padding:4rem;
-		max-width: 640px;
+		min-height: 100vh;
+		height:100%;
+		padding:4rem 2rem;
+		max-width: ${({ theme }) => theme.widthDevice.default};
 		margin: 0 auto;
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
@@ -20,13 +21,13 @@ export default createGlobalStyle`
 	}
 	button {
 		background: none; 
-		outline: none; 
+		outline: none;
 		border: none; 
 		padding: 0; 
 		cursor: pointer;
 	}
 	/* mq */
-	@media (max-width:640px) {
+	@media (max-width:${({ theme }) => theme.widthDevice.default}) {
 		body {padding: 4rem 6.25%;}
 	}
 `

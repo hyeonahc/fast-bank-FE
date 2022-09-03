@@ -21,14 +21,14 @@ type ActionType =
       payload: string;
     };
 
-const InitialState = {
+const initialState = {
   data: undefined as undefined | { id: string }[],
   checkState: 'ALL' as CheckboxState,
   checkedAll: true,
   checkedList: [] as string[],
 };
 
-const reducer = (state: typeof InitialState, action: ActionType) => {
+const reducer = (state: typeof initialState, action: ActionType) => {
   const { type, payload } = action;
 
   if (type === 'CHECKED_ALL') {
@@ -118,17 +118,12 @@ const reducer = (state: typeof InitialState, action: ActionType) => {
 //endregion
 
 export const useCheckboxWithCheckAll = (data: { id: string }[] | undefined) => {
-  const [state, dispatch] = useReducer(reducer, InitialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     dispatch({ type: 'UPDATE_DATA', payload: data });
   }, [data]);
 
   const { checkedList, checkedAll } = state;
-
-  const hasInCheckedList = useCallback(
-    (id: string) => checkedList.includes(id),
-    [checkedList],
-  );
 
   const onChangeCheckbox = useCallback(
     (id: string, checked: boolean) => {
@@ -148,7 +143,6 @@ export const useCheckboxWithCheckAll = (data: { id: string }[] | undefined) => {
   return {
     checkedList,
     checkedAll,
-    hasInCheckedList,
     onChangeCheckbox,
     onChangeCheckboxAll,
     isHasCheckList,
