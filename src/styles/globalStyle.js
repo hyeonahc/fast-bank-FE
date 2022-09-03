@@ -13,7 +13,7 @@ export default createGlobalStyle`
 		min-height: 100vh;
 		height:100%;
 		padding:4rem 2rem;
-		max-width: 414px;
+		max-width: ${({ theme }) => theme.widthDevice.default};
 		margin: 0 auto;
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
@@ -27,7 +27,7 @@ export default createGlobalStyle`
 		cursor: pointer;
 	}
 	/* mq */
-	@media (max-width:414px) {
+	@media (max-width:${({ theme }) => theme.widthDevice.default}) {
 		body {padding: 4rem 6.25%;}
 	}
 `
