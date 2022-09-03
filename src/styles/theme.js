@@ -14,6 +14,13 @@ const colors = {
   cardHover: 'rgba(255, 255, 255, 0.3)',
 }
 
+const fontSize = {
+  extraSmall: '14px',
+  small: '14px',
+  regular: '14px',
+  big: '14px',
+}
+
 const fontWeight = {
   regular: 400,
   medium: 500,
@@ -38,6 +45,7 @@ const widthDevice = {
 
 const theme = {
   colors,
+  fontSize,
   fontWeight,
   common,
   widthDevice,
