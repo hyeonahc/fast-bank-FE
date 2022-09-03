@@ -1,8 +1,9 @@
-import * as S from './style'
-import ButtonText from '@/components/common/Button/ButtonText'
-import { Cancel } from '@material-ui/icons'
 import { useState } from 'react'
+import { Cancel } from '@material-ui/icons'
+import ButtonText from '@/components/common/Button/ButtonText'
 import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
+import * as S from './style'
+
 import { useGetProductsQuery } from '@/api/productApi'
 
 const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
@@ -10,10 +11,12 @@ const ProductCard = ({ dataList, checkedList, onChangeCheck }) => {
   const [cardData, setCardData] = useState()
   const { data: productsList, isLoading, isError } = useGetProductsQuery()
   if (isLoading) {
-    return console.log('loading..')
+    console.log('loading..')
+    return null
   }
   if (isError) {
-    return console.log('error')
+    console.log('error')
+    return null
   }
   return (
     <S.ProductCardWrapper>
