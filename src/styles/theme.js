@@ -16,9 +16,14 @@ const common = {
   `,
 }
 
+const widthDevice = {
+  default: '414px',
+}
+
 const theme = {
   colors,
   common,
+  widthDevice,
 }
 
 export default theme

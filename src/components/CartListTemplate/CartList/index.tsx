@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback, useMemo } from 'react';
 import * as S from './style';
 
 import { Product } from '@/types/product';
-import ProductCard from '@/components/ProductCardList';
+import ProductCardList from '@/components/ProductCardList';
 
 interface Props {
   data: Product[] | undefined;
@@ -27,7 +27,7 @@ const CartList = (props: Props) => {
 
   if (!data) return null;
   return (
-    <ProductCard
+    <ProductCardList
       dataList={data}
       checkedList={checkList}
       onChangeCheck={onChangeCheckbox}
