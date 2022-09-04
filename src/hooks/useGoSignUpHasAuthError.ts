@@ -13,6 +13,7 @@ const useGoSignUpHasAuthError = (
     for (const error of errors) {
       actIsAuthError(error, navigate);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 };
 

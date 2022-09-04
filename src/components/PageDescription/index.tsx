@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '@/modules/hooks';
 

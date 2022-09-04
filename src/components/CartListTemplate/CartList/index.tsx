@@ -1,5 +1,4 @@
 import { ChangeEvent, useCallback, useMemo } from 'react';
-import * as S from './style';
 
 import { Product } from '@/types/product';
 import ProductCardList from '@/components/ProductCardList';
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const CartList = (props: Props) => {
-  const { data, onChangeSelect, checkedList, disabledCard } = props;
+  const { data, onChangeSelect, checkedList } = props;
   const onChangeCheckbox = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       onChangeSelect(e.target.value, e.target.checked);

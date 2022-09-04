@@ -10,7 +10,6 @@ interface Props {}
 
 const CartListTemplate = (props: Props) => {
   const {
-    isLoading: isLoadingGet,
     isFetching: isFetchingGet,
     data,
     error: errorGet,
