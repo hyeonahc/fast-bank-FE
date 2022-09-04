@@ -48,25 +48,65 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
             <h3>{product.name}</h3>
             <span className="card-open">자세히 보기</span>
             {product.name === 'Hey Young 머니박스' ? (
-              <img src={cardImg1} className="card-ico card-ico01" alt="card-icon"/>
+              <img
+                src={cardImg1}
+                className="card-ico card-ico01"
+                alt="card-icon"
+              />
             ) : product.name === 'fast 편한 정기 예금' ? (
-              <img src={cardImg2} className="card-ico card-ico02" alt="card-icon"/>
+              <img
+                src={cardImg2}
+                className="card-ico card-ico02"
+                alt="card-icon"
+              />
             ) : product.name === 'fast 예금통' ? (
-              <img src={cardImg3} className="card-ico card-ico03" alt="card-icon"/>
+              <img
+                src={cardImg3}
+                className="card-ico card-ico03"
+                alt="card-icon"
+              />
             ) : product.name === '청소년 통장' ? (
-              <img src={cardImg4} className="card-ico card-ico04" alt="card-icon"/>
+              <img
+                src={cardImg4}
+                className="card-ico card-ico04"
+                alt="card-icon"
+              />
             ) : product.name === 'fast만 해' ? (
-              <img src={cardImg5} className="card-ico card-ico05" alt="card-icon"/>
+              <img
+                src={cardImg5}
+                className="card-ico card-ico05"
+                alt="card-icon"
+              />
             ) : product.name === '아름다운 용기 적금' ? (
-              <img src={cardImg6} className="card-ico card-ico06" alt="card-icon"/>
+              <img
+                src={cardImg6}
+                className="card-ico card-ico06"
+                alt="card-icon"
+              />
             ) : product.name === 'fast ONE 적금' ? (
-              <img src={cardImg7} className="card-ico card-ico07" alt="card-icon"/>
+              <img
+                src={cardImg7}
+                className="card-ico card-ico07"
+                alt="card-icon"
+              />
             ) : product.name === 'fast 직장인든든 상용대출' ? (
-              <img src={cardImg8} className="card-ico card-ico08" alt="card-icon"/>
+              <img
+                src={cardImg8}
+                className="card-ico card-ico08"
+                alt="card-icon"
+              />
             ) : product.name === '버팀목 전세자금 대출' ? (
-              <img src={cardImg9} className="card-ico card-ico09" alt="card-icon"/>
+              <img
+                src={cardImg9}
+                className="card-ico card-ico09"
+                alt="card-icon"
+              />
             ) : product.name === '대학생을 위한 학자금대출' ? (
-              <img src={cardImg10} className="card-ico card-ico10" alt="card-icon"/>
+              <img
+                src={cardImg10}
+                className="card-ico card-ico10"
+                alt="card-icon"
+              />
             ) : null}
             <FavoriteButton item={product} />
             <div className="card-cover"></div>
