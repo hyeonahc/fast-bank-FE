@@ -43,11 +43,22 @@ const widthDevice = {
   default: '414px',
 }
 
+const space = {
+  marginColumn: '2rem',
+  marginRow: '2.2rem',
+}
+
+const size = {
+  inputHeightInPage: '4.4rem',
+}
+
 const theme = {
   colors,
   fontSize,
   fontWeight,
   common,
+  space,
+  size,
   widthDevice,
 }
 
