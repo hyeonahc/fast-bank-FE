@@ -1,10 +1,13 @@
 import CartListHeader from './CartListHeader';
 import CartList from './CartList';
+import * as S from './style';
 
 import { useCheckboxWithCheckAll } from './hook';
 import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
 
 import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
+import Button from '@/components/common/Button';
+import ButtonFilled from '@/components/common/Button/ButtonFilled';
 
 interface Props {}
 
@@ -38,8 +41,6 @@ const CartListTemplate = (props: Props) => {
         checked={checkedAll}
         disabledCheckbox={isFetching}
         onChangeCheckboxAll={onChangeCheckboxAll}
-        onClickRemove={() => removeCart({ ids: checkedList })}
-        disabledRemove={disabledCommand}
       />
       <CartList
         data={data}
@@ -47,6 +48,10 @@ const CartListTemplate = (props: Props) => {
         checkedList={checkedList}
         disabledCard={isFetching}
       />
+      <S.BottomButtonContainer>
+        <ButtonFilled disabled={disabledCommand}>신청하기</ButtonFilled>
+        <Button disabled={disabledCommand}>삭제하기</Button>
+      </S.BottomButtonContainer>
     </>
   );
 };

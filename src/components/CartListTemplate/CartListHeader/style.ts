@@ -14,5 +14,3 @@ export const CheckboxLabel = styled.label({
 });
 
 export const Checkbox = styled.input.attrs({ type: 'checkbox' })({});
-
-export const RemoveButton = styled(Button)({});
