@@ -1,3 +1,4 @@
+import { useAddFavMutation, useRemoveFavMutation } from '@/api/favoriteApi'
 import {
   addFavorite,
   deleteFavorite,
@@ -21,6 +22,7 @@ function FavoriteButton({ item }) {
           className="favorite-btn"
           onClick={(e) => {
             dispatch(deleteFavorite(item))
+            // dispatch(useRemoveFavMutation)
             e.stopPropagation()
           }}
         />
@@ -29,6 +31,7 @@ function FavoriteButton({ item }) {
           className="favorite-btn"
           onClick={(e) => {
             dispatch(addFavorite(item))
+            // dispatch(useAddFavMutation)
             e.stopPropagation()
           }}
         />
