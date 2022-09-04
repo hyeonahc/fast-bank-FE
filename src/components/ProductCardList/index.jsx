@@ -20,10 +20,10 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
   return (
     <S.ProductCardWrapper>
       {dataList &&
-        dataList.products.map((product) => (
+        dataList.map((product) => (
           <S.ProductCard
             key={product.id}
-            value={product.category}
+            value={product.type}
             onClick={() => {
               setModalOpen(true)
               setCardData(product)
@@ -44,7 +44,7 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
                 <span className="chk-mark"></span>
               </label>
             ) : null}
-            <h2>{product.category}</h2>
+            <h2>{product.type}</h2>
             <h3>{product.name}</h3>
             <span className="card-open">자세히 보기</span>
             {product.name === 'Hey Young 머니박스' ? (
@@ -118,12 +118,13 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
     </S.ProductCardWrapper>
   )
 }
+
 export function ProductDetailModal({ setModalOpen, cardData }) {
   const materialStyle = { color: '#91959C', fontSize: '1.3rem' }
   return (
     <S.ProductDetailModalDimmed>
       <S.ProductModal>
-        <span>{cardData.category}</span>
+        <span>{cardData.type}</span>
         <h2>{cardData.name}</h2>
         <p>{cardData.description}</p>
         <ButtonText className="btn-cart" buttonText="장바구니 담기" />
@@ -138,4 +139,5 @@ export function ProductDetailModal({ setModalOpen, cardData }) {
     </S.ProductDetailModalDimmed>
   )
 }
+
 export default ProductCardList

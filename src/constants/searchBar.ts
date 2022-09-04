@@ -1,12 +1,12 @@
 export const CATALOG_LIST = [
-  { value: '', label: '전체상품' },
+  { value: '', label: '전체 상품' },
   { value: '예금', label: '예금' },
   { value: '적금', label: '적금' },
   { value: '대출', label: '대출' },
 ];
 
 export const KEYWORD_LIST = [
-  { value: '', label: '전체고객' },
+  { value: '', label: '전체 고객' },
   { value: '청소년', label: '청소년' },
   { value: '대학생', label: '대학생' },
   { value: '직장인', label: '직장인' },

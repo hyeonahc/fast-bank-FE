@@ -5,14 +5,14 @@ export default createGlobalStyle`
 	* {
 		box-sizing:border-box;
 	}
-	h1, h2, h3, h4, h5, h6 {font-weight: 400;}
+	h1, h2, h3, h4, h5, h6 {font-weight: ${({ theme }) => theme.fontWeight.bold};}
 	html { font-size: 62.5%; }
 	body {
 		font-size: 1.6rem;
 		line-height: 1.25;
 		min-height: 100vh;
 		height:100%;
-		padding:4rem 3.5rem;
+		padding:4rem 3.6rem;
 		max-width: ${({ theme }) => theme.widthDevice.default};
 		margin: 0 auto;
 		border-left: 1px solid #ddd;

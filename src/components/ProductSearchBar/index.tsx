@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError, skipToken } from '@reduxjs/toolkit/query';
-import Select from '@/components/common/Select';
 import SearchInput from './SearchInput';
 import * as S from './style';
 
@@ -70,25 +69,43 @@ const ProductSearchBar = (props: Props) => {
       if (!querying) onUpdate(false, false, !!data, undefined, undefined);
       else onUpdate(false, isLoading, isFetching, data, error);
     }
-  }, [isEmpty, isLoading, isFetching, data, error]);
+  }, [isEmpty, isLoading, isFetching, data, error, onUpdate]);
 
   return (
     <S.Container className={className}>
       <S.FilterContainer>
-        <Select name="catalog" onChange={onChangeSelect} value={input.catalog}>
-          {CATALOG_LIST.map(({ value, label }) => (
-            <option key={value} value={value}>
+        <S.Select
+          name="catalog"
+          onChange={onChangeSelect}
+          value={input.catalog}
+          selectedDefault={input.catalog === defaultInputState.catalog}
+        >
+          {CATALOG_LIST.map(({ value, label }, idx) => (
+            <S.Option
+              isDefault={value === defaultInputState.keyword}
+              key={value}
+              value={value}
+            >
               {label}
-            </option>
+            </S.Option>
           ))}
-        </Select>
-        <Select name="keyword" onChange={onChangeSelect} value={input.keyword}>
+        </S.Select>
+        <S.Select
+          name="keyword"
+          onChange={onChangeSelect}
+          value={input.keyword}
+          selectedDefault={input.keyword === defaultInputState.keyword}
+        >
           {KEYWORD_LIST.map(({ value, label }) => (
-            <option key={value} value={value}>
+            <S.Option
+              isDefault={value === defaultInputState.keyword}
+              key={value}
+              value={value}
+            >
               {label}
-            </option>
+            </S.Option>
           ))}
-        </Select>
+        </S.Select>
       </S.FilterContainer>
       <SearchInput name="word" onChange={onChangeSelect} />
     </S.Container>
