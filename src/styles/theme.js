@@ -5,6 +5,7 @@ const colors = {
   heart: '#F8496E',
   error: '#FF6347',
   text: '#181C24',
+  textSecond: '#ffffff',
   modalBackground: 'rgba(24, 28, 36, 0.2)',
   inputPlaceholder: '#91959C',
   inputBorder: '#DDDDDD',
