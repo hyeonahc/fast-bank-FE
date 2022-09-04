@@ -15,10 +15,10 @@ const colors = {
 }
 
 const fontSize = {
-  extraSmall: '14px',
-  small: '14px',
-  regular: '14px',
-  big: '14px',
+  extraSmall: '1.2rem',
+  small: '1.4rem',
+  regular: '1.6rem',
+  big: '2.4rem',
 }
 
 const fontWeight = {

@@ -86,6 +86,16 @@
         "dDvbnY6"
       ],
       "id": 1
+    },
+    {
+      "email": "test1234@test.com",
+      "password": "$2a$10$6FOIqrE4aR3f1Bso/mfi..i0TPGEqYN7NdvzVpzTHHLAWqB32n0fm",
+      "name": "test",
+      "age": "20대",
+      "job": "대학생",
+      "wishList": [],
+      "cart": [],
+      "id": 2
     }
   ]
 }

@@ -12,7 +12,7 @@ export default createGlobalStyle`
 		line-height: 1.25;
 		min-height: 100vh;
 		height:100%;
-		padding:4rem 2rem;
+		padding:4rem 3.5rem;
 		max-width: ${({ theme }) => theme.widthDevice.default};
 		margin: 0 auto;
 		border-left: 1px solid #ddd;
