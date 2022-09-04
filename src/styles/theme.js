@@ -48,17 +48,12 @@ const space = {
   marginRow: '2.2rem',
 }
 
-const size = {
-  inputHeightInPage: '4.4rem',
-}
-
 const theme = {
   colors,
   fontSize,
   fontWeight,
   common,
   space,
-  size,
   widthDevice,
 }
 
