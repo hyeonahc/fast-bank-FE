@@ -13,12 +13,13 @@ import { actIsAuthError } from '@/utils/isAuthError'
 
 const PageContainer = styled.div``
 
-const ProductSearchBarStyled = styled(ProductSearchBar)`
-  margin-bottom: 1.6rem;
-`
-const ProductOrderBarStyled = styled(ProductOrderBar)`
-  margin-bottom: 1.6rem;
-`
+const ProductSearchBarStyled = styled(ProductSearchBar)(({ theme }) => ({
+  marginBottom: theme.space.marginColumn,
+}))
+
+const ProductOrderBarStyled = styled(ProductOrderBar)(({ theme }) => ({
+  marginBottom: theme.space.marginColumn,
+}))
 
 const AllProductsPage = () => {
   const { isLoading, data: dataList } = useGetProductsQuery()
