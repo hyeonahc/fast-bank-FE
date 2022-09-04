@@ -12,6 +12,7 @@ export const BottomNavigator = styled.div`
   height: 80px;
   border: 1px solid #ddd;
   border-bottom: none;
+  z-index: 10;
   & ul {
     display: flex;
     align-items: center;
