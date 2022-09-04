@@ -32,6 +32,15 @@ server.get('/product', (req, res, next) => {
   const user = getUserAuth(req, res)
   if (!user) return
 
+  const products = router.db.get('productList').value()
+  res.statusCode = 200
+  res.json({ products })
+})
+
+server.get('/product-custom', (req, res, next) => {
+  const user = getUserAuth(req, res)
+  if (!user) return
+
   const products = [
     ...findKeyword({ keyword: user.job }).value(),
     ...findKeyword({ keyword: user.age }).value(),
