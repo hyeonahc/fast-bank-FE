@@ -82,40 +82,46 @@ const SignInPage = () => {
         <img src={logo} alt="logo" />
       </div>
       <form onSubmit={handleSignIn}>
-        <p className="label">Email</p>
-        <InputText
-          type="text"
-          name="email"
-          placeholder="이메일을 입력해주세요"
-          value={formValues.email}
-          onChange={handleInputChange}
-          onBlur={removeInputSpaces}
-        />
-        <p
-          style={{ display: formErrors.email ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.email}
-        </p>
-        <p className="label">Password</p>
-        <InputText
-          type="password"
-          name="password"
-          placeholder="비밀번호 4자리 이상을 입력해주세요"
-          value={formValues.password}
-          onChange={handleInputChange}
-          onBlur={removeInputSpaces}
-        />
-        <p
-          style={{ display: formErrors.password ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.password}
-        </p>
-        <ButtonText type="submit" buttonText="로그인" />
-        <p style={{ display: displaySignInError ? 'block' : 'none' }}>
-          아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
-        </p>
+        <div className="email-wrapper">
+          <p className="label">Email</p>
+          <InputText
+            type="text"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            value={formValues.email}
+            onChange={handleInputChange}
+            onBlur={removeInputSpaces}
+          />
+          <p
+            style={{ display: formErrors.email ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.email}
+          </p>
+        </div>
+        <div className="password-wrapper">
+          <p className="label">Password</p>
+          <InputText
+            type="password"
+            name="password"
+            placeholder="비밀번호 4자리 이상을 입력해주세요"
+            value={formValues.password}
+            onChange={handleInputChange}
+            onBlur={removeInputSpaces}
+          />
+          <p
+            style={{ display: formErrors.password ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.password}
+          </p>
+        </div>
+        <div className="button-wrapper">
+          <ButtonText type="submit" buttonText="로그인" />
+          <p style={{ display: displaySignInError ? 'block' : 'none' }}>
+            아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
+          </p>
+        </div>
         <p className="signup-text">
           아직 계정이 없으신가요?
           <span onClick={() => navigate('/signup')}>회원가입</span>
