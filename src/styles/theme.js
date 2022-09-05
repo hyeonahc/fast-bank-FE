@@ -11,6 +11,7 @@ const colors = {
   cardPink: '#F2908C',
   cardOrange: '#FAA94F',
   cardBlue: '#4F76CC',
+  white: '#FFFFFF',
   cardHover: 'rgba(255, 255, 255, 0.3)',
 }
 
@@ -27,15 +28,23 @@ const fontWeight = {
   bold: 700,
 }
 
+const sharedValue = {
+  borderRadius: '8px',
+}
+
 const common = {
   flexCenter: css`
     display: flex;
     align-items: center;
     justify-content: center;
   `,
-  ErrorMessage: css`
-    color: tomato;
-    font-size: 0.8rem;
+  errorMessage: css`
+    color: #ff6347;
+    font-size: 1.2rem;
+  `,
+  label: css`
+    font-weight: 500;
+    margin-bottom: 0.5rem;
   `,
 }
 
@@ -52,6 +61,7 @@ const theme = {
   colors,
   fontSize,
   fontWeight,
+  sharedValue,
   common,
   space,
   widthDevice,

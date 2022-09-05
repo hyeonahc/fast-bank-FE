@@ -1,11 +1,33 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  input,
-  select {
-    display: block;
+  .logo-wrapper {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    img {
+      width: 20rem;
+    }
   }
-  /* p {
-    ${({ theme }) => theme.common.ErrorMessage}
-  } */
+  .email-wrapper,
+  .password-wrapper {
+    margin-bottom: 2rem;
+    .label {
+      ${({ theme }) => theme.common.label};
+    }
+  }
+  .signup-text {
+    text-align: right;
+    color: ${({ theme }) => theme.colors.inputPlaceholder};
+    span {
+      margin-left: 0.5rem;
+      color: ${({ theme }) => theme.colors.primary};
+      cursor: pointer;
+    }
+  }
+  .button-wrapper {
+    margin-bottom: 1rem;
+  }
+  .error-message {
+    ${({ theme }) => theme.common.errorMessage};
+  }
 `
