@@ -81,6 +81,7 @@ const SignInPage = () => {
     <S.Container>
       <img src={logo} alt="logo" />
       <form onSubmit={handleSignIn}>
+        <p>Email</p>
         <InputText
           type="text"
           name="email"
@@ -92,6 +93,7 @@ const SignInPage = () => {
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
         </p>
+        <p>Password</p>
         <InputText
           type="text"
           name="password"
