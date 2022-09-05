@@ -11,6 +11,7 @@ const colors = {
   cardPink: '#F2908C',
   cardOrange: '#FAA94F',
   cardBlue: '#4F76CC',
+  white: '#FFFFFF',
   cardHover: 'rgba(255, 255, 255, 0.3)',
 }
 
@@ -25,6 +26,10 @@ const fontWeight = {
   regular: 400,
   medium: 500,
   bold: 700,
+}
+
+const sharedValue = {
+  borderRadius: '8px',
 }
 
 const common = {
@@ -56,6 +61,7 @@ const theme = {
   colors,
   fontSize,
   fontWeight,
+  sharedValue,
   common,
   space,
   widthDevice,
