@@ -17,7 +17,7 @@ const SuccessModal = ({
 
   return (
     <S.SuccessModal style={{ display: displaySuccessModal ? 'flex' : 'none' }}>
-      <h2>{title}</h2>
+      <h2>{title} 🙂</h2>
       <ButtonText onClick={onClickHandler} buttonText={buttonText} />
     </S.SuccessModal>
   )
