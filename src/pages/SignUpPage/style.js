@@ -7,7 +7,7 @@ export const Container = styled.div`
   select {
     display: block;
   }
-  p {
+  /* p {
     ${({ theme }) => theme.common.ErrorMessage}
-  }
+  } */
 `
