@@ -1,9 +1,16 @@
 import ProductCardList from '@/components/ProductCardList'
-import { useFavorite } from '@/modules/favoriteSlice'
+import { addFav, getFav, useFavorite } from '@/modules/favoriteSlice'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const FavoriteProductsPage = () => {
   const { favorite } = useFavorite()
-  console.log(favorite)
+  // console.log(favorite)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    console.log(dispatch(getFav()))
+  }, [dispatch])
 
   return (
     <>
