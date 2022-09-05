@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 100%;
-  position: relative;
-  input,
-  select {
-    display: block;
+  h1 {
+    font-size: ${({ theme }) => theme.fontSize.extraBig};
+    text-align: center;
+    margin-bottom: 2.5rem;
   }
-  /* p {
-    ${({ theme }) => theme.common.ErrorMessage}
-  } */
+  .input-wrapper {
+    margin-bottom: 2rem;
+    .label {
+      ${({ theme }) => theme.common.label};
+    }
+  }
+  .error-message {
+    ${({ theme }) => theme.common.errorMessage};
+  }
 `
