@@ -49,10 +49,9 @@ const SignInPage = () => {
       console.log(response.data)
       setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
-      // update required: Update user to name when real server is connected
-      const { accessToken, user } = response.data
+      const { accessToken, name } = response.data
       window.localStorage.setItem('accessToken', accessToken)
-      dispatch(saveName(user.name))
+      dispatch(saveName(name))
       navigate('/')
     } catch (e) {
       setFormErrors(validateSignInValues(formValues))
