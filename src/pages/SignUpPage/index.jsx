@@ -45,7 +45,11 @@ const SignUpPage = () => {
       `${process.env.REACT_APP_SERVER_URL}/signup/check`,
       { email: formValues.email },
     )
-    const emailIsAvailable = response.data
+    console.log(
+      '[SignUpPage/validateDuplicateEmail] response.data: ',
+      response.data,
+    )
+    const emailIsAvailable = response.data.isAvailable
     if (!emailIsAvailable) {
       setFormErrors(validateSignUp(formValues, emailIsAvailable))
     } else {
@@ -127,7 +131,7 @@ const SignUpPage = () => {
         </p>
         <p>Password</p>
         <InputText
-          type="text"
+          type="password"
           name="password"
           placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
