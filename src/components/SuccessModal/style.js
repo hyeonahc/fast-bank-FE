@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 
 export const SuccessModal = styled.div`
-  ${({ theme }) => theme.common.flexCenter}
+  ${({ theme }) => theme.common.transformCenter};
+  ${({ theme }) => theme.common.flexCenter};
   flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid #ddd;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 40vw;
   height: 25vh;
   text-align: center;
-
   h2 {
-    margin-bottom: 0.7rem;
+    font-size: ${({ theme }) => theme.fontSize.big};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    margin-bottom: 1rem;
   }
 `

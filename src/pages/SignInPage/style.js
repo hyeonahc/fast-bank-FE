@@ -8,8 +8,7 @@ export const Container = styled.div`
       width: 20rem;
     }
   }
-  .email-wrapper,
-  .password-wrapper {
+  .input-wrapper {
     margin-bottom: 2rem;
     .label {
       ${({ theme }) => theme.common.label};

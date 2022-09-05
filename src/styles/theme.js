@@ -19,7 +19,8 @@ const fontSize = {
   extraSmall: '1.2rem',
   small: '1.4rem',
   regular: '1.6rem',
-  big: '2.4rem',
+  big: '2rem',
+  extraBig: '2.4rem',
 }
 
 const fontWeight = {
@@ -37,6 +38,12 @@ const common = {
     display: flex;
     align-items: center;
     justify-content: center;
+  `,
+  transformCenter: css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   `,
   errorMessage: css`
     color: #ff6347;
