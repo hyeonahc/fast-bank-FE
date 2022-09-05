@@ -46,13 +46,12 @@ const SignInPage = () => {
         `${process.env.REACT_APP_SERVER_URL}/login`,
         formValues,
       )
-      console.log(response.data)
+      console.log('[SignInPage/requestSignIn] response.data: ', response.data)
       setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
-      // update required: Update user to name when real server is connected
-      const { accessToken, user } = response.data
+      const { accessToken, name } = response.data
       window.localStorage.setItem('accessToken', accessToken)
-      dispatch(saveName(user.name))
+      dispatch(saveName(name))
       navigate('/')
     } catch (e) {
       setFormErrors(validateSignInValues(formValues))
@@ -63,7 +62,7 @@ const SignInPage = () => {
   // test code: Check if name is saved in user module
   const name = useSelector((state) => state.user)
   useEffect(() => {
-    console.log(name)
+    console.log('[SignInPage/useEffect] state.user.name: ', name)
   }, [name])
 
   const validateSignInValues = (values) => {
@@ -95,7 +94,7 @@ const SignInPage = () => {
         </p>
         <p>Password</p>
         <InputText
-          type="text"
+          type="password"
           name="password"
           placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
