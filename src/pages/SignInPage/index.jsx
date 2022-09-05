@@ -32,7 +32,7 @@ const SignInPage = () => {
   const handleSignIn = (e) => {
     e.preventDefault()
     if (Object.values(formValues).indexOf('') > -1) {
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
     } else {
       requestSignIn()
     }
@@ -47,7 +47,7 @@ const SignInPage = () => {
         formValues,
       )
       console.log(response.data)
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
       // update required: Update user to name when real server is connected
       const { accessToken, user } = response.data
@@ -55,7 +55,7 @@ const SignInPage = () => {
       dispatch(saveName(user.name))
       navigate('/')
     } catch (e) {
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(true)
     }
   }
@@ -66,7 +66,7 @@ const SignInPage = () => {
     console.log(name)
   }, [name])
 
-  const signInValidate = (values) => {
+  const validateSignInValues = (values) => {
     const errors = {}
     if (!values.email) {
       errors.email = '이메일을 입력해주세요!'
