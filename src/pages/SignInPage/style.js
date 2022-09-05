@@ -10,10 +10,6 @@ export const Container = styled.div`
   .label {
     ${({ theme }) => theme.common.label};
   }
-  input,
-  select {
-    display: block;
-  }
   .error-message {
     ${({ theme }) => theme.common.errorMessage};
   }
