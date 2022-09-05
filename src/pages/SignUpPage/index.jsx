@@ -105,7 +105,7 @@ const SignUpPage = () => {
         <InputText
           type="text"
           name="name"
-          placeholder="이름"
+          placeholder="이름을 입력해주세요"
           value={formValues.name}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -117,7 +117,7 @@ const SignUpPage = () => {
         <InputText
           type="text"
           name="email"
-          placeholder="이메일"
+          placeholder="이메일을 입력해주세요"
           value={formValues.email}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -129,7 +129,7 @@ const SignUpPage = () => {
         <InputText
           type="text"
           name="password"
-          placeholder="비밀번호"
+          placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -144,7 +144,7 @@ const SignUpPage = () => {
           value={formValues.age}
           onChange={handleInputChange}
           options={ageOptions}
-          defaultOption="나이"
+          defaultOption="나이를 선택해주세요"
         />
         <p style={{ display: formErrors.age ? 'block' : 'none' }}>
           {formErrors.age}
@@ -156,7 +156,7 @@ const SignUpPage = () => {
           value={formValues.job}
           onChange={handleInputChange}
           options={jobOptions}
-          defaultOption="직업"
+          defaultOption="직업을 선택해주세요"
         />
         <p style={{ display: formErrors.job ? 'block' : 'none' }}>
           {formErrors.job}
