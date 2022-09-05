@@ -8,4 +8,7 @@ export const Container = styled.div`
   .label {
     ${({ theme }) => theme.common.label};
   }
+  .error-message {
+    ${({ theme }) => theme.common.errorMessage};
+  }
 `

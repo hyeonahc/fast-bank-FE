@@ -114,7 +114,10 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
         />
-        <p style={{ display: formErrors.name ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.name ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.name}
         </p>
         <p className="label">Email</p>
@@ -126,7 +129,10 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
         />
-        <p style={{ display: formErrors.email ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.email ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.email}
         </p>
         <p className="label">Password</p>
@@ -138,7 +144,10 @@ const SignUpPage = () => {
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
         />
-        <p style={{ display: formErrors.password ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.password ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.password}
         </p>
         <p className="label">Age</p>
@@ -150,7 +159,10 @@ const SignUpPage = () => {
           options={ageOptions}
           defaultOption="나이를 선택해주세요"
         />
-        <p style={{ display: formErrors.age ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.age ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.age}
         </p>
         <p className="label">Job</p>
@@ -162,11 +174,17 @@ const SignUpPage = () => {
           options={jobOptions}
           defaultOption="직업을 선택해주세요"
         />
-        <p style={{ display: formErrors.job ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.job ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.job}
         </p>
         <ButtonText type="submit" buttonText="회원가입" />
-        <p style={{ display: displaySignUpError ? 'block' : 'none' }}>
+        <p
+          style={{ display: displaySignUpError ? 'block' : 'none' }}
+          className="error-message"
+        >
           회원가입에 실패했습니다. 다시 시도해주세요.
         </p>
       </form>
