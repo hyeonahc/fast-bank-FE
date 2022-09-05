@@ -22,7 +22,7 @@ const SignInPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  const RemoveInputSpaces = (e) => {
+  const removeInputSpaces = (e) => {
     const { name, value } = e.target
     setFormValues({ ...formValues, [name]: value.trim() })
   }
@@ -88,7 +88,7 @@ const SignInPage = () => {
           placeholder="이메일을 입력해주세요"
           value={formValues.email}
           onChange={handleInputChange}
-          onBlur={RemoveInputSpaces}
+          onBlur={removeInputSpaces}
         />
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
@@ -100,7 +100,7 @@ const SignInPage = () => {
           placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
           onChange={handleInputChange}
-          onBlur={RemoveInputSpaces}
+          onBlur={removeInputSpaces}
         />
         <p style={{ display: formErrors.password ? 'block' : 'none' }}>
           {formErrors.password}
