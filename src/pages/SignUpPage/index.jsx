@@ -101,10 +101,11 @@ const SignUpPage = () => {
     <S.Container>
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
+        <p>Name</p>
         <InputText
           type="text"
           name="name"
-          placeholder="이름"
+          placeholder="이름을 입력해주세요"
           value={formValues.name}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -112,10 +113,11 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.name ? 'block' : 'none' }}>
           {formErrors.name}
         </p>
+        <p>Email</p>
         <InputText
           type="text"
           name="email"
-          placeholder="이메일"
+          placeholder="이메일을 입력해주세요"
           value={formValues.email}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -123,10 +125,11 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
         </p>
+        <p>Password</p>
         <InputText
           type="text"
           name="password"
-          placeholder="비밀번호"
+          placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
@@ -134,24 +137,26 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.password ? 'block' : 'none' }}>
           {formErrors.password}
         </p>
+        <p>Age</p>
         <SelectWithOptions
           name="age"
           id="age"
           value={formValues.age}
           onChange={handleInputChange}
           options={ageOptions}
-          defaultOption="나이"
+          defaultOption="나이를 선택해주세요"
         />
         <p style={{ display: formErrors.age ? 'block' : 'none' }}>
           {formErrors.age}
         </p>
+        <p>Job</p>
         <SelectWithOptions
           name="job"
           id="job"
           value={formValues.job}
           onChange={handleInputChange}
           options={jobOptions}
-          defaultOption="직업"
+          defaultOption="직업을 선택해주세요"
         />
         <p style={{ display: formErrors.job ? 'block' : 'none' }}>
           {formErrors.job}
