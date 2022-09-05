@@ -105,7 +105,7 @@ const SignUpPage = () => {
     <S.Container>
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
-        <p>Name</p>
+        <p className="label">Name</p>
         <InputText
           type="text"
           name="name"
@@ -117,7 +117,7 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.name ? 'block' : 'none' }}>
           {formErrors.name}
         </p>
-        <p>Email</p>
+        <p className="label">Email</p>
         <InputText
           type="text"
           name="email"
@@ -129,7 +129,7 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
         </p>
-        <p>Password</p>
+        <p className="label">Password</p>
         <InputText
           type="password"
           name="password"
@@ -141,7 +141,7 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.password ? 'block' : 'none' }}>
           {formErrors.password}
         </p>
-        <p>Age</p>
+        <p className="label">Age</p>
         <SelectWithOptions
           name="age"
           id="age"
@@ -153,7 +153,7 @@ const SignUpPage = () => {
         <p style={{ display: formErrors.age ? 'block' : 'none' }}>
           {formErrors.age}
         </p>
-        <p>Job</p>
+        <p className="label">Job</p>
         <SelectWithOptions
           name="job"
           id="job"

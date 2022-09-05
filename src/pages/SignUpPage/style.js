@@ -5,4 +5,7 @@ export const Container = styled.div`
     font-size: ${({ theme }) => theme.fontSize.extraBig};
     text-align: center;
   }
+  .label {
+    ${({ theme }) => theme.common.label};
+  }
 `
