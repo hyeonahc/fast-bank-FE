@@ -82,7 +82,7 @@ const SignInPage = () => {
         <img src={logo} alt="logo" />
       </div>
       <form onSubmit={handleSignIn}>
-        <div className="email-wrapper">
+        <div className="input-wrapper">
           <p className="label">Email</p>
           <InputText
             type="text"
@@ -99,7 +99,7 @@ const SignInPage = () => {
             {formErrors.email}
           </p>
         </div>
-        <div className="password-wrapper">
+        <div className="input-wrapper">
           <p className="label">Password</p>
           <InputText
             type="password"
