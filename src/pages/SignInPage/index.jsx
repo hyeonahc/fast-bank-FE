@@ -82,7 +82,7 @@ const SignInPage = () => {
         <img src={logo} alt="logo" />
       </div>
       <form onSubmit={handleSignIn}>
-        <p>Email</p>
+        <p className="label">Email</p>
         <InputText
           type="text"
           name="email"
@@ -94,7 +94,7 @@ const SignInPage = () => {
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
         </p>
-        <p>Password</p>
+        <p className="label">Password</p>
         <InputText
           type="password"
           name="password"

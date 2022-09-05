@@ -37,6 +37,10 @@ const common = {
     color: tomato;
     font-size: 0.8rem;
   `,
+  label: css`
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  `,
 }
 
 const widthDevice = {

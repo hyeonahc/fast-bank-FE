@@ -7,6 +7,9 @@ export const Container = styled.div`
       width: 20rem;
     }
   }
+  .label {
+    ${({ theme }) => theme.common.label}
+  }
   input,
   select {
     display: block;
