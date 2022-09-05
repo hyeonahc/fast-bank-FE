@@ -38,9 +38,9 @@ const common = {
     align-items: center;
     justify-content: center;
   `,
-  ErrorMessage: css`
-    color: tomato;
-    font-size: 0.8rem;
+  errorMessage: css`
+    color: #ff6347;
+    font-size: 1.2rem;
   `,
   label: css`
     font-weight: 500;

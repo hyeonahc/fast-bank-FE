@@ -91,7 +91,10 @@ const SignInPage = () => {
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
         />
-        <p style={{ display: formErrors.email ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.email ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.email}
         </p>
         <p className="label">Password</p>
@@ -103,7 +106,10 @@ const SignInPage = () => {
           onChange={handleInputChange}
           onBlur={removeInputSpaces}
         />
-        <p style={{ display: formErrors.password ? 'block' : 'none' }}>
+        <p
+          style={{ display: formErrors.password ? 'block' : 'none' }}
+          className="error-message"
+        >
           {formErrors.password}
         </p>
         <ButtonText type="submit" buttonText="로그인" />
