@@ -78,7 +78,9 @@ const SignInPage = () => {
 
   return (
     <S.Container>
-      <img src={logo} alt="logo" />
+      <div className="logo-wrapper">
+        <img src={logo} alt="logo" />
+      </div>
       <form onSubmit={handleSignIn}>
         <p>Email</p>
         <InputText
