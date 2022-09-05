@@ -4,9 +4,13 @@ export const Container = styled.div`
   h1 {
     font-size: ${({ theme }) => theme.fontSize.extraBig};
     text-align: center;
+    margin-bottom: 2.5rem;
   }
-  .label {
-    ${({ theme }) => theme.common.label};
+  .input-wrapper {
+    margin-bottom: 2rem;
+    .label {
+      ${({ theme }) => theme.common.label};
+    }
   }
   .error-message {
     ${({ theme }) => theme.common.errorMessage};

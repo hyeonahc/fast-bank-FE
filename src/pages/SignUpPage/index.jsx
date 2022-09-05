@@ -105,81 +105,91 @@ const SignUpPage = () => {
     <S.Container>
       <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
-        <p className="label">Name</p>
-        <InputText
-          type="text"
-          name="name"
-          placeholder="이름을 입력해주세요"
-          value={formValues.name}
-          onChange={handleInputChange}
-          onBlur={removeInputSpaces}
-        />
-        <p
-          style={{ display: formErrors.name ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.name}
-        </p>
-        <p className="label">Email</p>
-        <InputText
-          type="text"
-          name="email"
-          placeholder="이메일을 입력해주세요"
-          value={formValues.email}
-          onChange={handleInputChange}
-          onBlur={removeInputSpaces}
-        />
-        <p
-          style={{ display: formErrors.email ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.email}
-        </p>
-        <p className="label">Password</p>
-        <InputText
-          type="password"
-          name="password"
-          placeholder="비밀번호 4자리 이상을 입력해주세요"
-          value={formValues.password}
-          onChange={handleInputChange}
-          onBlur={removeInputSpaces}
-        />
-        <p
-          style={{ display: formErrors.password ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.password}
-        </p>
-        <p className="label">Age</p>
-        <SelectWithOptions
-          name="age"
-          id="age"
-          value={formValues.age}
-          onChange={handleInputChange}
-          options={ageOptions}
-          defaultOption="나이를 선택해주세요"
-        />
-        <p
-          style={{ display: formErrors.age ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.age}
-        </p>
-        <p className="label">Job</p>
-        <SelectWithOptions
-          name="job"
-          id="job"
-          value={formValues.job}
-          onChange={handleInputChange}
-          options={jobOptions}
-          defaultOption="직업을 선택해주세요"
-        />
-        <p
-          style={{ display: formErrors.job ? 'block' : 'none' }}
-          className="error-message"
-        >
-          {formErrors.job}
-        </p>
+        <div className="input-wrapper">
+          <p className="label">Name</p>
+          <InputText
+            type="text"
+            name="name"
+            placeholder="이름을 입력해주세요"
+            value={formValues.name}
+            onChange={handleInputChange}
+            onBlur={removeInputSpaces}
+          />
+          <p
+            style={{ display: formErrors.name ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.name}
+          </p>
+        </div>
+        <div className="input-wrapper">
+          <p className="label">Email</p>
+          <InputText
+            type="text"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            value={formValues.email}
+            onChange={handleInputChange}
+            onBlur={removeInputSpaces}
+          />
+          <p
+            style={{ display: formErrors.email ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.email}
+          </p>
+        </div>
+        <div className="input-wrapper">
+          <p className="label">Password</p>
+          <InputText
+            type="password"
+            name="password"
+            placeholder="비밀번호 4자리 이상을 입력해주세요"
+            value={formValues.password}
+            onChange={handleInputChange}
+            onBlur={removeInputSpaces}
+          />
+          <p
+            style={{ display: formErrors.password ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.password}
+          </p>
+        </div>
+        <div className="input-wrapper">
+          <p className="label">Age</p>
+          <SelectWithOptions
+            name="age"
+            id="age"
+            value={formValues.age}
+            onChange={handleInputChange}
+            options={ageOptions}
+            defaultOption="나이를 선택해주세요"
+          />
+          <p
+            style={{ display: formErrors.age ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.age}
+          </p>
+        </div>
+        <div className="input-wrapper">
+          <p className="label">Job</p>
+          <SelectWithOptions
+            name="job"
+            id="job"
+            value={formValues.job}
+            onChange={handleInputChange}
+            options={jobOptions}
+            defaultOption="직업을 선택해주세요"
+          />
+          <p
+            style={{ display: formErrors.job ? 'block' : 'none' }}
+            className="error-message"
+          >
+            {formErrors.job}
+          </p>
+        </div>
         <ButtonText type="submit" buttonText="회원가입" />
         <p
           style={{ display: displaySignUpError ? 'block' : 'none' }}
