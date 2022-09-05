@@ -116,7 +116,7 @@ const SignInPage = () => {
         <p style={{ display: displaySignInError ? 'block' : 'none' }}>
           아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
         </p>
-        <p>
+        <p className="signup-text">
           아직 계정이 없으신가요?
           <span onClick={() => navigate('/signup')}>회원가입</span>
         </p>
