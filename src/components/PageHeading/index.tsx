@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const H1Styled = styled.h1(({ theme }) => ({
   marginBottom: '2rem',
-  fontSize: theme.fontSize.big,
+  fontSize: theme.fontSize.extraBig,
   // 24px : 35px
   lineHeight: '1.46em',
 }));
