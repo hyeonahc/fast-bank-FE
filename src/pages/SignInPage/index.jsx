@@ -1,4 +1,5 @@
 import axios from 'axios'
+import logo from '@/assets/images/logo.png'
 import { useState, useEffect } from 'react'
 import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
@@ -78,7 +79,7 @@ const SignInPage = () => {
 
   return (
     <S.Container>
-      <h1>로그인</h1>
+      <img src={logo} alt="logo" />
       <form onSubmit={handleSignIn}>
         <InputText
           type="text"
