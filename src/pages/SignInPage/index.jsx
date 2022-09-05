@@ -1,4 +1,5 @@
 import axios from 'axios'
+import logo from '@/assets/images/logo.png'
 import { useState, useEffect } from 'react'
 import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,7 +22,7 @@ const SignInPage = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  const RemoveInputSpaces = (e) => {
+  const removeInputSpaces = (e) => {
     const { name, value } = e.target
     setFormValues({ ...formValues, [name]: value.trim() })
   }
@@ -31,7 +32,7 @@ const SignInPage = () => {
   const handleSignIn = (e) => {
     e.preventDefault()
     if (Object.values(formValues).indexOf('') > -1) {
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
     } else {
       requestSignIn()
     }
@@ -46,7 +47,7 @@ const SignInPage = () => {
         formValues,
       )
       console.log(response.data)
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
       // update required: Update user to name when real server is connected
       const { accessToken, user } = response.data
@@ -54,7 +55,7 @@ const SignInPage = () => {
       dispatch(saveName(user.name))
       navigate('/')
     } catch (e) {
-      setFormErrors(signInValidate(formValues))
+      setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(true)
     }
   }
@@ -65,7 +66,7 @@ const SignInPage = () => {
     console.log(name)
   }, [name])
 
-  const signInValidate = (values) => {
+  const validateSignInValues = (values) => {
     const errors = {}
     if (!values.email) {
       errors.email = '이메일을 입력해주세요!'
@@ -78,26 +79,28 @@ const SignInPage = () => {
 
   return (
     <S.Container>
-      <h1>로그인</h1>
+      <img src={logo} alt="logo" />
       <form onSubmit={handleSignIn}>
+        <p>Email</p>
         <InputText
           type="text"
           name="email"
-          placeholder="이메일"
+          placeholder="이메일을 입력해주세요"
           value={formValues.email}
           onChange={handleInputChange}
-          onBlur={RemoveInputSpaces}
+          onBlur={removeInputSpaces}
         />
         <p style={{ display: formErrors.email ? 'block' : 'none' }}>
           {formErrors.email}
         </p>
+        <p>Password</p>
         <InputText
           type="text"
           name="password"
-          placeholder="비밀번호"
+          placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
           onChange={handleInputChange}
-          onBlur={RemoveInputSpaces}
+          onBlur={removeInputSpaces}
         />
         <p style={{ display: formErrors.password ? 'block' : 'none' }}>
           {formErrors.password}
@@ -105,6 +108,10 @@ const SignInPage = () => {
         <ButtonText type="submit" buttonText="로그인" />
         <p style={{ display: displaySignInError ? 'block' : 'none' }}>
           아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
+        </p>
+        <p>
+          아직 계정이 없으신가요?
+          <span onClick={() => navigate('/signup')}>회원가입</span>
         </p>
       </form>
     </S.Container>
