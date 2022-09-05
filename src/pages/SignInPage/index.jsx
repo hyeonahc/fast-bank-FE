@@ -46,7 +46,7 @@ const SignInPage = () => {
         `${process.env.REACT_APP_SERVER_URL}/login`,
         formValues,
       )
-      console.log(response.data)
+      console.log('[SignInPage/requestSignIn] response.data: ', response.data)
       setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
       const { accessToken, name } = response.data
@@ -62,7 +62,7 @@ const SignInPage = () => {
   // test code: Check if name is saved in user module
   const name = useSelector((state) => state.user)
   useEffect(() => {
-    console.log(name)
+    console.log('[SignInPage/useEffect] state.user.name: ', name)
   }, [name])
 
   const validateSignInValues = (values) => {
