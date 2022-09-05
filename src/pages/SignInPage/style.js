@@ -14,9 +14,6 @@ export const Container = styled.div`
     .label {
       ${({ theme }) => theme.common.label};
     }
-    .error-message {
-      ${({ theme }) => theme.common.errorMessage};
-    }
   }
   .signup-text {
     text-align: right;
@@ -29,5 +26,8 @@ export const Container = styled.div`
   }
   .button-wrapper {
     margin-bottom: 1rem;
+  }
+  .error-message {
+    ${({ theme }) => theme.common.errorMessage};
   }
 `

@@ -118,7 +118,10 @@ const SignInPage = () => {
         </div>
         <div className="button-wrapper">
           <ButtonText type="submit" buttonText="로그인" />
-          <p style={{ display: displaySignInError ? 'block' : 'none' }}>
+          <p
+            className="error-message"
+            style={{ display: displaySignInError ? 'block' : 'none' }}
+          >
             아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
           </p>
         </div>
