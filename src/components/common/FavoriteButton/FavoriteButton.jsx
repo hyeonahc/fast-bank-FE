@@ -42,7 +42,7 @@ function FavoriteButton({ item }) {
 
 const Heart = styled.button`
   .favorite-btn {
-    color: aliceblue;
+    color: #f8496e;
     font-size: 32px;
     cursor: pointer;
   }
@@ -54,23 +54,23 @@ const Heart = styled.button`
 
   @keyframes heartBeat {
     0% {
-      color: aliceblue;
+      color: #f8496e;
       transform: none;
     }
     25% {
-      color: #ff0000;
+      color: #ff6347;
       transform: scale(1.5);
     }
     50% {
-      color: #ff6600;
+      color: #f2908c;
       transform: scale(2.5);
     }
     75% {
-      color: #ff0000;
+      color: #ff6347;
       transform: scale(1.5);
     }
     100% {
-      color: aliceblue;
+      color: #f8496e;
       transform: none;
     }
   }
