@@ -131,7 +131,7 @@ const SignUpPage = () => {
         </p>
         <p>Password</p>
         <InputText
-          type="text"
+          type="password"
           name="password"
           placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
