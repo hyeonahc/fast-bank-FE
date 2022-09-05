@@ -84,7 +84,7 @@ const SignInPage = () => {
         <InputText
           type="text"
           name="email"
-          placeholder="이메일"
+          placeholder="이메일을 입력해주세요"
           value={formValues.email}
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
@@ -95,7 +95,7 @@ const SignInPage = () => {
         <InputText
           type="text"
           name="password"
-          placeholder="비밀번호"
+          placeholder="비밀번호 4자리 이상을 입력해주세요"
           value={formValues.password}
           onChange={handleInputChange}
           onBlur={RemoveInputSpaces}
