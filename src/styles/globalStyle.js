@@ -29,6 +29,7 @@ export default createGlobalStyle`
 	}
 	/* mq */
 	@media (max-width:${({ theme }) => theme.widthDevice.default}) {
-		body {padding: 4rem 6.25%;}
+		html{font-size: 2.415458937198068vw}
+		body {padding: 4rem 6.25%}
 	}
 `
