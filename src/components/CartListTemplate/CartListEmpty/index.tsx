@@ -29,6 +29,7 @@ const TextContainer = styled.div`
   ${({ theme }) => css`
     width: 100%;
     font-size: ${theme.fontSize.extraBig};
+    text-align: center;
   `}
 `;
 
