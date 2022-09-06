@@ -45,10 +45,6 @@ const SignUpPage = () => {
       `${process.env.REACT_APP_SERVER_URL}/signup/check`,
       { email: formValues.email },
     )
-    console.log(
-      '[SignUpPage/validateDuplicateEmail] response.data: ',
-      response.data,
-    )
     const emailIsAvailable = response.data.isAvailable
     if (!emailIsAvailable) {
       setFormErrors(validateSignUp(formValues, emailIsAvailable))
@@ -68,7 +64,6 @@ const SignUpPage = () => {
       setFormErrors(validateSignUp(formValues))
       setDisplaySignUpError(false)
       setDisplaySuccessModal(true)
-      console.log('[SignUpPage/requestSignUp] response.data: ', response.data)
     } catch {
       setFormErrors(validateSignUp(formValues))
       setDisplaySignUpError(true)
