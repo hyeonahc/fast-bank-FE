@@ -93,7 +93,7 @@ const SignInPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.email ? 'block' : 'none' }}
+            style={{ visibility: formErrors.email ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.email}
@@ -110,7 +110,7 @@ const SignInPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.password ? 'block' : 'none' }}
+            style={{ visibility: formErrors.password ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.password}
@@ -124,7 +124,7 @@ const SignInPage = () => {
           />
           <p
             className="error-message"
-            style={{ display: displaySignInError ? 'block' : 'none' }}
+            style={{ visibility: displaySignInError ? 'visible' : 'hidden' }}
           >
             아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
           </p>

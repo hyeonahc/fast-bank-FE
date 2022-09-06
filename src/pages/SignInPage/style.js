@@ -10,7 +10,7 @@ export const Container = styled.div`
     }
   }
   .input-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     .label {
       ${({ theme }) => theme.common.label};
     }
