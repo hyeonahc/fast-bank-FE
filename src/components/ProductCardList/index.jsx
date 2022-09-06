@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { Close } from '@material-ui/icons'
 import ButtonText from '@/components/common/Button/ButtonText'
-import FavoriteButton from '../common/FavoriteButton/FavoriteButton'
+import FavoriteButton from '@/components/common/FavoriteButton/FavoriteButton'
+import * as S from './style'
+
 import cardImg1 from '@/assets/images/card-1.png'
 import cardImg2 from '@/assets/images/card-2.png'
 import cardImg3 from '@/assets/images/card-3.png'
@@ -12,7 +15,6 @@ import cardImg7 from '@/assets/images/card-7.png'
 import cardImg8 from '@/assets/images/card-8.png'
 import cardImg9 from '@/assets/images/card-9.png'
 import cardImg10 from '@/assets/images/card-10.png'
-import * as S from './style'
 
 const ProductCardList = ({
   className,
@@ -123,6 +125,19 @@ const ProductCardList = ({
       )}
     </S.ProductCardWrapper>
   )
+}
+
+ProductCardList.defaultProps = {
+  className: undefined,
+  checkedList: undefined,
+  onChangeCheck: undefined,
+}
+
+ProductCardList.propTypes = {
+  className: PropTypes.string,
+  dataList: PropTypes.array.isRequired,
+  checkedList: PropTypes.array,
+  onChangeCheck: PropTypes.func,
 }
 
 export function ProductDetailModal({ setModalOpen, cardData }) {
