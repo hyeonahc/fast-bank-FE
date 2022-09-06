@@ -1,26 +1,32 @@
 import ProductCardList from '@/components/ProductCardList'
-import { addFav, getFav, useFavorite } from '@/modules/favoriteSlice'
+import { getFav, useFavorite } from '@/modules/favoriteSlice'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import {
+  CartPageContainer,
+  CartPageDescription,
+  CartPageLabel,
+} from '../CartPage'
 
-const FavoriteProductsPage = () => {
-  const { favorite } = useFavorite()
-  // console.log(favorite)
+const FavoriteProductsPage = (props) => {
+  const { wishList } = useFavorite()
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(dispatch(getFav()))
+    dispatch(getFav())
   }, [dispatch])
 
+  const { className } = props
   return (
-    <>
-      <h1>찜한 상품</h1>
-      {favorite.length === 0 ? (
+    <CartPageContainer className={className}>
+      <CartPageLabel>찜한 상품</CartPageLabel>
+      <CartPageDescription>%NAME님이 좋아하는 상품입니다.</CartPageDescription>
+      {wishList.length === 0 ? (
         <h2>관심상품을 추가하세요 ~</h2>
       ) : (
-        <ProductCardList dataList={favorite} />
+        <ProductCardList dataList={wishList.wishList} />
       )}
-    </>
+    </CartPageContainer>
   )
 }
 
