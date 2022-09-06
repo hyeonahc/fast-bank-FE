@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@/components/common/Button';
 import ButtonFilled from '@/components/common/Button/ButtonFilled';
 import LoadingCardSize from '@/components/common/Loading/LoadingCardSize';
-import EmptyListCardSize from '@/components/common/EmptyListCardSize';
 import CheckoutModal from '@/components/CheckoutModal';
 import * as S from './style';
 
@@ -63,6 +62,7 @@ const CartListTemplate = (props: Props) => {
   const [displayCheckoutModal, setDisplayCheckoutModal] = useState(false);
   const onClickCheckoutConfirm = useCallback(() => {
     navigator(pagesFullPath.home);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isFetching = isFetchingGet || isLoadingRemove;

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 import PageHeading from '@/components/PageHeading';
-import PageDescription from '@/components/PageDescription';
 import CartListTemplate from '@/components/CartListTemplate';
 
 interface Props {
