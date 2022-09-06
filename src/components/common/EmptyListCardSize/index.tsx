@@ -33,7 +33,7 @@ interface Props {
   children?: string;
 }
 
-const EmptyCardSize = (props: Props) => {
+const EmptyListCardSize = (props: Props) => {
   const { children, ...propsRest } = props;
   return (
     <Container {...propsRest}>
@@ -43,4 +43,4 @@ const EmptyCardSize = (props: Props) => {
   );
 };
 
-export default EmptyCardSize;
+export default EmptyListCardSize;

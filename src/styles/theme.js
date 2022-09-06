@@ -40,6 +40,12 @@ const common = {
     align-items: center;
     justify-content: center;
   `,
+  flexCenterColumn: css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `,
   transformCenter: css`
     position: absolute;
     top: 50%;
@@ -69,7 +75,6 @@ const theme = {
   colors,
   fontSize,
   fontWeight,
-  sharedValue,
   common,
   space,
   widthDevice,

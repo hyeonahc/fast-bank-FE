@@ -9,7 +9,19 @@ export const CheckboxLabel = styled.label({
   flexGrow: 0,
 });
 
-export const Checkbox = styled.input.attrs({ type: 'checkbox' })({});
+export const Checkbox = styled.input.attrs({ type: 'checkbox' })(
+  ({ theme }) => ({
+    marginRight: '1rem',
+    borderColor: theme.colors.inputPlaceholder,
+  }),
+);
+
+export const CheckBoxContainer = styled.div(({ theme }) => ({
+  color: theme.colors.inputPlaceholder,
+  [`${Checkbox}:checked ~ *`]: {
+    color: theme.colors.text,
+  },
+}));
 
 export const BottomButtonContainer = styled.div`
   ${({ theme }) => css`
