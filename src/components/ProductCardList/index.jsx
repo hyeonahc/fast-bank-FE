@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Close } from '@material-ui/icons'
 import ButtonText from '@/components/common/Button/ButtonText'
+import ButtonFilled from '@/components/common/Button/ButtonFilled'
 import FavoriteButton from '@/components/common/FavoriteButton/FavoriteButton'
 import * as S from './style'
 
@@ -148,7 +149,7 @@ export function ProductDetailModal({ setModalOpen, cardData }) {
         <span>{cardData.type}</span>
         <h2>{cardData.name}</h2>
         <p>{cardData.description}</p>
-        <ButtonText className="btn-cart" buttonText="장바구니 담기" />
+        <ButtonFilled className="btn-cart">장바구니 담기</ButtonFilled>
         <ButtonText
           onClick={() => {
             setModalOpen(false)

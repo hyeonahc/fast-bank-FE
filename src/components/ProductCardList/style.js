@@ -215,8 +215,6 @@ export const ProductModal = styled.div`
     word-break: keep-all;
   }
   & .btn-cart {
-    font-size: ${({ theme }) => theme.fontSize.regular};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
     position: absolute;
     bottom: 3rem;
     left: 0;
@@ -224,8 +222,6 @@ export const ProductModal = styled.div`
     margin: 0 auto;
     width: 15.8rem;
     height: 4.4rem;
-    color: #fff;
-    background-color: ${({ theme }) => theme.colors.primary};
   }
   & .btn-close {
     padding: 0;
@@ -237,5 +233,6 @@ export const ProductModal = styled.div`
     height: 1.715rem;
     border-radius: 0;
     font-size: 1rem;
+    border: none;
   }
 `
