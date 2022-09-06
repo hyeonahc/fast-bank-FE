@@ -181,7 +181,7 @@ function listCRUD(path, key) {
     res.json({ products: findId(user[key]) })
   })
 
-  server.delete(path, (req, res, next) => {
+  server.post(`${path}/delete`, (req, res, next) => {
     const value = getValue(req, res)
     if (!value) return
 
