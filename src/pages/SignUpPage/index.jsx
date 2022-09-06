@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-import ButtonText from '@/components/common/Button/ButtonText'
+import ButtonStyled from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import SelectWithOptions from '@/components/common/Select/SelectWithOptions'
 import SuccessModal from '@/components/SuccessModal'
@@ -190,7 +190,11 @@ const SignUpPage = () => {
             {formErrors.job}
           </p>
         </div>
-        <ButtonText type="submit" buttonText="회원가입" />
+        <ButtonStyled
+          type="submit"
+          buttonText="회원가입"
+          style={{ width: '100%' }}
+        />
         <p
           style={{ display: displaySignUpError ? 'block' : 'none' }}
           className="error-message"
