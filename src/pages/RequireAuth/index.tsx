@@ -40,6 +40,7 @@ const RequireAuth = (props: Props) => {
         actIsAuthError(e, navigate);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   if (!localStorage.getItem('accessToken')) return null;

@@ -64,6 +64,7 @@ const reducer = (state: typeof initialState, action: ActionType) => {
   } else if (type === 'ADD_CHECK' || type === 'REMOVE_CHECK') {
     const { data } = state;
     const id = payload;
+
     if (!data || !data.find(({ id: dataId }) => dataId === id)) return state;
     const prevCheckList = state.checkedList;
     let checkedList: string[];

@@ -6,8 +6,14 @@ import baseQuery from '@/api/baseQuery';
 
 const tagTypes = ['Cart'] as const;
 
-const transformResponse = (response: { products: Product[] }) =>
-  response.products;
+const transformResponse = (
+  response: { cartItems: Product[] } & { products: Product[] },
+) =>
+  (response.cartItems || response.products)?.map((product) => ({
+    ...product,
+    // 현재 서버 id 가 다 숫자라 json 파싱 중에 숫자로 들어와 string 으로 변환
+    id: String(product.id),
+  }));
 
 // 지금 상태에서는 더 최적화가 애매해보임
 const providesTags = (
@@ -36,8 +42,8 @@ export const cartApi = createApi({
     }),
     removeCart: builder.mutation({
       query: ({ ids }: { ids: string[] }) => ({
-        url: 'cart',
-        method: 'DELETE',
+        url: 'cart/delete',
+        method: 'POST',
         body: { cart: ids },
       }),
       transformResponse,

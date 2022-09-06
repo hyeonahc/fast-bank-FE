@@ -1,8 +1,8 @@
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { NavigateFunction } from 'react-router/lib/hooks';
 import { SerializedError } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { NavigateFunction } from 'react-router/lib/hooks';
+
 import { pagesFullPath } from '@/pages/pagesPath';
 
 export function isAuthErrorRTKQuery(

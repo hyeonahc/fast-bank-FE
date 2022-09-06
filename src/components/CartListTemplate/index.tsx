@@ -1,5 +1,10 @@
-import CartListHeader from './CartListHeader';
-import CartList from './CartList';
+import { ChangeEvent, MouseEvent, useCallback } from 'react';
+
+import Button from '@/components/common/Button';
+import ButtonFilled from '@/components/common/Button/ButtonFilled';
+import LoadingCardSize from '@/components/common/Loading/LoadingCardSize';
+import EmptyListCardSize from '@/components/common/EmptyListCardSize';
+import * as S from './style';
 
 import { useCheckboxWithCheckAll } from './hook';
 import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
@@ -10,7 +15,6 @@ interface Props {}
 
 const CartListTemplate = (props: Props) => {
   const {
-    isLoading: isLoadingGet,
     isFetching: isFetchingGet,
     data,
     error: errorGet,
@@ -28,6 +32,24 @@ const CartListTemplate = (props: Props) => {
     isHasCheckList,
   } = useCheckboxWithCheckAll(data);
 
+  const onChangeCheckboxAllWrapped = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => onChangeCheckboxAll(e.target.checked),
+    [onChangeCheckboxAll],
+  );
+
+  const onClickCheckout = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      removeCart({ ids: checkedList });
+    },
+    [removeCart, checkedList],
+  );
+  const onClickRemove = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      removeCart({ ids: checkedList });
+    },
+    [removeCart, checkedList],
+  );
+
   const isFetching = isFetchingGet || isLoadingRemove;
   const disabledCommand = !isHasCheckList || isFetching;
 
@@ -35,19 +57,34 @@ const CartListTemplate = (props: Props) => {
 
   return (
     <>
-      <CartListHeader
-        checked={checkedAll}
-        disabledCheckbox={isFetching}
-        onChangeCheckboxAll={onChangeCheckboxAll}
-        onClickRemove={() => removeCart({ ids: checkedList })}
-        disabledRemove={disabledCommand}
-      />
-      <CartList
-        data={data}
-        onChangeSelect={onChangeCheckbox}
-        checkedList={checkedList}
-        disabledCard={isFetching}
-      />
+      <S.CheckBoxContainer>
+        <S.Checkbox
+          onChange={onChangeCheckboxAllWrapped}
+          checked={checkedAll}
+          disabled={isFetching}
+        />
+        <S.CheckboxLabel>전체선택</S.CheckboxLabel>
+      </S.CheckBoxContainer>
+      {isFetchingGet ? (
+        <LoadingCardSize />
+      ) : !data || data.length === 0 ? (
+        <EmptyListCardSize>장바구니에 추가해주세요!</EmptyListCardSize>
+      ) : (
+        <S.CartListStyled
+          data={data}
+          onChangeSelect={onChangeCheckbox}
+          checkedList={checkedList}
+          disabledCard={isFetching}
+        />
+      )}
+      <S.BottomButtonContainer>
+        <ButtonFilled onClick={onClickCheckout} disabled={disabledCommand}>
+          신청하기
+        </ButtonFilled>
+        <Button onClick={onClickRemove} disabled={disabledCommand}>
+          삭제하기
+        </Button>
+      </S.BottomButtonContainer>
     </>
   );
 };

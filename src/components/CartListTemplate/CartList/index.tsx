@@ -1,10 +1,10 @@
 import { ChangeEvent, useCallback, useMemo } from 'react';
-import * as S from './style';
 
 import { Product } from '@/types/product';
 import ProductCardList from '@/components/ProductCardList';
 
 interface Props {
+  className?: string;
   data: Product[] | undefined;
   onChangeSelect: (id: string, checked: boolean) => void;
   checkedList: string[];
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const CartList = (props: Props) => {
-  const { data, onChangeSelect, checkedList, disabledCard } = props;
+  const { className, data, onChangeSelect, checkedList } = props;
   const onChangeCheckbox = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       onChangeSelect(e.target.value, e.target.checked);
@@ -28,6 +28,7 @@ const CartList = (props: Props) => {
   if (!data) return null;
   return (
     <ProductCardList
+      className={className}
       dataList={data}
       checkedList={checkList}
       onChangeCheck={onChangeCheckbox}
