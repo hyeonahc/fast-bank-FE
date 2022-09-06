@@ -120,7 +120,7 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
 }
 
 export function ProductDetailModal({ setModalOpen, cardData }) {
-  const materialStyle = { color: '#91959C', fontSize: '1.3rem' }
+  const materialStyle = { color: '#91959C', fontSize: '1.715rem' }
   return (
     <S.ProductDetailModalDimmed>
       <S.ProductModal>

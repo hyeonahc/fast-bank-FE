@@ -1,20 +1,20 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './style'
 import {
-  Home,
+  HomeRounded,
   HomeOutlined,
-  AccountBalanceWallet,
+  AccountBalanceWalletRounded,
   AccountBalanceWalletOutlined,
-  Favorite,
+  FavoriteRounded,
   FavoriteBorderOutlined,
-  ShoppingCart,
+  ShoppingCartRounded,
   ShoppingCartOutlined,
 } from '@material-ui/icons'
 
 const NavBar = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const materialStyle = { color: 'teal', fontSize: '40px' }
+  const materialStyle = { color: '#2EB5AA', fontSize: '4rem' }
   return (
     <S.BottomNavigator>
       <ul>
@@ -25,7 +25,7 @@ const NavBar = () => {
             }}
           >
             {location.pathname === '/products' ? (
-              <Home style={materialStyle} />
+              <HomeRounded style={materialStyle} />
             ) : (
               <HomeOutlined style={materialStyle} />
             )}
@@ -38,7 +38,7 @@ const NavBar = () => {
             }}
           >
             {location.pathname === '/products/personal' ? (
-              <AccountBalanceWallet style={materialStyle} />
+              <AccountBalanceWalletRounded style={materialStyle} />
             ) : (
               <AccountBalanceWalletOutlined style={materialStyle} />
             )}
@@ -51,7 +51,7 @@ const NavBar = () => {
             }}
           >
             {location.pathname === '/products/favorite' ? (
-              <Favorite style={materialStyle} />
+              <FavoriteRounded style={materialStyle} />
             ) : (
               <FavoriteBorderOutlined style={materialStyle} />
             )}
@@ -64,7 +64,7 @@ const NavBar = () => {
             }}
           >
             {location.pathname === '/cart' ? (
-              <ShoppingCart style={materialStyle} />
+              <ShoppingCartRounded style={materialStyle} />
             ) : (
               <ShoppingCartOutlined style={materialStyle} />
             )}

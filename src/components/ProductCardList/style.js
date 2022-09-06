@@ -232,5 +232,10 @@ export const ProductModal = styled.div`
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
+    background: none;
+    width: 1.715rem;
+    height: 1.715rem;
+    border-radius: 0;
+    font-size: 1rem;
   }
 `
