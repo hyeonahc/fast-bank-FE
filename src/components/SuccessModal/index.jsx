@@ -16,7 +16,9 @@ const SuccessModal = ({
   }
 
   return (
-    <S.SuccessModalBackground>
+    <S.SuccessModalBackground
+      style={{ display: displaySuccessModal ? 'block' : 'none' }}
+    >
       <S.SuccessModal
         style={{ display: displaySuccessModal ? 'flex' : 'none' }}
       >
