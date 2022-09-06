@@ -18,6 +18,7 @@ export default createGlobalStyle`
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
 		font-family: 'Noto Sans KR', sans-serif;
+		position: relative;
 	}
 	button {
 		background: none; 

@@ -52,9 +52,17 @@ const common = {
     left: 50%;
     transform: translate(-50%, -50%);
   `,
+  transformCenterY: css`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4rem;
+    width: calc(100% - 8rem);
+  `,
   errorMessage: css`
     color: #ff6347;
     font-size: 1.2rem;
+    height: 1.5rem;
   `,
   label: css`
     font-weight: 500;
