@@ -14,11 +14,16 @@ import cardImg9 from '@/assets/images/card-9.png'
 import cardImg10 from '@/assets/images/card-10.png'
 import * as S from './style'
 
-const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
+const ProductCardList = ({
+  className,
+  dataList,
+  checkedList,
+  onChangeCheck,
+}) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState()
   return (
-    <S.ProductCardWrapper>
+    <S.ProductCardWrapper className={className}>
       {dataList &&
         dataList.map((product) => (
           <S.ProductCard

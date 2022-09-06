@@ -75,6 +75,7 @@ const theme = {
   colors,
   fontSize,
   fontWeight,
+  sharedValue,
   common,
   space,
   widthDevice,
