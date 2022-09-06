@@ -207,7 +207,7 @@ const SignUpPage = () => {
       <SuccessModal
         title="회원가입을 성공했습니다"
         buttonText="로그인하기"
-        displaySuccessModal={true}
+        displaySuccessModal={displaySuccessModal}
         setDisplaySuccessModal={setDisplaySuccessModal}
       />
     </>
