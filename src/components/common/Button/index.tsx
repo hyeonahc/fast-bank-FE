@@ -4,7 +4,7 @@ import styled from 'styled-components';
 type Props = Omit<JSX.IntrinsicElements['button'], 'ref'>;
 
 export const ButtonStyled = styled.button`
-  padding: 1rem;
+  padding: 1rem 2.5rem;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.sharedValue.borderRadius};
   color: ${({ theme }) => theme.colors.white};
