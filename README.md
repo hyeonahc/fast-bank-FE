@@ -87,32 +87,32 @@
 
 ### 목업
 
-1. 로그인
-   ![1-SignIn](https://user-images.githubusercontent.com/83247825/188583431-50609b7f-06cb-47d5-bd1a-56eea40bafdb.png)
+로그인
+![1-SignIn](https://user-images.githubusercontent.com/83247825/188583431-50609b7f-06cb-47d5-bd1a-56eea40bafdb.png)
 
-2. 회원가입
-   ![5-SignUp](https://user-images.githubusercontent.com/83247825/188583447-29fd454e-a8e7-4d88-b3b0-28a88b9220d6.png)
+회원가입
+![5-SignUp](https://user-images.githubusercontent.com/83247825/188583447-29fd454e-a8e7-4d88-b3b0-28a88b9220d6.png)
 
-3. 회원가입 성공시 모달창
-   ![7-SignUp_Success](https://user-images.githubusercontent.com/83247825/188583453-22541475-dd4b-4baa-b6ac-b942bf5adc9d.png)
+회원가입 성공시 모달창
+![7-SignUp_Success](https://user-images.githubusercontent.com/83247825/188583453-22541475-dd4b-4baa-b6ac-b942bf5adc9d.png)
 
-4. 홈페이지 (전체 상품 페이지)
-   ![8-AllProductsPage](https://user-images.githubusercontent.com/83247825/188583455-fa4c5beb-e57d-42e6-bca5-2f08ee2a620f.png)
+홈페이지 (전체 상품 페이지)
+![8-AllProductsPage](https://user-images.githubusercontent.com/83247825/188583455-fa4c5beb-e57d-42e6-bca5-2f08ee2a620f.png)
 
-5. 상품 상세 정보 모달창
-   ![10-AllProductsPage_ProductDetailed](https://user-images.githubusercontent.com/83247825/188583460-4c61d1eb-b1f8-433b-93e9-183ccad798ee.png)
+상품 상세 정보 모달창
+![10-AllProductsPage_ProductDetailed](https://user-images.githubusercontent.com/83247825/188583460-4c61d1eb-b1f8-433b-93e9-183ccad798ee.png)
 
-6. 맞춤형 상품 페이지
-   ![11-PersonalProductsPage](https://user-images.githubusercontent.com/83247825/188583464-87376716-4a59-46ec-a8ce-e7a2d0d02168.png)
+맞춤형 상품 페이지
+![11-PersonalProductsPage](https://user-images.githubusercontent.com/83247825/188583464-87376716-4a59-46ec-a8ce-e7a2d0d02168.png)
 
-7. 찜한 상품 페이지
-   ![12-FavoriteProductsPage](https://user-images.githubusercontent.com/83247825/188583468-4a251b0e-cd65-45e4-a3db-3234adca6aba.png)
+찜한 상품 페이지
+![12-FavoriteProductsPage](https://user-images.githubusercontent.com/83247825/188583468-4a251b0e-cd65-45e4-a3db-3234adca6aba.png)
 
-8. 장바구니 페이지
-   ![13-CartPage](https://user-images.githubusercontent.com/83247825/188583475-07152be3-68ae-4eeb-a142-7321fa3f48e9.png)
+장바구니 페이지
+![13-CartPage](https://user-images.githubusercontent.com/83247825/188583475-07152be3-68ae-4eeb-a142-7321fa3f48e9.png)
 
-9. 404 페이지
-   ![16-NotFoundPage](https://user-images.githubusercontent.com/83247825/188583479-40f7051d-96d1-4b9a-a600-a274a152161b.png)
+404 페이지
+![16-NotFoundPage](https://user-images.githubusercontent.com/83247825/188583479-40f7051d-96d1-4b9a-a600-a274a152161b.png)
 
 <br />
 
@@ -132,7 +132,7 @@
 
 ### 백앤드
 
-| 조혜진                                           | 석광현                                                 |
+| 조혜진                                           | 이용승                                                 |
 | ------------------------------------------------ | ------------------------------------------------------ |
 | [@Johyejin-119](https://github.com/Johyejin-119) | [@yongseungLeeDec](https://github.com/yongseungLeeDec) |
 
