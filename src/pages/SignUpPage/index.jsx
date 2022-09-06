@@ -1,10 +1,13 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ButtonStyled from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import SelectWithOptions from '@/components/common/Select/SelectWithOptions'
 import SuccessModal from '@/components/SuccessModal'
 import * as S from './style'
+
+import { pagesFullPath } from '@/pages/pagesPath'
 
 const SignUpPage = () => {
   const initialValue = {
@@ -96,6 +99,11 @@ const SignUpPage = () => {
     }
     return errors
   }
+
+  const navigate = useNavigate()
+  const onClickLogin = useCallback(() => {
+    navigate(pagesFullPath.signin)
+  }, [navigate])
 
   return (
     <>
@@ -203,10 +211,11 @@ const SignUpPage = () => {
         </form>
       </S.Container>
       <SuccessModal
-        title="회원가입을 성공했습니다"
+        title="회원가입을 성공했습니다 🙂"
         buttonText="로그인하기"
         displaySuccessModal={displaySuccessModal}
         setDisplaySuccessModal={setDisplaySuccessModal}
+        onClickConfirm={onClickLogin}
       />
     </>
   )

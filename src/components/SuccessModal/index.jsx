@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import ButtonStyled from '@/components/common/Button/ButtonText'
 import * as S from './style'
 
@@ -7,12 +6,11 @@ const SuccessModal = ({
   buttonText,
   displaySuccessModal,
   setDisplaySuccessModal,
+  onClickConfirm,
 }) => {
-  const navigate = useNavigate()
-
   const onClickHandler = () => {
     setDisplaySuccessModal(true)
-    navigate('/signin')
+    onClickConfirm?.()
   }
 
   return (
@@ -22,7 +20,7 @@ const SuccessModal = ({
       <S.SuccessModal
         style={{ display: displaySuccessModal ? 'flex' : 'none' }}
       >
-        <h2>{title} 🙂</h2>
+        <h2>{title}</h2>
         <ButtonStyled onClick={onClickHandler} buttonText={buttonText} />
       </S.SuccessModal>
     </S.SuccessModalBackground>
