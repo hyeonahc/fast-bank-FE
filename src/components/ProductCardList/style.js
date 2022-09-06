@@ -70,13 +70,8 @@ export const ProductCard = styled.div`
     position: absolute;
     right: 2rem;
     bottom: 2rem;
-    &.card-ico01,
-    &.card-ico02,
-    &.card-ico03,
-    &.card-ico09 {
-      width: 9.2rem;
-      height: 9.2rem;
-    }
+    width: 9.2rem;
+    height: 9.2rem;
     &.card-ico04 {
       width: 9.4rem;
       height: 9.4rem;
