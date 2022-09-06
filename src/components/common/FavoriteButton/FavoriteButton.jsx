@@ -6,8 +6,9 @@ import styled from 'styled-components'
 function FavoriteButton({ item }) {
   const { dispatch, wishList } = useFavorite()
 
-  const isWishList = useMemo(() =>
-    wishList.wishList?.some((element) => element.id === item.id),
+  const isWishList = useMemo(
+    () => wishList.wishList?.some((element) => element.id === item.id),
+    [item.id, wishList.wishList],
   )
 
   return (
