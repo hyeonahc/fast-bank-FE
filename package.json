@@ -28,6 +28,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "lint": "eslint \"{{src}/**,.}/*.{js,jsx,ts,tsx}\"",
     "format": "eslint \"{{src,dummyServer}/**,.}/*.{js,jsx,ts,tsx}\" --fix && prettier --write \"{src,dummyServer}/**/*.{json,css,scss,md}\" \"./*.{json,css,scss,md}\"",
     "lint-staged": "lint-staged",
     "start": "react-app-rewired start",
