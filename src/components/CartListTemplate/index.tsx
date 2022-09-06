@@ -13,6 +13,11 @@ import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
 
 import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
 import { pagesFullPath } from '@/pages/pagesPath';
+import CartListEmpty from '@/components/CartListTemplate/CartListEmpty';
+import styled from 'styled-components';
+import PageDescription from '@/components/PageDescription';
+
+const CartPageDescription = styled(PageDescription)({});
 
 interface Props {}
 
@@ -70,9 +75,12 @@ const CartListTemplate = (props: Props) => {
       {isFetchingGet ? (
         <LoadingCardSize />
       ) : !data || data.length === 0 ? (
-        <EmptyListCardSize>장바구니에 추가해주세요!</EmptyListCardSize>
+        <CartListEmpty />
       ) : (
         <>
+          <CartPageDescription>
+            %NAME님이 장바구니에 넣은 상품입니다.
+          </CartPageDescription>
           <S.CheckBoxContainer>
             <S.Checkbox
               onChange={onChangeCheckboxAllWrapped}
