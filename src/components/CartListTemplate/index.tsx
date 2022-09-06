@@ -57,34 +57,36 @@ const CartListTemplate = (props: Props) => {
 
   return (
     <>
-      <S.CheckBoxContainer>
-        <S.Checkbox
-          onChange={onChangeCheckboxAllWrapped}
-          checked={checkedAll}
-          disabled={isFetching}
-        />
-        <S.CheckboxLabel>전체선택</S.CheckboxLabel>
-      </S.CheckBoxContainer>
       {isFetchingGet ? (
         <LoadingCardSize />
       ) : !data || data.length === 0 ? (
         <EmptyListCardSize>장바구니에 추가해주세요!</EmptyListCardSize>
       ) : (
-        <S.CartListStyled
-          data={data}
-          onChangeSelect={onChangeCheckbox}
-          checkedList={checkedList}
-          disabledCard={isFetching}
-        />
+        <>
+          <S.CheckBoxContainer>
+            <S.Checkbox
+              onChange={onChangeCheckboxAllWrapped}
+              checked={checkedAll}
+              disabled={isFetching}
+            />
+            <S.CheckboxLabel>전체선택</S.CheckboxLabel>
+          </S.CheckBoxContainer>
+          <S.CartListStyled
+            data={data}
+            onChangeSelect={onChangeCheckbox}
+            checkedList={checkedList}
+            disabledCard={isFetching}
+          />
+          <S.BottomButtonContainer>
+            <ButtonFilled onClick={onClickCheckout} disabled={disabledCommand}>
+              신청하기
+            </ButtonFilled>
+            <Button onClick={onClickRemove} disabled={disabledCommand}>
+              삭제하기
+            </Button>
+          </S.BottomButtonContainer>
+        </>
       )}
-      <S.BottomButtonContainer>
-        <ButtonFilled onClick={onClickCheckout} disabled={disabledCommand}>
-          신청하기
-        </ButtonFilled>
-        <Button onClick={onClickRemove} disabled={disabledCommand}>
-          삭제하기
-        </Button>
-      </S.BottomButtonContainer>
     </>
   );
 };
