@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  ${({ theme }) => theme.common.transformCenterY};
   .logo-wrapper {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -9,7 +10,7 @@ export const Container = styled.div`
     }
   }
   .input-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     .label {
       ${({ theme }) => theme.common.label};
     }
