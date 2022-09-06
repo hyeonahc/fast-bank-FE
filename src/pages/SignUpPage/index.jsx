@@ -57,10 +57,7 @@ const SignUpPage = () => {
   const requestSignUp = async () => {
     if (formValues.password.length < 4) return
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/signup`,
-        formValues,
-      )
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/signup`, formValues)
       setFormErrors(validateSignUp(formValues))
       setDisplaySignUpError(false)
       setDisplaySuccessModal(true)
@@ -72,7 +69,7 @@ const SignUpPage = () => {
 
   const validateSignUp = (values, emailIsAvailable = true) => {
     const errors = {}
-    const regex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+    const regex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
     if (!values.name) {
       errors.name = '이름을 입력해주세요!'
     }
