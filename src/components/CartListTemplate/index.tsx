@@ -1,9 +1,11 @@
 import { ChangeEvent, MouseEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ShoppingCartOutlined } from '@material-ui/icons';
 
 import Button from '@/components/common/Button';
 import ButtonFilled from '@/components/common/Button/ButtonFilled';
 import LoadingCardSize from '@/components/common/Loading/LoadingCardSize';
+import ListEmpty from '@/components/ListEmpty';
 import CheckoutModal from '@/components/CheckoutModal';
 import * as S from './style';
 
@@ -12,7 +14,6 @@ import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
 
 import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
 import { pagesFullPath } from '@/pages/pagesPath';
-import CartListEmpty from '@/components/CartListTemplate/CartListEmpty';
 import styled from 'styled-components';
 import PageDescription from '@/components/PageDescription';
 
@@ -75,7 +76,10 @@ const CartListTemplate = (props: Props) => {
       {isFetchingGet ? (
         <LoadingCardSize />
       ) : !data || data.length === 0 ? (
-        <CartListEmpty />
+        <ListEmpty
+          Icon={ShoppingCartOutlined}
+          text="장바구니에 담긴 상품이 없습니다"
+        />
       ) : (
         <>
           <CartPageDescription>
