@@ -21,16 +21,9 @@ export const FilterContainer = styled.div(({ theme }) => ({
   },
 }));
 
-interface SelectProps {
-  selectedDefault: boolean;
-}
-
-export const Select = styled(Select_)<SelectProps>`
-  ${({ theme, selectedDefault }) => css`
+export const Select = styled(Select_)`
+  ${() => css`
     ${inputInPage};
-    color: ${selectedDefault
-      ? theme.colors.inputPlaceholder
-      : theme.colors.text};
   `}
 `;
 

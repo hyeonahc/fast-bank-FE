@@ -1,19 +1,25 @@
 import { ComponentPropsWithoutRef, forwardRef } from 'react';
 
-import Select, { SelectRefType } from '../index';
+import Select, { SelectRefType } from '../';
+import styled from 'styled-components';
+
+const OptionDefaultStyled = styled.option(({ theme }) => ({
+  color: theme.colors.inputPlaceholder,
+}));
 
 type Props = {
+  selectedDefault: boolean;
   defaultOption: string;
   options: string[];
 } & ComponentPropsWithoutRef<typeof Select>;
 
 const SelectWithOptions = forwardRef<SelectRefType, Props>(
-  ({ defaultOption, options, ...props }, ref) => {
+  ({ defaultOption, defaultValue, options, ...props }, ref) => {
     return (
       <Select {...props} ref={ref}>
-        <option value="" disabled>
+        <OptionDefaultStyled value="" disabled>
           {defaultOption}
-        </option>
+        </OptionDefaultStyled>
         {options.map((option) => (
           <option value={option} key={option}>
             {option}
