@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  ${({ theme }) => theme.common.transformCenterY};
   text-align: center;
   h1 {
     font-size: 8rem;
