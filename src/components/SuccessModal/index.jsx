@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import ButtonText from '@/components/common/Button/ButtonText'
+import ButtonStyled from '@/components/common/Button/ButtonText'
 import * as S from './style'
 
 const SuccessModal = ({
@@ -16,10 +16,16 @@ const SuccessModal = ({
   }
 
   return (
-    <S.SuccessModal style={{ display: displaySuccessModal ? 'flex' : 'none' }}>
-      <h2>{title} 🙂</h2>
-      <ButtonText onClick={onClickHandler} buttonText={buttonText} />
-    </S.SuccessModal>
+    <S.SuccessModalBackground
+      style={{ display: displaySuccessModal ? 'block' : 'none' }}
+    >
+      <S.SuccessModal
+        style={{ display: displaySuccessModal ? 'flex' : 'none' }}
+      >
+        <h2>{title} 🙂</h2>
+        <ButtonStyled onClick={onClickHandler} buttonText={buttonText} />
+      </S.SuccessModal>
+    </S.SuccessModalBackground>
   )
 }
 

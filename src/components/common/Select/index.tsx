@@ -1,7 +1,9 @@
 import { forwardRef } from 'react';
 import * as S from './style';
 
-type Props = {} & Omit<JSX.IntrinsicElements['select'], 'ref'>;
+type Props = {
+  selectedDefault: boolean;
+} & Omit<JSX.IntrinsicElements['select'], 'ref'>;
 
 export type SelectRefType = HTMLSelectElement;
 

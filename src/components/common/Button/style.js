@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  width: 100%;
-  padding: 1rem;
+  padding: 1rem 2.5rem;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.sharedValue.borderRadius};
   color: ${({ theme }) => theme.colors.white};

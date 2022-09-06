@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import ButtonText from '@/components/common/Button/ButtonText'
+import ButtonStyled from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import * as S from './style'
 
@@ -46,7 +46,6 @@ const SignInPage = () => {
         `${process.env.REACT_APP_SERVER_URL}/login`,
         formValues,
       )
-      console.log('[SignInPage/requestSignIn] response.data: ', response.data)
       setFormErrors(validateSignInValues(formValues))
       setDisplaySignInError(false)
       const { accessToken, name } = response.data
@@ -58,12 +57,6 @@ const SignInPage = () => {
       setDisplaySignInError(true)
     }
   }
-
-  // test code: Check if name is saved in user module
-  const name = useSelector((state) => state.user)
-  useEffect(() => {
-    console.log('[SignInPage/useEffect] state.user.name: ', name)
-  }, [name])
 
   const validateSignInValues = (values) => {
     const errors = {}
@@ -93,7 +86,7 @@ const SignInPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.email ? 'block' : 'none' }}
+            style={{ visibility: formErrors.email ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.email}
@@ -110,17 +103,21 @@ const SignInPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.password ? 'block' : 'none' }}
+            style={{ visibility: formErrors.password ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.password}
           </p>
         </div>
         <div className="button-wrapper">
-          <ButtonText type="submit" buttonText="로그인" />
+          <ButtonStyled
+            type="submit"
+            buttonText="로그인"
+            style={{ width: '100%' }}
+          />
           <p
             className="error-message"
-            style={{ display: displaySignInError ? 'block' : 'none' }}
+            style={{ visibility: displaySignInError ? 'visible' : 'hidden' }}
           >
             아이디가 존재하지 않거나 올바른 비밀번호가 아닙니다
           </p>

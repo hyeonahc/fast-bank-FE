@@ -18,6 +18,7 @@ export default createGlobalStyle`
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
 		font-family: 'Noto Sans KR', sans-serif;
+		position: relative;
 	}
 	button {
 		background: none; 
@@ -28,6 +29,7 @@ export default createGlobalStyle`
 	}
 	/* mq */
 	@media (max-width:${({ theme }) => theme.widthDevice.default}) {
-		body {padding: 4rem 6.25%;}
+		html{font-size: 2.415458937198068vw}
+		body {padding: 4rem 6.25%}
 	}
 `

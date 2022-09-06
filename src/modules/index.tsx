@@ -3,6 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { cartApi } from '@/api/cartApi';
 import { searchApi } from '@/api/searchApi';
 import { productApi } from '@/api/productApi';
+import { productCustomApi } from '@/api/productCustom';
 import favoriteSlice from './favoriteSlice';
 import user from './user';
 
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   favorite: favoriteSlice.reducer,
   user,
   [productApi.reducerPath]: productApi.reducer,
+  [productCustomApi.reducerPath]: productCustomApi.reducer,
 });
 
 const store = configureStore({
@@ -21,6 +23,7 @@ const store = configureStore({
       cartApi.middleware,
       searchApi.middleware,
       productApi.middleware,
+      productCustomApi.middleware,
     ),
 });
 
