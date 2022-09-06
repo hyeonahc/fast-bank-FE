@@ -59,6 +59,7 @@ const SignUpPage = () => {
   }
 
   const requestSignUp = async () => {
+    if (formValues.password.length < 4) return
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/signup`,
