@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cardSize } from '@/styles/mixins'
 
 export const ProductCardWrapper = styled.div`
   padding-bottom: 8rem;
@@ -7,8 +8,7 @@ export const ProductCard = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 18rem;
+  ${cardSize};
   color: #fff;
   padding: 2rem;
   border-radius: 0.8rem;

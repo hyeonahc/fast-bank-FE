@@ -14,13 +14,18 @@ import cardImg9 from '@/assets/images/card-9.png'
 import cardImg10 from '@/assets/images/card-10.png'
 import * as S from './style'
 
-const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
+const ProductCardList = ({
+  className,
+  dataList,
+  checkedList,
+  onChangeCheck,
+}) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [cardData, setCardData] = useState()
   return (
-    <S.ProductCardWrapper>
+    <S.ProductCardWrapper className={className}>
       {dataList &&
-        dataList.map((product) => (
+        dataList.map((product, idx) => (
           <S.ProductCard
             key={product.id}
             value={product.type}
@@ -39,6 +44,7 @@ const ProductCardList = ({ dataList, checkedList, onChangeCheck }) => {
                 <input
                   type="checkbox"
                   value={product.id}
+                  checked={checkedList[idx]}
                   onChange={onChangeCheck}
                 />
                 <span className="chk-mark"></span>
