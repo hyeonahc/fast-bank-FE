@@ -16,6 +16,16 @@ import cardImg7 from '@/assets/images/card-7.png'
 import cardImg8 from '@/assets/images/card-8.png'
 import cardImg9 from '@/assets/images/card-9.png'
 import cardImg10 from '@/assets/images/card-10.png'
+import cardImg11 from '@/assets/images/card-11.png'
+import cardImg12 from '@/assets/images/card-12.png'
+import cardImg13 from '@/assets/images/card-13.png'
+import cardImg14 from '@/assets/images/card-14.png'
+import cardImg15 from '@/assets/images/card-15.png'
+import cardImg16 from '@/assets/images/card-16.png'
+import cardImg17 from '@/assets/images/card-17.png'
+import cardImg18 from '@/assets/images/card-18.png'
+import cardImg19 from '@/assets/images/card-19.png'
+import cardImg20 from '@/assets/images/card-20.png'
 
 const ProductCardList = ({
   className,
@@ -116,6 +126,66 @@ const ProductCardList = ({
                 className="card-ico card-ico10"
                 alt="card-icon"
               />
+            ) : product.name === '내집마련대출' ? (
+              <img
+                src={cardImg11}
+                className="card-ico card-ico11"
+                alt="card-icon"
+              />
+            ) : product.name === '우리 아이 꿈 쌓기 적금' ? (
+              <img
+                src={cardImg12}
+                className="card-ico card-ico12"
+                alt="card-icon"
+              />
+            ) : product.name === '달러만예금' ? (
+              <img
+                src={cardImg13}
+                className="card-ico card-ico13"
+                alt="card-icon"
+              />
+            ) : product.name === '희망대한민국 햇살론' ? (
+              <img
+                src={cardImg14}
+                className="card-ico card-ico14"
+                alt="card-icon"
+              />
+            ) : product.name === '티끌모아태산 적금' ? (
+              <img
+                src={cardImg15}
+                className="card-ico card-ico15"
+                alt="card-icon"
+              />
+            ) : product.name === '힘내라 대한민국 청년대출' ? (
+              <img
+                src={cardImg16}
+                className="card-ico card-ico16"
+                alt="card-icon"
+              />
+            ) : product.name === '국민주택청약저축' ? (
+              <img
+                src={cardImg17}
+                className="card-ico card-ico17"
+                alt="card-icon"
+              />
+            ) : product.name === '스위프트 예금' ? (
+              <img
+                src={cardImg18}
+                className="card-ico card-ico18"
+                alt="card-icon"
+              />
+            ) : product.name === '다시는 없을 예금상품' ? (
+              <img
+                src={cardImg19}
+                className="card-ico card-ico19"
+                alt="card-icon"
+              />
+            ) : product.name === '여행자금저축적금' ? (
+              <img
+                src={cardImg20}
+                className="card-ico card-ico20"
+                alt="card-icon"
+              />
             ) : null}
             <FavoriteButton item={product} />
             <div className="card-cover"></div>
@@ -148,7 +218,7 @@ export function ProductDetailModal({ setModalOpen, cardData }) {
       <S.ProductModal>
         <span>{cardData.type}</span>
         <h2>{cardData.name}</h2>
-        <p>{cardData.description}</p>
+        <p>{cardData.content}</p>
         <ButtonFilled className="btn-cart">장바구니 담기</ButtonFilled>
         <ButtonText
           onClick={() => {
