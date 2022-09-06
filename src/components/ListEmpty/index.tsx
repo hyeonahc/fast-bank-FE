@@ -1,11 +1,11 @@
-import React, { useCallback, MouseEvent } from 'react';
-import { ShoppingCartOutlined } from '@material-ui/icons';
+import { useCallback, MouseEvent, ComponentType } from 'react';
 
 import theme from '@/styles/theme';
 import styled, { css } from 'styled-components';
 import ButtonFilled from '@/components/common/Button/ButtonFilled';
 import { useNavigate } from 'react-router-dom';
 import { pagesFullPath } from '@/pages/pagesPath';
+import { SvgIconProps } from '@material-ui/core';
 
 const Container = styled.div`
   ${({ theme }) => css`
@@ -20,7 +20,7 @@ const Container = styled.div`
   `}
 `;
 
-const ShoppingCartOutlinedStyle = {
+const SVGIconStyle = {
   color: theme.colors.primary,
   fontSize: '14.4rem',
 };
@@ -33,9 +33,14 @@ const TextContainer = styled.div`
   `}
 `;
 
-interface Props {}
+interface Props {
+  Icon: ComponentType<SvgIconProps>;
+  text: string;
+}
 
-const CartListEmpty = (props: Props) => {
+const ListEmpty = (props: Props) => {
+  const { Icon, text } = props;
+
   const navigate = useNavigate();
 
   const onClickHome = useCallback(
@@ -47,11 +52,13 @@ const CartListEmpty = (props: Props) => {
 
   return (
     <Container>
-      <ShoppingCartOutlined style={ShoppingCartOutlinedStyle} />
-      <TextContainer>장바구니에 담긴 상품이 없습니다 😥</TextContainer>
-      <ButtonFilled onClick={onClickHome}>흠으로</ButtonFilled>
+      <>
+        <Icon style={SVGIconStyle} />
+        <TextContainer>{text} 😥</TextContainer>
+        <ButtonFilled onClick={onClickHome}>흠으로</ButtonFilled>
+      </>
     </Container>
   );
 };
 
-export default CartListEmpty;
+export default ListEmpty;
