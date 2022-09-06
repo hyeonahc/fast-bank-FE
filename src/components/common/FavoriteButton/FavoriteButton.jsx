@@ -1,5 +1,5 @@
-import { useAddFavMutation, useRemoveFavMutation } from '@/api/favoriteApi'
 import {
+  addFav,
   addFavorite,
   deleteFavorite,
   useFavorite,
@@ -22,7 +22,6 @@ function FavoriteButton({ item }) {
           className="favorite-btn"
           onClick={(e) => {
             dispatch(deleteFavorite(item))
-            // dispatch(useRemoveFavMutation)
             e.stopPropagation()
           }}
         />
@@ -30,8 +29,8 @@ function FavoriteButton({ item }) {
         <FavoriteBorderOutlined
           className="favorite-btn"
           onClick={(e) => {
-            dispatch(addFavorite(item))
-            // dispatch(useAddFavMutation)
+            // dispatch(addFavorite(item))
+            dispatch(addFav(item.id))
             e.stopPropagation()
           }}
         />
@@ -42,7 +41,7 @@ function FavoriteButton({ item }) {
 
 const Heart = styled.button`
   .favorite-btn {
-    color: aliceblue;
+    color: #f8496e;
     font-size: 32px;
     cursor: pointer;
   }
@@ -54,23 +53,23 @@ const Heart = styled.button`
 
   @keyframes heartBeat {
     0% {
-      color: aliceblue;
+      color: #f8496e;
       transform: none;
     }
     25% {
-      color: #ff0000;
+      color: #ff6347;
       transform: scale(1.5);
     }
     50% {
-      color: #ff6600;
+      color: #f2908c;
       transform: scale(2.5);
     }
     75% {
-      color: #ff0000;
+      color: #ff6347;
       transform: scale(1.5);
     }
     100% {
-      color: aliceblue;
+      color: #f8496e;
       transform: none;
     }
   }
