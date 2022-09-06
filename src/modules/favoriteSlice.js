@@ -13,19 +13,36 @@ export const getFav = createAsyncThunk('wishList', async () => {
 })
 
 export const addFav = createAsyncThunk('wishList', async (payload) => {
-  const { id, name, type } = payload
+  const { id } = payload
   let token = localStorage.getItem('accessToken')
-  const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/wishList`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/wishList`,
+    {
+      wishList: [id],
     },
-    data: {
-      id,
-      name,
-      type,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     },
-  })
-  console.log(res.data)
+  )
+  return res.data
+})
+
+export const deleteFav = createAsyncThunk('wishList', async (payload) => {
+  const { id } = payload
+  let token = localStorage.getItem('accessToken')
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/wishList/delete`,
+    {
+      wishList: [id],
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  )
   return res.data
 })
 
@@ -57,13 +74,17 @@ const favoriteSlice = createSlice({
     [addFav.fulfilled](state, { payload }) {
       state.wishList = payload
     },
+    [deleteFav.fulfilled](state, { payload }) {
+      state.wishList = payload
+    },
   },
 })
 
 export function useFavorite() {
   const dispatch = useDispatch()
   const favorite = useSelector((state) => state.favorite.favoriteList)
-  return { dispatch, favorite }
+  const wishList = useSelector((state) => state.favorite.wishList)
+  return { dispatch, favorite, wishList }
 }
 
 export const { addFavorite, deleteFavorite } = favoriteSlice.actions

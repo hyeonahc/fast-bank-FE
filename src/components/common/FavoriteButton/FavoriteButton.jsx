@@ -1,27 +1,22 @@
-import {
-  addFav,
-  addFavorite,
-  deleteFavorite,
-  useFavorite,
-} from '@/modules/favoriteSlice'
+import { addFav, deleteFav, useFavorite } from '@/modules/favoriteSlice'
 import { Favorite, FavoriteBorderOutlined } from '@material-ui/icons'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 
 function FavoriteButton({ item }) {
-  const { dispatch, favorite } = useFavorite()
+  const { dispatch, wishList } = useFavorite()
 
-  const isFavorite = useMemo(() =>
-    favorite?.some((element) => element.id === item.id),
+  const isWishList = useMemo(() =>
+    wishList.wishList?.some((element) => element.id === item.id),
   )
 
   return (
     <Heart>
-      {isFavorite ? (
+      {isWishList ? (
         <Favorite
           className="favorite-btn"
           onClick={(e) => {
-            dispatch(deleteFavorite(item))
+            dispatch(deleteFav(item))
             e.stopPropagation()
           }}
         />
@@ -29,8 +24,7 @@ function FavoriteButton({ item }) {
         <FavoriteBorderOutlined
           className="favorite-btn"
           onClick={(e) => {
-            // dispatch(addFavorite(item))
-            dispatch(addFav(item.id))
+            dispatch(addFav(item))
             e.stopPropagation()
           }}
         />
