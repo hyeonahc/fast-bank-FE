@@ -102,113 +102,115 @@ const SignUpPage = () => {
   }
 
   return (
-    <S.Container>
-      <h1>회원가입</h1>
-      <form onSubmit={handleSignUp}>
-        <div className="input-wrapper">
-          <p className="label">Name</p>
-          <InputText
-            type="text"
-            name="name"
-            placeholder="이름을 입력해주세요"
-            value={formValues.name}
-            onChange={handleInputChange}
-            onBlur={removeInputSpaces}
+    <>
+      <S.Container>
+        <h1>회원가입</h1>
+        <form onSubmit={handleSignUp}>
+          <div className="input-wrapper">
+            <p className="label">Name</p>
+            <InputText
+              type="text"
+              name="name"
+              placeholder="이름을 입력해주세요"
+              value={formValues.name}
+              onChange={handleInputChange}
+              onBlur={removeInputSpaces}
+            />
+            <p
+              style={{ visibility: formErrors.name ? 'visible' : 'hidden' }}
+              className="error-message"
+            >
+              {formErrors.name}
+            </p>
+          </div>
+          <div className="input-wrapper">
+            <p className="label">Email</p>
+            <InputText
+              type="text"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+              value={formValues.email}
+              onChange={handleInputChange}
+              onBlur={removeInputSpaces}
+            />
+            <p
+              style={{ visibility: formErrors.email ? 'visible' : 'hidden' }}
+              className="error-message"
+            >
+              {formErrors.email}
+            </p>
+          </div>
+          <div className="input-wrapper">
+            <p className="label">Password</p>
+            <InputText
+              type="password"
+              name="password"
+              placeholder="비밀번호 4자리 이상을 입력해주세요"
+              value={formValues.password}
+              onChange={handleInputChange}
+              onBlur={removeInputSpaces}
+            />
+            <p
+              style={{ visibility: formErrors.password ? 'visible' : 'hidden' }}
+              className="error-message"
+            >
+              {formErrors.password}
+            </p>
+          </div>
+          <div className="input-wrapper">
+            <p className="label">Age</p>
+            <SelectWithOptions
+              name="age"
+              id="age"
+              value={formValues.age}
+              onChange={handleInputChange}
+              options={ageOptions}
+              defaultOption="나이를 선택해주세요"
+            />
+            <p
+              style={{ visibility: formErrors.age ? 'visible' : 'hidden' }}
+              className="error-message"
+            >
+              {formErrors.age}
+            </p>
+          </div>
+          <div className="input-wrapper">
+            <p className="label">Job</p>
+            <SelectWithOptions
+              name="job"
+              id="job"
+              value={formValues.job}
+              onChange={handleInputChange}
+              options={jobOptions}
+              defaultOption="직업을 선택해주세요"
+            />
+            <p
+              style={{ visibility: formErrors.job ? 'visible' : 'hidden' }}
+              className="error-message"
+            >
+              {formErrors.job}
+            </p>
+          </div>
+          <ButtonStyled
+            type="submit"
+            buttonText="회원가입"
+            style={{ width: '100%' }}
           />
           <p
-            style={{ visibility: formErrors.name ? 'visible' : 'hidden' }}
+            style={{ visibility: displaySignUpError ? 'visible' : 'hidden' }}
             className="error-message"
           >
-            {formErrors.name}
+            회원가입에 실패했습니다. 다시 시도해주세요.
           </p>
-        </div>
-        <div className="input-wrapper">
-          <p className="label">Email</p>
-          <InputText
-            type="text"
-            name="email"
-            placeholder="이메일을 입력해주세요"
-            value={formValues.email}
-            onChange={handleInputChange}
-            onBlur={removeInputSpaces}
-          />
-          <p
-            style={{ visibility: formErrors.email ? 'visible' : 'hidden' }}
-            className="error-message"
-          >
-            {formErrors.email}
-          </p>
-        </div>
-        <div className="input-wrapper">
-          <p className="label">Password</p>
-          <InputText
-            type="password"
-            name="password"
-            placeholder="비밀번호 4자리 이상을 입력해주세요"
-            value={formValues.password}
-            onChange={handleInputChange}
-            onBlur={removeInputSpaces}
-          />
-          <p
-            style={{ visibility: formErrors.password ? 'visible' : 'hidden' }}
-            className="error-message"
-          >
-            {formErrors.password}
-          </p>
-        </div>
-        <div className="input-wrapper">
-          <p className="label">Age</p>
-          <SelectWithOptions
-            name="age"
-            id="age"
-            value={formValues.age}
-            onChange={handleInputChange}
-            options={ageOptions}
-            defaultOption="나이를 선택해주세요"
-          />
-          <p
-            style={{ visibility: formErrors.age ? 'visible' : 'hidden' }}
-            className="error-message"
-          >
-            {formErrors.age}
-          </p>
-        </div>
-        <div className="input-wrapper">
-          <p className="label">Job</p>
-          <SelectWithOptions
-            name="job"
-            id="job"
-            value={formValues.job}
-            onChange={handleInputChange}
-            options={jobOptions}
-            defaultOption="직업을 선택해주세요"
-          />
-          <p
-            style={{ visibility: formErrors.job ? 'visible' : 'hidden' }}
-            className="error-message"
-          >
-            {formErrors.job}
-          </p>
-        </div>
-        <ButtonStyled
-          type="submit"
-          buttonText="회원가입"
-          style={{ width: '100%' }}
-        />
-        <p
-          style={{ visibility: displaySignUpError ? 'visible' : 'hidden' }}
-          className="error-message"
-        >
-          회원가입에 실패했습니다. 다시 시도해주세요.
-        </p>
-      </form>
+        </form>
+      </S.Container>
       <SuccessModal
         title="회원가입을 성공했습니다"
         buttonText="로그인하기"
-        displaySuccessModal={displaySuccessModal}
+        displaySuccessModal={true}
         setDisplaySuccessModal={setDisplaySuccessModal}
       />
-    </S.Container>
+    </>
   )
 }
 

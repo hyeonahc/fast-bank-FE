@@ -16,10 +16,14 @@ const SuccessModal = ({
   }
 
   return (
-    <S.SuccessModal style={{ display: displaySuccessModal ? 'flex' : 'none' }}>
-      <h2>{title} 🙂</h2>
-      <ButtonStyled onClick={onClickHandler} buttonText={buttonText} />
-    </S.SuccessModal>
+    <S.SuccessModalBackground>
+      <S.SuccessModal
+        style={{ display: displaySuccessModal ? 'flex' : 'none' }}
+      >
+        <h2>{title} 🙂</h2>
+        <ButtonStyled onClick={onClickHandler} buttonText={buttonText} />
+      </S.SuccessModal>
+    </S.SuccessModalBackground>
   )
 }
 
