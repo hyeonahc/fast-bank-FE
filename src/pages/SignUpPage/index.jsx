@@ -165,6 +165,7 @@ const SignUpPage = () => {
               value={formValues.age}
               onChange={handleInputChange}
               options={ageOptions}
+              selectedDefault={formValues.age === ''}
               defaultOption="나이를 선택해주세요"
             />
             <p
@@ -182,6 +183,7 @@ const SignUpPage = () => {
               value={formValues.job}
               onChange={handleInputChange}
               options={jobOptions}
+              selectedDefault={formValues.job === ''}
               defaultOption="직업을 선택해주세요"
             />
             <p
@@ -207,7 +209,7 @@ const SignUpPage = () => {
       <SuccessModal
         title="회원가입을 성공했습니다"
         buttonText="로그인하기"
-        displaySuccessModal={true}
+        displaySuccessModal={displaySuccessModal}
         setDisplaySuccessModal={setDisplaySuccessModal}
       />
     </>

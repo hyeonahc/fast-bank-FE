@@ -1,15 +1,19 @@
-import styled from 'styled-components'
-import arrowDown from '@/assets/images/arrow-down.png'
+import styled from 'styled-components';
+import arrowDown from '@/assets/images/arrow-down.png';
 
-export const Select = styled.select`
+interface SelectProps {
+  selectedDefault: boolean;
+}
+
+export const Select = styled.select<SelectProps>`
   width: 100%;
   padding: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   border-radius: ${({ theme }) => theme.sharedValue.borderRadius};
   font-size: ${({ theme }) => theme.fontSize.regular};
-  color: ${({ theme }) => theme.colors.text};
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  color: ${({ theme, selectedDefault }) =>
+    selectedDefault ? theme.colors.inputPlaceholder : theme.colors.text};
+  appearance: none;
   background: transparent url(${arrowDown}) no-repeat 97% 50%;
   background-size: 1.5rem;
   &:hover {
@@ -18,4 +22,4 @@ export const Select = styled.select`
   div {
     color: #757575;
   }
-`
+`;
