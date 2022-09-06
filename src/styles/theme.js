@@ -62,6 +62,7 @@ const common = {
   errorMessage: css`
     color: #ff6347;
     font-size: 1.2rem;
+    height: 1.5rem;
   `,
   label: css`
     font-weight: 500;

@@ -8,7 +8,7 @@ export const Container = styled.div`
     margin-bottom: 2.5rem;
   }
   .input-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     .label {
       ${({ theme }) => theme.common.label};
     }

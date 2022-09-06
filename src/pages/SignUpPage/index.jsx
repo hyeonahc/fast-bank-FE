@@ -116,7 +116,7 @@ const SignUpPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.name ? 'block' : 'none' }}
+            style={{ visibility: formErrors.name ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.name}
@@ -133,7 +133,7 @@ const SignUpPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.email ? 'block' : 'none' }}
+            style={{ visibility: formErrors.email ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.email}
@@ -150,7 +150,7 @@ const SignUpPage = () => {
             onBlur={removeInputSpaces}
           />
           <p
-            style={{ display: formErrors.password ? 'block' : 'none' }}
+            style={{ visibility: formErrors.password ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.password}
@@ -167,7 +167,7 @@ const SignUpPage = () => {
             defaultOption="나이를 선택해주세요"
           />
           <p
-            style={{ display: formErrors.age ? 'block' : 'none' }}
+            style={{ visibility: formErrors.age ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.age}
@@ -184,7 +184,7 @@ const SignUpPage = () => {
             defaultOption="직업을 선택해주세요"
           />
           <p
-            style={{ display: formErrors.job ? 'block' : 'none' }}
+            style={{ visibility: formErrors.job ? 'visible' : 'hidden' }}
             className="error-message"
           >
             {formErrors.job}
@@ -196,7 +196,7 @@ const SignUpPage = () => {
           style={{ width: '100%' }}
         />
         <p
-          style={{ display: displaySignUpError ? 'block' : 'none' }}
+          style={{ visibility: displaySignUpError ? 'visible' : 'hidden' }}
           className="error-message"
         >
           회원가입에 실패했습니다. 다시 시도해주세요.
