@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { saveName } from '@/modules/user'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import ButtonText from '@/components/common/Button/ButtonText'
+import ButtonStyled from '@/components/common/Button/ButtonText'
 import InputText from '@/components/common/Input/InputText'
 import * as S from './style'
 
@@ -117,7 +117,11 @@ const SignInPage = () => {
           </p>
         </div>
         <div className="button-wrapper">
-          <ButtonText type="submit" buttonText="로그인" />
+          <ButtonStyled
+            type="submit"
+            buttonText="로그인"
+            style={{ width: '100%' }}
+          />
           <p
             className="error-message"
             style={{ display: displaySignInError ? 'block' : 'none' }}
