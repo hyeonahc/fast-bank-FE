@@ -12,6 +12,6 @@ export const SuccessModal = styled.div`
   h2 {
     font-size: ${({ theme }) => theme.fontSize.big};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 `
