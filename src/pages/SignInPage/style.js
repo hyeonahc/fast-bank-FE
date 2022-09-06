@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  ${({ theme }) => theme.common.transformCenterY};
   .logo-wrapper {
     text-align: center;
     margin-bottom: 2.5rem;
