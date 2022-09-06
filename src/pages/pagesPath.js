@@ -9,6 +9,7 @@ const pagesPath = {
 }
 
 export const pagesFullPath = {
+  home: '/',
   signin: `/${pagesPath.signin}`,
   signup: `/${pagesPath.signup}`,
   products: `/${pagesPath.products}`,

@@ -5,10 +5,11 @@ type Props = Omit<JSX.IntrinsicElements['button'], 'ref'>;
 
 export const ButtonStyled = styled.button`
   padding: 1rem 2.5rem;
-  background-color: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.sharedValue.borderRadius};
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 1.6rem;
+
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.fontSize.regular};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   &:hover {
     cursor: pointer;

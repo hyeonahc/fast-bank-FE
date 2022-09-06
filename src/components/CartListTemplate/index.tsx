@@ -1,15 +1,18 @@
-import { ChangeEvent, MouseEvent, useCallback } from 'react';
+import { ChangeEvent, MouseEvent, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '@/components/common/Button';
 import ButtonFilled from '@/components/common/Button/ButtonFilled';
 import LoadingCardSize from '@/components/common/Loading/LoadingCardSize';
 import EmptyListCardSize from '@/components/common/EmptyListCardSize';
+import CheckoutModal from '@/components/CheckoutModal';
 import * as S from './style';
 
 import { useCheckboxWithCheckAll } from './hook';
 import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
 
 import { useGetCartProductsQuery, useRemoveCartMutation } from '@/api/cartApi';
+import { pagesFullPath } from '@/pages/pagesPath';
 
 interface Props {}
 
@@ -40,6 +43,7 @@ const CartListTemplate = (props: Props) => {
   const onClickCheckout = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       removeCart({ ids: checkedList });
+      setDisplayCheckoutModal(true);
     },
     [removeCart, checkedList],
   );
@@ -49,6 +53,12 @@ const CartListTemplate = (props: Props) => {
     },
     [removeCart, checkedList],
   );
+
+  const navigator = useNavigate();
+  const [displayCheckoutModal, setDisplayCheckoutModal] = useState(false);
+  const onClickCheckoutConfirm = useCallback(() => {
+    navigator(pagesFullPath.home);
+  }, []);
 
   const isFetching = isFetchingGet || isLoadingRemove;
   const disabledCommand = !isHasCheckList || isFetching;
@@ -85,6 +95,14 @@ const CartListTemplate = (props: Props) => {
               삭제하기
             </Button>
           </S.BottomButtonContainer>
+          <CheckoutModal
+            isLoading={isLoadingRemove}
+            title="선택하신 상품이 신청되었습니다"
+            buttonText="홈으로"
+            displayModal={displayCheckoutModal}
+            setDisplayModal={setDisplayCheckoutModal}
+            onClickConfirm={onClickCheckoutConfirm}
+          />
         </>
       )}
     </>
