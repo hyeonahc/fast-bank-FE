@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components';
 import PageHeading from '@/components/PageHeading';
 import PageDescription from '@/components/PageDescription';
 import LoadingCardSize from '@/components/common/Loading/LoadingCardSize';
-import EmptyListCardSize from '@/components/common/EmptyListCardSize';
+import ListEmpty from '@/components/ListEmpty';
 import ProductCardList from '@/components/ProductCardList';
 
 import { useGetPersonalProductsQuery } from '@/api/productCustom';
 import useGoSignUpHasAuthError from '@/hooks/useGoSignUpHasAuthError';
+import { AccountBalanceWalletOutlined } from '@material-ui/icons';
 
 interface Props {}
 
@@ -41,7 +42,10 @@ const PersonalProductPage = (props: Props) => {
       {isLoading ? (
         <LoadingCardSize />
       ) : !data || data.length === 0 ? (
-        <EmptyListCardSize>추천된 맞춤형 상품이 없습니다</EmptyListCardSize>
+        <ListEmpty
+          Icon={AccountBalanceWalletOutlined}
+          text="맞춤형 상품이 없습니다"
+        />
       ) : (
         <ProductCardListStyled dataList={data} />
       )}
