@@ -1,8 +1,8 @@
 <br/>
 
-<div align="center"><a href="https://fresh-tomatoes-movie-search.netlify.app/" target="_blank"><img src="./src/assets/images/logo.png" width="300"></a></div>
+<div align="center"><img src="./src/assets/images/logo.png" width="300"></div>
 
-# 🏦 fastbank (한국어)
+# 🏦 fastbank
 
 ## 📑 목차
 
